@@ -1,0 +1,56 @@
+@import 'normalize';
+@import 'bootstrap.min';
+
+$highlight: #d2674e;
+$dark: #32444d;
+
+a, a:hover {
+	text-decoration: none;
+}
+
+.cf:before, .cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+body {
+	padding-top: 54px;
+	//font-family: 'Muli', sans-serif;
+	font-family: 'Roboto', sans-serif;
+}
+
+.button {
+	text-decoration: none;
+	font-size: 1rem;
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	outline: none;
+	border: none;
+	transition: background .2s ease-in-out;
+	display: inline-block;
+	min-width: 8.5rem;
+	color: white;
+}
+
+.button-highlight {
+	background: $highlight;
+	&:hover {
+		color: white;
+		background: darken($highlight, 7.5%);
+	}
+}
+
+.button-white {
+	background: white;
+	color: $dark;
+	&:hover {
+		color: $dark;
+		background: darken(white, 7.5%);
+	}
+}
+
+@import 'home';
