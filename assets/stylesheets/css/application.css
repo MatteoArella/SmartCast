@@ -7563,7 +7563,7 @@ a, a:hover {
   margin: 0 auto; }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   padding-top: 54px; }
   body header {
     font-size: 1rem;
@@ -7612,7 +7612,7 @@ body {
     text-align: center;
     font-size: 4rem;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
     color: white;
     margin: 0;
     padding: 4rem 0; }
@@ -7655,7 +7655,7 @@ body {
 
 #background {
   margin-top: -54px;
-  background-image: url(../../images/welcome_background.jpg);
+  background-image: url(../../images/homepage_background.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
