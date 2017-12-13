@@ -7550,9 +7550,31 @@ a, a:hover {
 .cf:after {
   clear: both; }
 
+.wrapper-wide {
+  width: 90%;
+  margin: 0 auto; }
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto; }
+
+.wrapper-skinny {
+  width: 60%;
+  margin: 0 auto; }
+
 body {
-  padding-top: 54px;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  padding-top: 54px; }
+  body header {
+    font-size: 1rem;
+    font-weight: 500; }
+    body header nav div a {
+      color: white; }
+      body header nav div a:hover {
+        color: #d2674e; }
+    body header #logo {
+      font-weight: 700;
+      font-size: 1.5rem; }
 
 .button {
   text-decoration: none;
@@ -7581,34 +7603,110 @@ body {
     color: #32444d;
     background: #ececec; }
 
+#banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-bottom: 4rem; }
+  #banner h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: white;
+    margin: 0;
+    padding: 4rem 0; }
+
+.pagination:before, .pagination:after {
+  content: " ";
+  display: table; }
+
+.pagination:after {
+  clear: both; }
+
+.pagination {
+  text-align: center;
+  margin: 1rem 0 5rem 0; }
+  .pagination a, .pagination .previous_page, .pagination .current, .pagination .next_page {
+    padding: 0.75rem 1rem;
+    margin: 0 .25rem;
+    border-radius: .15rem;
+    line-height: 1.25;
+    text-decoration: none;
+    background: #EDEFF5;
+    font-weight: 700;
+    font-size: .7rem;
+    font-style: normal;
+    color: #32444d; }
+    .pagination a:hover, .pagination .previous_page:hover, .pagination .current:hover, .pagination .next_page:hover {
+      background: #d2674e;
+      color: white; }
+  .pagination .current {
+    background: #d2674e;
+    color: white; }
+  .pagination .disabled {
+    color: #C0C0C0; }
+    .pagination .disabled:hover {
+      color: #C0C0C0;
+      background: #EDEFF5; }
+
 body {
+  color: white; }
+
+#background {
+  margin-top: -54px;
   background-image: url(../../images/welcome_background.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
-  color: white; }
-  body header {
-    padding: 3rem 0;
-    font-size: 1rem;
-    font-weight: 500; }
-    body header nav div a {
-      color: white; }
-      body header nav div a:hover {
-        color: #d2674e; }
-    body header #logo {
+  width: 100vw;
+  text-align: center;
+  display: table; }
+  #background #home-content {
+    display: table-cell;
+    vertical-align: middle; }
+    #background #home-content h1 {
+      font-size: 5rem;
       font-weight: 700;
-      font-size: 1.5rem; }
-
-h1 {
-  margin-top: 2rem;
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: 3px; }
-
-h3 {
-  margin-top: 2rem; }
+      letter-spacing: 3px; }
 
 .button {
   margin: 4rem 2.5rem 0 2.5rem; }
+
+.smartcast-banner {
+  background-image: url(../../images/explore_banner.jpg); }
+
+#podcasts {
+  padding-bottom: 3rem; }
+  #podcasts ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0; }
+    #podcasts ul li {
+      width: 23%;
+      float: left;
+      margin: 0 1% 10px 10px;
+      border-radius: .35rem;
+      -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25); }
+      #podcasts ul li img {
+        width: 100%;
+        max-width: 100%;
+        border-radius: .35rem .35rem 0 0; }
+      #podcasts ul li .podcast-overview {
+        padding: 1rem 7.5%; }
+        #podcasts ul li .podcast-overview h2 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #32444d; }
+        #podcasts ul li .podcast-overview .episode-count {
+          color: #b1c4cd;
+          font-size: .9rem;
+          margin: .5rem 0 .25rem 0; }
+      #podcasts ul li:hover img {
+        opacity: .8; }
+      #podcasts ul li:hover .podcast-overview h2 {
+        color: #d2674e; }
 
 

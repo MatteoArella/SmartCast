@@ -1,36 +1,27 @@
 body {
+  color: white;
+}
+
+#background {
+  margin-top: -54px;
   background-image: url(../../images/welcome_background.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
-  color: white;
-  header {
-    padding: 3rem 0;
-    font-size: 1rem;
-    nav div a {
-      color: white;
-      &:hover {
-        color: $highlight;
-      }
-    }
-    #logo {
+  width: 100vw;
+  text-align:center; 
+  display:table;
+  #home-content {
+    display:table-cell;
+    vertical-align: middle;
+    h1 {
+      //padding-top: 5rem;
+      font-size: 5rem;
       font-weight: 700;
-      font-size: 1.5rem;
+      letter-spacing: 3px;
     }
-    font-weight: 500;
   }
-}
-
-h1 {
-  margin-top: 2rem;
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: 3px;
   
-}
-
-h3 {
-  margin-top: 2rem;
 }
 
 .button {
