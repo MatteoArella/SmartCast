@@ -1,11 +1,24 @@
 @import 'normalize';
-@import 'bootstrap.min';
 
 $highlight: #d2674e;
 $dark: #32444d;
 
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
 a, a:hover {
 	text-decoration: none;
+}
+
+body {
+	//font-family: 'Muli', sans-serif;
+	//font-family: 'Roboto', sans-serif;
+	font-family: 'Comfortaa', sans-serif;
+	color: white;
 }
 
 .cf:before, .cf:after {
@@ -32,25 +45,46 @@ a, a:hover {
 	margin: 0 auto;
 }
 
-body {
-	//font-family: 'Muli', sans-serif;
-	//font-family: 'Roboto', sans-serif;
-	font-family: 'Comfortaa', sans-serif;
-	padding-top: 54px;
-	header {
-	    font-size: 1rem;
-	    nav div a {
-	      color: white;
-	      &:hover {
-	        color: $highlight;
-	      }
-    }
-    #logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-    font-weight: 500;
-  }
+header {
+	position: fixed;
+	margin-top: 0;
+	width: 100vw;
+	color: white;
+	padding: 1rem 0;
+	display: table;
+	#logo {
+		float: left;
+		font-weight: 700;
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: white;
+		&:hover {
+			color: $highlight;
+		}
+	}
+	div nav {
+		display:table-cell;
+    	vertical-align: middle;
+		float: right;
+		ul {
+			list-style: none;
+			margin: 0;
+			li {
+				display: inline;
+				margin-left: 2.5rem;
+				a {
+					color: white;
+					&:hover {
+						color: $highlight;
+					}
+				}
+			}
+		}
+	}
+}
+
+.bg-dark {
+	background-color: $dark;
 }
 
 .button {
@@ -87,7 +121,7 @@ body {
 	background-size: cover;
   	background-repeat: no-repeat;
   	background-position: center center;
-  	margin-bottom: 4rem;
+  	margin-bottom: 3.5rem;
   	h1 {
   		text-align: center;
   		font-size: 4rem;
@@ -95,7 +129,7 @@ body {
   		letter-spacing: -1px;
   		color: white;
   		margin: 0;
-  		padding: 4rem 0;
+  		padding: 4.5rem 0;
   	}
 }
 
@@ -137,6 +171,19 @@ body {
 			color: #C0C0C0;
 			background: #EDEFF5;
 		}
+	}
+}
+
+.dropdown {
+	display: inline-block;
+	&:hover {
+		.dropdown li {
+			display: block;
+		}
+	}
+	li {
+		display: none;
+		position: absolute;
 	}
 }
 

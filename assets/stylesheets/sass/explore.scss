@@ -2,16 +2,77 @@
 	background-image: url(../../images/explore_banner.jpg);
 }
 
+.spacer {
+	height: 3.5rem;
+}
+
+#search-container {
+	height: 3rem;
+	width: 100%;
+	margin-bottom: 3rem;
+	form {
+
+		float: right;
+		margin-right: 10rem;
+		input[type="text"] {
+			color: $dark;
+			border-radius: 0.5rem 0 0 0.5rem;
+			padding: 0.7rem;
+			margin-right: 0;
+			background-color: white;
+			border: none;
+			box-shadow: inset 0 0 0 1px $highlight;
+			outline: none;
+			transition: box-shadow 0.4s linear;
+			@include placeholder {
+				color: white;
+			}
+			&:active, &:focus {
+				outline: none;
+				box-shadow: inset 0 0 0 3.5px $highlight;
+			}
+		}
+		input[type="submit"] {
+			margin-left: -10px;
+			border: none;
+			//box-shadow: inset 0 0 0 2px $highlight;
+			padding: 0.7rem;
+			color: white;
+			//background-color: darken($highlight, 20%);
+			border-radius: 0 0.5rem 0.5rem 0;
+			&:hover {
+				//color: white;
+			}
+		}
+	}
+}
+
+.underline {
+  background-color: dodgerblue;
+  display: inline-block;
+  height: 2px;
+  left: 50px;
+  margin-top: -4px;
+  position: absolute;
+  top: 185px;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  width: 202px;
+}
+
 #podcasts {
 	padding-bottom: 3rem;
 	ul {
 		list-style: none;
 		padding-left: 0;
+		
 		margin: 0;
 		li {
 			width: 23%;
 			float: left;
-			margin: 0 1% 10px 10px;
+			margin: 0 1% 2rem 10px;
 			border-radius: .35rem;
 			-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
 			box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
@@ -22,6 +83,7 @@
 			}
 			.podcast-overview {
 				padding: 1rem 7.5%;
+
 				h2 {
 					margin: 0;
 					font-size: 1rem;
