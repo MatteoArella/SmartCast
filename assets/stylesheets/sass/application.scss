@@ -187,5 +187,49 @@ header {
 	}
 }
 
+.border-animation {
+	color: $dark;
+	border-radius: 0.5rem;
+	padding: 0.7rem;
+	margin-right: 0;
+	background-color: white;
+	border: none;
+	box-shadow: inset 0 0 0 1px $highlight;
+	outline: none;
+	transition: box-shadow 0.4s linear;
+	@include placeholder {
+		color: white;
+	}
+	/*&:active,*/ &:focus, &:hover {
+		outline: none;
+		box-shadow: inset 0 0 0 3px $highlight;
+	}
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track{
+    border-radius:0.5rem; 
+    background: $highlight; 
+    -webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.1);
+}
+ 
+::-webkit-scrollbar-thumb{
+    border-radius:10px; 
+    background: lighten($highlight, 30%);
+    margin-top: 10px;
+}
+
+::-webkit-scrollbar:horizontal{
+    height: 10px;
+}
+ 
+::-webkit-scrollbar-track:horizontal{
+    box-shadow:none;
+}
+
 @import 'home';
 @import 'explore';
+@import 'podcast_new';

@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+/*
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}*/
+
+#input-container {
+	color: $dark;
+	#image-upload {
+		height: 3rem;
+		width: 25%;
+		margin-bottom: 3rem;
+		float: left;
+	}
+	#title input {
+		height: 3rem;
+		width: 75%;
+		float: right;
+		margin-bottom: 3rem;
+	}
+	#description textarea {
+		float: clear;
+		height: 8rem;
+		width: 100%;
+		padding: 1rem;
+		max-width: 100%;
+		overflow: vertical-scroll;
+		resize: none;
+	}
+}

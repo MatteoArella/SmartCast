@@ -534,6 +534,55 @@ header {
     display: none;
     position: absolute; }
 
+.border-animation {
+  color: #32444d;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  margin-right: 0;
+  background-color: white;
+  border: none;
+  -webkit-box-shadow: inset 0 0 0 1px #d2674e;
+  box-shadow: inset 0 0 0 1px #d2674e;
+  outline: none;
+  -webkit-transition: -webkit-box-shadow 0.4s linear;
+  transition: -webkit-box-shadow 0.4s linear;
+  -o-transition: box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear;
+  /*&:active,*/ }
+  .border-animation ::-webkit-input-placeholder {
+    color: white; }
+  .border-animation :-moz-placeholder {
+    color: white; }
+  .border-animation ::-moz-placeholder {
+    color: white; }
+  .border-animation :-ms-input-placeholder {
+    color: white; }
+  .border-animation:focus, .border-animation:hover {
+    outline: none;
+    -webkit-box-shadow: inset 0 0 0 3px #d2674e;
+    box-shadow: inset 0 0 0 3px #d2674e; }
+
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background: #d2674e;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1); }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #f1d0c8;
+  margin-top: 10px; }
+
+::-webkit-scrollbar:horizontal {
+  height: 10px; }
+
+::-webkit-scrollbar-track:horizontal {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
 #background {
   background-image: url(../../images/homepage_background.jpg);
   background-size: cover;
@@ -556,6 +605,9 @@ header {
 .smartcast-banner {
   background-image: url(../../images/explore_banner.jpg); }
 
+.button {
+  margin: 0; }
+
 .spacer {
   height: 3.5rem; }
 
@@ -567,54 +619,30 @@ header {
     float: right;
     margin-right: 10rem; }
     #search-container form input[type="text"] {
-      color: #32444d;
       border-radius: 0.5rem 0 0 0.5rem;
-      padding: 0.7rem;
-      margin-right: 0;
-      background-color: white;
-      border: none;
-      -webkit-box-shadow: inset 0 0 0 1px #d2674e;
-      box-shadow: inset 0 0 0 1px #d2674e;
-      outline: none;
-      -webkit-transition: -webkit-box-shadow 0.4s linear;
-      transition: -webkit-box-shadow 0.4s linear;
-      -o-transition: box-shadow 0.4s linear;
-      transition: box-shadow 0.4s linear;
-      transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear; }
-      #search-container form input[type="text"] ::-webkit-input-placeholder {
-        color: white; }
-      #search-container form input[type="text"] :-moz-placeholder {
-        color: white; }
-      #search-container form input[type="text"] ::-moz-placeholder {
-        color: white; }
-      #search-container form input[type="text"] :-ms-input-placeholder {
-        color: white; }
-      #search-container form input[type="text"]:active, #search-container form input[type="text"]:focus {
-        outline: none;
-        -webkit-box-shadow: inset 0 0 0 3.5px #d2674e;
-        box-shadow: inset 0 0 0 3.5px #d2674e; }
+                                  /*
+color: $dark;
+border-radius: 0.5rem 0 0 0.5rem;
+padding: 0.7rem;
+margin-right: 0;
+background-color: white;
+border: none;
+box-shadow: inset 0 0 0 1px $highlight;
+outline: none;
+transition: box-shadow 0.4s linear;
+@include placeholder {
+	color: white;
+}
+&:focus, &:hover {
+	outline: none;
+	box-shadow: inset 0 0 0 3px $highlight;
+} */ }
     #search-container form input[type="submit"] {
       margin-left: -10px;
       border: none;
       padding: 0.7rem;
       color: white;
       border-radius: 0 0.5rem 0.5rem 0; }
-
-.underline {
-  background-color: dodgerblue;
-  display: inline-block;
-  height: 2px;
-  left: 50px;
-  margin-top: -4px;
-  position: absolute;
-  top: 185px;
-  -webkit-transform: scale(0, 1);
-  -ms-transform: scale(0, 1);
-  transform: scale(0, 1);
-  -webkit-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  width: 202px; }
 
 #podcasts {
   padding-bottom: 3rem; }
@@ -625,7 +653,7 @@ header {
     #podcasts ul li {
       width: 23%;
       float: left;
-      margin: 0 1% 2rem 10px;
+      margin: 0 1% 2rem 1%;
       border-radius: .35rem;
       -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25); }
@@ -641,12 +669,55 @@ header {
           font-weight: 700;
           color: #32444d; }
         #podcasts ul li .podcast-overview .episode-count {
-          color: #b1c4cd;
+          color: #92acb9;
           font-size: .9rem;
           margin: .5rem 0 .25rem 0; }
       #podcasts ul li:hover img {
         opacity: .8; }
       #podcasts ul li:hover .podcast-overview h2 {
         color: #d2674e; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+/*
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}*/
+#input-container {
+  color: #32444d; }
+  #input-container #image-upload {
+    height: 3rem;
+    width: 25%;
+    margin-bottom: 3rem;
+    float: left; }
+  #input-container #title input {
+    height: 3rem;
+    width: 75%;
+    float: right;
+    margin-bottom: 3rem; }
+  #input-container #description textarea {
+    float: clear;
+    height: 8rem;
+    width: 100%;
+    padding: 1rem;
+    max-width: 100%;
+    overflow: vertical-scroll;
+    resize: none; }
 
 
