@@ -202,9 +202,10 @@ header {
 	}
 	/*&:active,*/ &:focus, &:hover {
 		outline: none;
-		box-shadow: inset 0 0 0 3px $highlight;
+		box-shadow: inset 0 0 0 2px $highlight;
 	}
 }
+
 
 ::-webkit-scrollbar{
     width: 10px;
