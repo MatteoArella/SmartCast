@@ -52,6 +52,7 @@ header {
 	color: white;
 	padding: 1rem 0;
 	display: table;
+	z-index: 1;
 	#logo {
 		float: left;
 		font-weight: 700;
@@ -98,6 +99,7 @@ header {
 	display: inline-block;
 	min-width: 8.5rem;
 	color: white;
+	cursor: pointer;
 }
 
 .button-highlight {

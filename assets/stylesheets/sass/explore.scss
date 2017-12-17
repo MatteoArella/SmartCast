@@ -19,35 +19,15 @@
 		margin-right: 10rem;
 		
 		input[type="text"] {
-			border-radius: 0.5rem 0 0 0.5rem; /*
-			color: $dark;
 			border-radius: 0.5rem 0 0 0.5rem;
-			padding: 0.7rem;
-			margin-right: 0;
-			background-color: white;
-			border: none;
-			box-shadow: inset 0 0 0 1px $highlight;
-			outline: none;
-			transition: box-shadow 0.4s linear;
-			@include placeholder {
-				color: white;
-			}
-			&:focus, &:hover {
-				outline: none;
-				box-shadow: inset 0 0 0 3px $highlight;
-			} */
+			width: 20rem;
 		}
 		input[type="submit"] {
 			margin-left: -10px;
 			border: none;
-			//box-shadow: inset 0 0 0 2px $highlight;
 			padding: 0.7rem;
 			color: white;
-			//background-color: darken($highlight, 20%);
 			border-radius: 0 0.5rem 0.5rem 0;
-			&:hover {
-				//color: white;
-			}
 		}
 	}
 }
@@ -69,6 +49,7 @@
 				width: 100%;
 				max-width: 100%;
 				border-radius: .35rem .35rem 0 0;
+				z-index: -1;
 			}
 			.podcast-overview {
 				padding: 1rem 7.5%;
@@ -87,6 +68,7 @@
 			&:hover {
 				img {
 					opacity: .8;
+					z-index: -1;
 				}
 				.podcast-overview {
 					h2 {

@@ -139,8 +139,8 @@ input[type="file"] {
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 20px;
-			width: 20px;
+			height: 16px;
+			width: 16px;
 			background-color: lighten($dark, 50%);
 			border-radius: 50%;
 		}
@@ -150,7 +150,7 @@ input[type="file"] {
 			background-color: lighten($dark, 60%);
 		}
 
-		/* When the radio button is checked, add a blue background */
+		/* When the radio button is checked, add a background */
 		.container input:checked ~ .checkmark {
 			background-color: $highlight;
 		}
@@ -169,29 +169,15 @@ input[type="file"] {
 
 		/* Style the indicator (dot/circle) */
 		.container .checkmark:after {
-			top: 4px;
-			left: 4px;
-			width: 12px;
-			height: 12px;
+			top: 3px;
+			left: 3px;
+			width: 10px;
+			height: 10px;
 			border-radius: 50%;
 			background: white;
 		}
 	}
 }
-
-/*
-input[type=radio]:checked ~ .check {
-  border: 3px solid $highlight;
-}
-
-input[type=radio]:checked ~ .check::before{
-  background: $highlight;
-}
-
-input[type=radio]:checked ~ label{
-  color: $highlight;
-}
-*/
 .btn-bar {
 	padding: 1rem;
 	float: right;

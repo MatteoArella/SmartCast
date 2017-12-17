@@ -425,7 +425,8 @@ header {
   width: 100vw;
   color: white;
   padding: 1rem 0;
-  display: table; }
+  display: table;
+  z-index: 1; }
   header #logo {
     float: left;
     font-weight: 700;
@@ -464,7 +465,8 @@ header {
   transition: background .2s ease-in-out;
   display: inline-block;
   min-width: 8.5rem;
-  color: white; }
+  color: white;
+  cursor: pointer; }
 
 .button-highlight {
   background: #d2674e; }
@@ -620,23 +622,7 @@ header {
     margin-right: 10rem; }
     #search-container form input[type="text"] {
       border-radius: 0.5rem 0 0 0.5rem;
-                                  /*
-color: $dark;
-border-radius: 0.5rem 0 0 0.5rem;
-padding: 0.7rem;
-margin-right: 0;
-background-color: white;
-border: none;
-box-shadow: inset 0 0 0 1px $highlight;
-outline: none;
-transition: box-shadow 0.4s linear;
-@include placeholder {
-	color: white;
-}
-&:focus, &:hover {
-	outline: none;
-	box-shadow: inset 0 0 0 3px $highlight;
-} */ }
+      width: 20rem; }
     #search-container form input[type="submit"] {
       margin-left: -10px;
       border: none;
@@ -660,7 +646,8 @@ transition: box-shadow 0.4s linear;
       #podcasts ul li img {
         width: 100%;
         max-width: 100%;
-        border-radius: .35rem .35rem 0 0; }
+        border-radius: .35rem .35rem 0 0;
+        z-index: -1; }
       #podcasts ul li .podcast-overview {
         padding: 1rem 7.5%; }
         #podcasts ul li .podcast-overview h2 {
@@ -673,7 +660,8 @@ transition: box-shadow 0.4s linear;
           font-size: .9rem;
           margin: .5rem 0 .25rem 0; }
       #podcasts ul li:hover img {
-        opacity: .8; }
+        opacity: .8;
+        z-index: -1; }
       #podcasts ul li:hover .podcast-overview h2 {
         color: #d2674e; }
 
@@ -789,7 +777,7 @@ input[type="file"] {
     /* Hide the browser's default radio button */
     /* Create a custom radio button */
     /* On mouse-over, add a background color */
-    /* When the radio button is checked, add a blue background */
+    /* When the radio button is checked, add a background */
     /* Create the indicator (the dot/circle - hidden when not checked) */
     /* Show the indicator (dot/circle) when checked */
     /* Style the indicator (dot/circle) */ }
@@ -812,8 +800,8 @@ input[type="file"] {
       position: absolute;
       top: 0;
       left: 0;
-      height: 20px;
-      width: 20px;
+      height: 16px;
+      width: 16px;
       background-color: #b1c4cd;
       border-radius: 50%; }
     #input-container #pod-type .container:hover input ~ .checkmark {
@@ -827,26 +815,13 @@ input[type="file"] {
     #input-container #pod-type .container input:checked ~ .checkmark:after {
       display: block; }
     #input-container #pod-type .container .checkmark:after {
-      top: 4px;
-      left: 4px;
-      width: 12px;
-      height: 12px;
+      top: 3px;
+      left: 3px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: white; }
 
-/*
-input[type=radio]:checked ~ .check {
-  border: 3px solid $highlight;
-}
-
-input[type=radio]:checked ~ .check::before{
-  background: $highlight;
-}
-
-input[type=radio]:checked ~ label{
-  color: $highlight;
-}
-*/
 .btn-bar {
   padding: 1rem;
   float: right; }
