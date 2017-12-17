@@ -826,4 +826,7 @@ input[type="file"] {
   padding: 1rem;
   float: right; }
 
+.show-podcast-banner {
+  background-image: url(../../images/explore_banner.jpg); }
+
 
