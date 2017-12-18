@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SmartCast</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/css/application.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto|Comfortaa" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header class="cf bg-dark">
+      <div class="wrapper-wide">
+        <a id="logo"href="../welcome/index.html">SMARTCAST</a>
+        <nav>
+          <ul>
+              <li>
+                <a href="../podcast/explore.html">Explore</a>
+              </li>
+              <li>
+                <a href="#">Sign In</a>
+              </li>
+              <li>
+                <a href="#">Create Podcast</a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="spacer"></div>
+
+    <div id="banner" class="smartcast-banner">
+      <h1>Edit Podcast</h1>
+    </div>
+
+    
+    <form id="input-container" class="cf wrapper">
+        <div id="image-upload">
+          <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
+          <label for="thumbnail" class="inputfile-label">Choose a file</label>
+        </div>
+        <div id="title">
+          <input type="text" value="Podcast title" class="border-animation" />
+        </div>
+        <div id="description" >
+          <textarea class="border-animation">Podcast description here</textarea>
+        </div>
+        
+        <div class="btn-bar">
+          <a class="button button-alert" href="#">Delete podcast</a>
+          <a class="button button-highlight" href="#">Save changes</a>
+          <a class="button button-white" href="explore.html">Cancel</a>
+        </div>
+    </form>
+  </body>
+</html>

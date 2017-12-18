@@ -432,26 +432,77 @@ header {
     font-weight: 700;
     font-size: 1.5rem;
     text-decoration: none;
-    color: white; }
+    color: #d2674e; }
+    header #logo img {
+      max-width: 4rem;
+      max-height: 4rem; }
     header #logo:hover {
-      color: #d2674e; }
+      color: #dc8a77; }
   header div nav {
     display: table-cell;
     vertical-align: middle;
-    float: right; }
+    float: right;
+    height: 3.5rem; }
     header div nav ul {
       list-style: none;
       margin: 0; }
       header div nav ul li {
         display: inline;
-        margin-left: 2.5rem; }
+        margin-left: 2.5rem;
+        /* Links inside the dropdown */
+        /* Change color of dropdown links on hover */
+        /* Show the dropdown menu on hover */
+        /* Change the background color of the dropdown button when the dropdown content is shown */ }
         header div nav ul li a {
           color: white; }
           header div nav ul li a:hover {
             color: #d2674e; }
+        header div nav ul li ul li {
+          float: left; }
+        header div nav ul li .dropdown {
+          position: relative;
+          display: inline-block; }
+        header div nav ul li .dropbtn {
+          margin: 0;
+          width: 11rem;
+          background-color: transparent;
+          color: white;
+          font-size: 1rem;
+          border: none;
+          cursor: pointer; }
+          header div nav ul li .dropbtn img {
+            max-width: 2rem;
+            max-height: 2rem;
+            width: 2rem;
+            height: 2rem;
+            float: left; }
+          header div nav ul li .dropbtn p {
+            float: right; }
+        header div nav ul li .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1; }
+        header div nav ul li .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block; }
+        header div nav ul li .dropdown-content a:hover {
+          background-color: #fbf3f1; }
+        header div nav ul li .dropdown:hover .dropdown-content {
+          display: block; }
+        header div nav ul li .dropdown:hover .dropbtn {
+          background-color: #d2674e; }
 
 .bg-dark {
   background-color: #32444d; }
+
+.spacer {
+  height: 3.5rem; }
 
 .button {
   text-decoration: none;
@@ -467,6 +518,12 @@ header {
   min-width: 8.5rem;
   color: white;
   cursor: pointer; }
+
+.button-alert {
+  background: red; }
+  .button-alert:hover {
+    color: white;
+    background: #d90000; }
 
 .button-highlight {
   background: #d2674e; }
@@ -504,7 +561,8 @@ header {
 
 .pagination {
   text-align: center;
-  margin: 1rem 0 5rem 0; }
+  margin: 1rem 0 5rem 0;
+  bottom: 0; }
   .pagination a, .pagination .previous_page, .pagination .current, .pagination .next_page {
     padding: 0.75rem 1rem;
     margin: 0 .25rem;
@@ -609,9 +667,6 @@ header {
 
 .button {
   margin: 0; }
-
-.spacer {
-  height: 3.5rem; }
 
 #search-container {
   height: 3rem;
@@ -826,7 +881,91 @@ input[type="file"] {
   padding: 1rem;
   float: right; }
 
+#banner {
+  max-height: 10rem; }
+
 .show-podcast-banner {
   background-image: url(../../images/explore_banner.jpg); }
+  .show-podcast-banner img {
+    max-width: 16rem;
+    max-height: 15rem;
+    width: 16rem;
+    float: left;
+    margin: 2.25rem 0 0 4.5rem;
+    border: 3px solid white;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5); }
+  .show-podcast-banner h1 {
+    width: 80%;
+    height: 12rem; }
+  .show-podcast-banner p {
+    vertical-align: middle;
+    margin: auto;
+    padding-left: 25rem;
+    padding-right: 10rem;
+    padding-bottom: 2rem;
+    height: 4rem;
+    text-align: center;
+    color: #32444d;
+    border-bottom: 3px solid #506d7b;
+    margin-bottom: 6rem;
+    overflow: hidden; }
+
+#episodes {
+  color: #32444d;
+  padding: 4rem;
+  width: 100%; }
+  #episodes div ul {
+    margin: auto;
+    list-style: none; }
+    #episodes div ul li {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #506d7b;
+      margin-bottom: 2rem; }
+      #episodes div ul li:last-child {
+        border-bottom: none; }
+      #episodes div ul li .episode_thumbnail {
+        width: 22%;
+        float: left; }
+        #episodes div ul li .episode_thumbnail img {
+          width: 10rem;
+          max-width: 100%;
+          border-radius: .35rem; }
+      #episodes div ul li .episode_overview {
+        width: 70%;
+        float: left;
+        margin-left: 1.5%; }
+        #episodes div ul li .episode_overview h2 a {
+          color: #32444d;
+          text-decoration: none; }
+        #episodes div ul li .episode_overview .description {
+          color: #64889a; }
+        #episodes div ul li .episode_overview .authorized_links {
+          font-weight: 700;
+          font-size: .8rem; }
+          #episodes div ul li .episode_overview .authorized_links a {
+            color: #d2674e;
+            margin-right: 1rem; }
+  #episodes #episode_content {
+    padding: 4rem 0;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid white; }
+    #episodes #episode_content .current_episode_thumbnail {
+      display: block;
+      margin: 0 auto 2rem auto;
+      width: 10rem;
+      max-width: 100%;
+      border-radius: .35rem; }
+    #episodes #episode_content h2 {
+      font-size: 1.5rem;
+      text-align: center; }
+    #episodes #episode_content .description {
+      text-align: center;
+      font-size: .9rem;
+      line-height: 1.7;
+      color: #64889a; }
+    #episodes #episode_content a {
+      text-decoration: none; }
 
 
