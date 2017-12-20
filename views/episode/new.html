@@ -13,7 +13,7 @@
 
     <header class="cf bg-dark">
       <div class="wrapper-wide">
-        <a id="logo"href="../welcome/index.html">SMARTCAST</a>
+        <a id="logo" href="../welcome/index.html">SMARTCAST</a>
         <nav>
           <ul>
               <li>
@@ -23,7 +23,7 @@
                 <a href="#">Sign In</a>
               </li>
               <li>
-                <a href="#">Create Podcast</a>
+                <a href="../podcast/new.html">Create Podcast</a>
               </li>
               <li>
                 <div class="dropdown cf">
@@ -43,49 +43,29 @@
     <div class="spacer"></div>
 
     <div id="banner" class="smartcast-banner">
-      <h1>Create your Podcast</h1>
+      <h1>Create your Podcast Episode</h1>
     </div>
 
     
     <form id="input-container" class="cf wrapper">
         <div id="image-upload">
-        <!--
-          <p>Image upload</p>
-          <label for="file-upload" class="custom-file-upload">
-            <i class="fa fa-cloud-upload"></i> Choose image
-          </label>
-          <input id="file-upload" type="file"/>
-        -->
           <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
           <label for="thumbnail" class="inputfile-label">Choose a file</label>
         </div>
         <div id="title">
-          <input type="text" placeholder="Insert Podcast title" class="border-animation" />
+          <input type="text" placeholder="Insert Episode title" class="border-animation" />
         </div>
         <div id="description" >
-          <textarea placeholder="Insert Podcast description" class="border-animation"></textarea>
+          <textarea placeholder="Insert Episode description" class="border-animation"></textarea>
         </div>
-        
         <div class="btn-bar">
-          <div id="pod-type">
-            <ul>
-              <li>
-                <label class="container">Podcast audio
-                  <input type="radio" name="radio" checked/>
-                  <span class="checkmark"></span>
-                </label>
-              </li>
-              <li>
-                <label class="container">Podcast video
-                  <input type="radio" name="radio" />
-                  <span class="checkmark"></span>
-                </label>
-              </li>
-            </ul>
+          <div id="episode-upload">
+            <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
+            <label for="thumbnail" class="inputfile-label">Choose a file</label>
           </div>
           <div class="right">
             <a class="button button-highlight" href="#">Create</a>
-            <a class="button button-white" href="explore.html">Cancel</a>
+            <a class="button button-white" href="../podcast/show.html">Cancel</a>
           </div>
         </div>
     </form>

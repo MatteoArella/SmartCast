@@ -13,7 +13,7 @@
 
     <header class="cf bg-dark">
       <div class="wrapper-wide">
-        <a id="logo"href="../welcome/index.html">SMARTCAST</a>
+        <a id="logo" href="../welcome/index.html">SMARTCAST</a>
         <nav>
           <ul>
               <li>
@@ -23,13 +23,15 @@
                 <a href="#">Sign In</a>
               </li>
               <li>
-                <a href="new.html">Create Podcast</a>
+                <a href="../podcast/new.html">Create Podcast</a>
               </li>
               <li>
-                <div class="dropdown cf">
-                <button class="dropbtn"><img src="../../assets/images/user-logo.png" alt="user-logo"/><p>Username</p></button>
+                <div class="dropdown">
+                  <button class="dropbtn">
+                    <img src="../../assets/images/user-logo.png" alt="user-logo"/><p>Username</p>
+                  </button>
                   <div class="dropdown-content">
-                    <a href="../profile/profile.html">Profile</a>
+                    <a href="#">Profile</a>
                     <a href="#">Account settings</a>
                     <a href="#">Logout</a>
                   </div>
@@ -42,15 +44,16 @@
 
     <div class="spacer"></div>
 
-    <div id="banner" class="smartcast-banner">
-      <h1>Discover your favourite Podcast</h1>
-    </div>
-
-    <div id="search-container" class="cf">
-      <form name="search-form">
-        <input type="text" placeholder="Search Podcasts" name="search-text" class="border-animation" />
-        <input type="submit" value="Search" class="button button-highlight"/>
-      </form>
+    <div id="banner" class="profile-podcast-banner">
+      <img src="../../assets/images/welcome_background.jpg" alt="user-thumbnail" />
+      <h1>Username</h1>
+      <div>
+        <table>
+          <td><p>Name</p></td>
+          <td>Surname</td>
+          <td>email</td>
+        </table>
+      </div>
     </div>
 
     <div id="podcasts" class="cf">
@@ -130,10 +133,6 @@
       <a href="#">3</a>
       <a class="next_page" href="#">Next</a>
     </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="../../assets/javascripts/bootstrap.min.js"></script>
+    
   </body>
 </html>

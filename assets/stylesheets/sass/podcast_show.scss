@@ -2,6 +2,14 @@
 	max-height: 10rem;
 }
 
+.col-medium {
+	width: 7%;
+}
+
+.col-large {
+	width: 60%;
+}
+
 .show-podcast-banner {
 	background-image: url(../../images/explore_banner.jpg);
 	//background-color: white;
@@ -20,18 +28,25 @@
 		width: 80%;
 		height: 12rem;
 	}
-	p {
-		vertical-align: middle;
-		margin: auto;
-		padding-left: 25rem;
-		padding-right: 10rem;
-		padding-bottom: 2rem;
-		height: 4rem;
-		text-align: center;
-		color: $dark;
+	.pod-description {
 		border-bottom: 3px solid lighten($dark, 15%);
 		margin-bottom: 6rem;
-		overflow: hidden;
+		height: 6rem;
+		color: $dark;
+		p {
+			vertical-align: middle;
+			margin: auto;
+			padding-left: 7rem;
+			text-align: center;
+			color: $dark;
+			overflow: hidden;
+		}
+		#artist-thumbnail {
+			margin: auto;
+			padding: 0;
+			max-height: 40px;
+			max-width: 40px;
+		}
 	}
 }
 

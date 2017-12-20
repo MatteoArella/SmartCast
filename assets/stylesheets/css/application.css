@@ -877,12 +877,21 @@ input[type="file"] {
       border-radius: 50%;
       background: white; }
 
-.btn-bar {
-  padding: 1rem;
+.right {
   float: right; }
+
+.btn-bar {
+  width: 100%;
+  padding: 1rem; }
 
 #banner {
   max-height: 10rem; }
+
+.col-medium {
+  width: 7%; }
+
+.col-large {
+  width: 60%; }
 
 .show-podcast-banner {
   background-image: url(../../images/explore_banner.jpg); }
@@ -899,18 +908,23 @@ input[type="file"] {
   .show-podcast-banner h1 {
     width: 80%;
     height: 12rem; }
-  .show-podcast-banner p {
-    vertical-align: middle;
-    margin: auto;
-    padding-left: 25rem;
-    padding-right: 10rem;
-    padding-bottom: 2rem;
-    height: 4rem;
-    text-align: center;
-    color: #32444d;
+  .show-podcast-banner .pod-description {
     border-bottom: 3px solid #506d7b;
     margin-bottom: 6rem;
-    overflow: hidden; }
+    height: 6rem;
+    color: #32444d; }
+    .show-podcast-banner .pod-description p {
+      vertical-align: middle;
+      margin: auto;
+      padding-left: 7rem;
+      text-align: center;
+      color: #32444d;
+      overflow: hidden; }
+    .show-podcast-banner .pod-description #artist-thumbnail {
+      margin: auto;
+      padding: 0;
+      max-height: 40px;
+      max-width: 40px; }
 
 #episodes {
   color: #32444d;
@@ -967,5 +981,36 @@ input[type="file"] {
       color: #64889a; }
     #episodes #episode_content a {
       text-decoration: none; }
+
+#episode-upload {
+  float: left; }
+
+.profile-podcast-banner {
+  background-image: url(../../images/explore_banner.jpg);
+  margin-bottom: 6rem; }
+  .profile-podcast-banner img {
+    max-width: 16rem;
+    max-height: 15rem;
+    width: 16rem;
+    float: left;
+    margin: 2.25rem 0 0 4.5rem;
+    border: 3px solid white;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5); }
+  .profile-podcast-banner h1 {
+    width: 80%;
+    height: 12rem; }
+  .profile-podcast-banner div {
+    border-bottom: 3px solid #506d7b;
+    margin-bottom: 6rem;
+    width: 100%; }
+    .profile-podcast-banner div table {
+      margin: auto;
+      width: 40%;
+      color: #32444d; }
+
+#podcasts {
+  top: 2rem; }
 
 
