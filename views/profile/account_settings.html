@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SmartCast</title>
+    <link rel="stylesheet" href="../../assets/stylesheets/css/application.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli|Roboto|Comfortaa" rel="stylesheet">
+  </head>
+
+  <body>
+    <header class="cf bg-dark">
+      <div class="wrapper-wide">
+        <a id="logo" href="../welcome/index.html">SMARTCAST</a>
+        <nav>
+          <ul>
+              <li>
+                <a href="../podcast/explore.html">Explore</a>
+              </li>
+              <li>
+                <a href="#">Sign In</a>
+              </li>
+              <li>
+                <a href="../podcast/new.html">Create Podcast</a>
+              </li>
+              <li>
+                <div class="dropdown cf">
+                <button class="dropbtn"><img src="../../assets/images/user-logo.png" alt="user-logo"/><p>Username</p></button>
+                  <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="#">Account settings</a>
+                    <a href="#">Logout</a>
+                  </div>
+                </div>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="spacer"></div>
+
+    <div id="banner" class="show-podcast-banner">
+      <img src="../../assets/images/welcome_background.jpg" alt="podcast-thumbnail" />
+      <h1>Account Settings</h1>
+    </div>
+
+    <div id="profile-settings" class="wrapper">
+      <form>
+        <table>
+            <td><h2>Name</h2></td>
+            <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Name" /></td>
+          <tr/>
+            <td><h2>Surname</h2></td>
+            <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Surname" /></td>
+          <tr/>
+            <td><h2>Current Password</h2></td>
+            <td><input class="border-animation" type="password" placeholder="Password" /></td>
+          <tr/>
+            <td><h2>New Password</h2></td>
+            <td><input class="border-animation" type="password" placeholder="New Password" /></td>
+          <tr/>
+            <td><h2>Reinsert New Password</h2></td>
+            <td><input class="border-animation" type="password" placeholder="Reinsert New Password" /></td>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

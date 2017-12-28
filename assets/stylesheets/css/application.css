@@ -393,6 +393,9 @@ template {
 [hidden] {
   display: none; }
 
+.container-fixed {
+  width: 84.2rem; }
+
 a, a:hover {
   text-decoration: none; }
 
@@ -424,25 +427,27 @@ header {
   margin-top: 0;
   width: 100vw;
   color: white;
-  padding: 1rem 0;
+  padding: 0;
   display: table;
   z-index: 1; }
   header #logo {
+    padding-top: 0.25rem;
     float: left;
     font-weight: 700;
     font-size: 1.5rem;
     text-decoration: none;
     color: #d2674e; }
     header #logo img {
-      max-width: 4rem;
-      max-height: 4rem; }
+      max-width: 3rem;
+      max-height: 3rem; }
     header #logo:hover {
       color: #dc8a77; }
   header div nav {
     display: table-cell;
     vertical-align: middle;
     float: right;
-    height: 3.5rem; }
+    height: 3.5rem;
+    max-height: 3.5rem; }
     header div nav ul {
       list-style: none;
       margin: 0; }
@@ -608,8 +613,7 @@ header {
   transition: -webkit-box-shadow 0.4s linear;
   -o-transition: box-shadow 0.4s linear;
   transition: box-shadow 0.4s linear;
-  transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear;
-  /*&:active,*/ }
+  transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear; }
   .border-animation ::-webkit-input-placeholder {
     color: white; }
   .border-animation :-moz-placeholder {
@@ -657,7 +661,8 @@ header {
     #background #home-content h1 {
       font-size: 5rem;
       font-weight: 700;
-      letter-spacing: 3px; }
+      letter-spacing: 3px;
+      color: #d2674e; }
 
 .button {
   margin: 4rem 2.5rem 0 2.5rem; }
@@ -891,7 +896,8 @@ input[type="file"] {
   width: 7%; }
 
 .col-large {
-  width: 60%; }
+  width: 60%;
+  max-width: 60%; }
 
 .show-podcast-banner {
   background-image: url(../../images/explore_banner.jpg); }
@@ -914,6 +920,7 @@ input[type="file"] {
     height: 6rem;
     color: #32444d; }
     .show-podcast-banner .pod-description p {
+      font-size: 1rem;
       vertical-align: middle;
       margin: auto;
       padding-left: 7rem;
@@ -1012,5 +1019,15 @@ input[type="file"] {
 
 #podcasts {
   top: 2rem; }
+
+#profile-settings {
+  color: #32444d;
+  margin: 0 auto; }
+  #profile-settings form {
+    width: 30%;
+    margin: auto;
+    text-align: right; }
+    #profile-settings form h2 {
+      padding-right: 2rem; }
 
 

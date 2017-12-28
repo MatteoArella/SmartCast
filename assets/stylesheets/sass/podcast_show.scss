@@ -8,6 +8,7 @@
 
 .col-large {
 	width: 60%;
+	max-width: 60%;
 }
 
 .show-podcast-banner {
@@ -20,8 +21,8 @@
 		margin: 2.25rem 0 0 4.5rem;
 		border: 3px solid white;
 		border-radius: 1rem;
-		-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
-		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
 	}
 	h1 {
 		width: 80%;
@@ -33,6 +34,7 @@
 		height: 6rem;
 		color: $dark;
 		p {
+			font-size: 1rem;
 			vertical-align: middle;
 			margin: auto;
 			padding-left: 7rem;
