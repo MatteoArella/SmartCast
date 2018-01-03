@@ -1,14 +1,19 @@
 @import 'normalize';
 
-$highlight: #d2674e;
-$dark: #32444d;
+@import '../bourbon/bourbon';
 
-@mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}  
-}
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/mixins'; // custom mixins
+
+@import '../partials/layout'; // responsive grid and media queries
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+
 
 .container-fixed {
 	width: 84.2rem;
@@ -21,7 +26,7 @@ a, a:hover {
 body {
 	//font-family: 'Muli', sans-serif;
 	//font-family: 'Roboto', sans-serif;
-	font-family: 'Comfortaa', sans-serif;
+	font-family: $primary-font;
 	color: white;
 }
 
@@ -196,6 +201,10 @@ header {
 		background: darken(white, 7.5%);
 	}
 }
+.welcome-page-text {
+    color: white;
+}
+
 
 #banner {
 	background-size: cover;
@@ -291,15 +300,15 @@ header {
 ::-webkit-scrollbar{
     width: 10px;
 }
- 
+
 ::-webkit-scrollbar-track{
-    border-radius:0.5rem; 
-    background: $highlight; 
+    border-radius:0.5rem;
+    background: $highlight;
     -webkit-box-shadow:inset 0 0 4px rgba(0,0,0,0.1);
 }
- 
+
 ::-webkit-scrollbar-thumb{
-    border-radius: 10px; 
+    border-radius: 10px;
     background: lighten($highlight, 30%);
     margin-top: 10px;
 }
@@ -307,7 +316,7 @@ header {
 ::-webkit-scrollbar:horizontal{
     height: 10px;
 }
- 
+
 ::-webkit-scrollbar-track:horizontal {
     box-shadow:none;
 }
@@ -319,3 +328,4 @@ header {
 @import 'episode_new';
 @import 'profile';
 @import 'account_settings';
+@import 'faq_page';

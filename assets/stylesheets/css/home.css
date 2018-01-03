@@ -1,20 +1,46 @@
 /*
-Error: Undefined variable: "$dark".
-        on line 2 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss
+Error: Undefined variable: "$highlight".
+        on line 16 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/home.scss
 
-1: #profile-settings {
-2: 	color: $dark;
-3: 	margin: 0 auto;
-4: 	form {
-5: 		width: 30%;
-6: 		margin: auto;
-7: 		text-align: right;
+11:     vertical-align: middle;
+12:     h1 {
+13:       font-size: 5rem;
+14:       font-weight: 700;
+15:       letter-spacing: 3px;
+16:       color: $highlight;
+17:     }
+18:   }
+19: }
+20: 
+21: .button {
 
 Backtrace:
-/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss:2
+/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/home.scss:16
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `map'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
@@ -58,4 +84,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$dark\".\A         on line 2 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss\A \A 1: #profile-settings {\A 2: 	color: $dark;\A 3: 	margin: 0 auto;\A 4: 	form {\A 5: 		width: 30%;\A 6: 		margin: auto;\A 7: 		text-align: right;"; }
+  content: "Error: Undefined variable: \"$highlight\".\A         on line 16 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/home.scss\A \A 11:     vertical-align: middle;\A 12:     h1 {\A 13:       font-size: 5rem;\A 14:       font-weight: 700;\A 15:       letter-spacing: 3px;\A 16:       color: $highlight;\A 17:     }\A 18:   }\A 19: }\A 20: \A 21: .button {"; }

@@ -1,17 +1,21 @@
 /*
 Error: Undefined variable: "$dark".
-        on line 2 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss
+        on line 27 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/podcast_new.scss
 
-1: #profile-settings {
-2: 	color: $dark;
-3: 	margin: 0 auto;
-4: 	form {
-5: 		width: 30%;
-6: 		margin: auto;
-7: 		text-align: right;
+22:     padding: 6px 12px;
+23:     cursor: pointer;
+24: }*\/
+25: 
+26: #input-container {
+27: 	color: $dark;
+28: 	#image-upload {
+29: 		height: 3rem;
+30: 		width: 25%;
+31: 		margin-bottom: 3rem;
+32: 		float: left;
 
 Backtrace:
-/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss:2
+/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/podcast_new.scss:27
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -58,4 +62,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$dark\".\A         on line 2 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/account_settings.scss\A \A 1: #profile-settings {\A 2: 	color: $dark;\A 3: 	margin: 0 auto;\A 4: 	form {\A 5: 		width: 30%;\A 6: 		margin: auto;\A 7: 		text-align: right;"; }
+  content: "Error: Undefined variable: \"$dark\".\A         on line 27 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/podcast_new.scss\A \A 22:     padding: 6px 12px;\A 23:     cursor: pointer;\A 24: }*/\A 25: \A 26: #input-container {\A 27: 	color: $dark;\A 28: 	#image-upload {\A 29: 		height: 3rem;\A 30: 		width: 25%;\A 31: 		margin-bottom: 3rem;\A 32: 		float: left;"; }

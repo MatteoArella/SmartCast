@@ -1,0 +1,33 @@
+.profile-podcast-banner {
+	background-image: url(../../images/explore_banner.jpg);
+	img {
+		max-width: 16rem;
+		max-height: 15rem;
+		width: 16rem;
+		float: left;
+		margin: 2.25rem 0 0 4.5rem;
+		border: 3px solid white;
+		border-radius: 1rem;
+		-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+	}
+	h1 {
+		width: 80%;
+		height: 12rem;
+	}
+	div {
+		border-bottom: 3px solid lighten($dark, 15%);
+		margin-bottom: 6rem;
+		width: 100%;
+		table {
+			margin: auto;
+			width: 40%;
+			color: $dark;
+		}
+	}
+	margin-bottom: 6rem;
+}
+
+#podcasts {
+	top: 2rem;
+}
