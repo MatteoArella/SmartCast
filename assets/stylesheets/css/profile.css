@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$dark".
-        on line 19 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/profile.scss
+        on line 19 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/profile.scss
 
 14: 	h1 {
 15: 		width: 80%;
@@ -15,7 +15,7 @@ Error: Undefined variable: "$dark".
 24: 			width: 40%;
 
 Backtrace:
-/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/profile.scss:19
+/home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/profile.scss:19
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/funcall.rb:186:in `perform_arg'
@@ -85,4 +85,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$dark\".\A         on line 19 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/profile.scss\A \A 14: 	h1 {\A 15: 		width: 80%;\A 16: 		height: 12rem;\A 17: 	}\A 18: 	div {\A 19: 		border-bottom: 3px solid lighten($dark, 15%);\A 20: 		margin-bottom: 6rem;\A 21: 		width: 100%;\A 22: 		table {\A 23: 			margin: auto;\A 24: 			width: 40%;"; }
+  content: "Error: Undefined variable: \"$dark\".\A         on line 19 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/profile.scss\A \A 14: 	h1 {\A 15: 		width: 80%;\A 16: 		height: 12rem;\A 17: 	}\A 18: 	div {\A 19: 		border-bottom: 3px solid lighten($dark, 15%);\A 20: 		margin-bottom: 6rem;\A 21: 		width: 100%;\A 22: 		table {\A 23: 			margin: auto;\A 24: 			width: 40%;"; }

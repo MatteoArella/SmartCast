@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$dark".
-        on line 56 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/explore.scss
+        on line 56 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/explore.scss
 
 51: 				padding: 1rem 7.5%;
 52: 				h2 {
@@ -15,7 +15,7 @@ Error: Undefined variable: "$dark".
 61: 					margin: .5rem 0 .25rem 0;
 
 Backtrace:
-/home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/explore.scss:56
+/home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/explore.scss:56
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -106,4 +106,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$dark\".\A         on line 56 of /home/biar/Documents/03-01/SmartCast/assets/stylesheets/sass/explore.scss\A \A 51: 				padding: 1rem 7.5%;\A 52: 				h2 {\A 53: 					margin: 0;\A 54: 					font-size: 1rem;\A 55: 					font-weight: 700;\A 56: 					color: $dark;\A 57: 				}\A 58: 				.episode-count {\A 59: 					color: lighten($dark, 40%);\A 60: 					font-size: .9rem;\A 61: 					margin: .5rem 0 .25rem 0;"; }
+  content: "Error: Undefined variable: \"$dark\".\A         on line 56 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/explore.scss\A \A 51: 				padding: 1rem 7.5%;\A 52: 				h2 {\A 53: 					margin: 0;\A 54: 					font-size: 1rem;\A 55: 					font-weight: 700;\A 56: 					color: $dark;\A 57: 				}\A 58: 				.episode-count {\A 59: 					color: lighten($dark, 40%);\A 60: 					font-size: .9rem;\A 61: 					margin: .5rem 0 .25rem 0;"; }
