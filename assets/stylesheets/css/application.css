@@ -64,6 +64,7 @@ figure {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   /* 1 */
   height: 0;
@@ -102,6 +103,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   /* 2 */ }
 
@@ -277,6 +279,7 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   color: inherit;
@@ -312,6 +315,7 @@ textarea {
  */
 [type="checkbox"],
 [type="radio"] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -395,7 +399,8 @@ Primary style
 
 -------------------------------- */
 .container-fixed {
-  width: 84.2rem; }
+  width: 84.2rem;
+  margin-bottom: 6rem; }
 
 a, a:hover {
   text-decoration: none; }
@@ -489,6 +494,7 @@ header {
           position: absolute;
           background-color: #f9f9f9;
           min-width: 160px;
+          -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           z-index: 1; }
         header div nav ul li .dropdown-content a {
@@ -509,6 +515,10 @@ header {
 .spacer {
   height: 3.5rem; }
 
+.text-align-right {
+  text-align: right;
+  padding-right: 2rem; }
+
 .button {
   text-decoration: none;
   font-size: 1rem;
@@ -516,6 +526,8 @@ header {
   border-radius: 2rem;
   outline: none;
   border: none;
+  -webkit-transition: background .2s ease-in-out;
+  -o-transition: background .2s ease-in-out;
   transition: background .2s ease-in-out;
   display: inline-block;
   min-width: 8.5rem;
@@ -607,9 +619,14 @@ header {
   margin-right: 0;
   background-color: white;
   border: none;
+  -webkit-box-shadow: inset 0 0 0 1px #d2674e;
   box-shadow: inset 0 0 0 1px #d2674e;
   outline: none;
-  transition: box-shadow 0.4s linear; }
+  -webkit-transition: -webkit-box-shadow 0.4s linear;
+  transition: -webkit-box-shadow 0.4s linear;
+  -o-transition: box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear;
+  transition: box-shadow 0.4s linear, -webkit-box-shadow 0.4s linear; }
   .border-animation ::-webkit-input-placeholder {
     color: white; }
   .border-animation :-moz-placeholder {
@@ -620,6 +637,7 @@ header {
     color: white; }
   .border-animation:focus, .border-animation:hover {
     outline: none;
+    -webkit-box-shadow: inset 0 0 0 2px #d2674e;
     box-shadow: inset 0 0 0 2px #d2674e; }
 
 ::-webkit-scrollbar {
@@ -639,6 +657,7 @@ header {
   height: 10px; }
 
 ::-webkit-scrollbar-track:horizontal {
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
 #background {
@@ -720,6 +739,7 @@ header {
         color: #d2674e; }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 .inputfile {
@@ -909,9 +929,11 @@ input[type="file"] {
     height: 12rem; }
   .show-podcast-banner .pod-description {
     border-bottom: 3px solid #506d7b;
-    margin-bottom: 6rem;
-    height: 6rem;
+    margin-bottom: 8rem;
+    padding-bottom: 1rem;
     color: #32444d; }
+    .show-podcast-banner .pod-description table {
+      width: 95%; }
     .show-podcast-banner .pod-description p {
       font-size: 1rem;
       vertical-align: middle;
@@ -1013,17 +1035,46 @@ input[type="file"] {
 #podcasts {
   top: 2rem; }
 
-#profile-settings {
-  color: #32444d;
-  margin: 0 auto; }
-  #profile-settings form {
-    width: 30%;
-    margin: auto;
-    text-align: right; }
-    #profile-settings form h2 {
-      padding-right: 2rem; }
+@-webkit-keyframes slideDown {
+  0% {
+    height: 0; }
+  100% {
+    max-height: 40000px; } }
+
+@keyframes slideDown {
+  0% {
+    height: 0; }
+  100% {
+    max-height: 40000px; } }
+section {
+  margin-top: 5rem;
+  text-align: center; }
+  section article details {
+    border: 1px solid #d2674e;
+    border-top: none;
+    border-radius: 0.6rem 0.6rem 0 0;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3); }
+    section article details summary::-webkit-details-marker {
+      display: none; }
+    section article details summary:focus {
+      outline-style: none; }
+    section article details summary {
+      border-radius: 0.6rem 0.6rem 0 0;
+      background-color: #d2674e;
+      cursor: pointer;
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 2rem;
+      color: white; }
+    section article details div {
+      padding: 1rem;
+      margin: auto; }
+      section article details div a {
+        width: 80%; }
 
 *, *::after, *::before {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 *::after, *::before {
@@ -1031,7 +1082,7 @@ input[type="file"] {
 
 body {
   font-size: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Comfortaa", sans-serif;
   color: #4e5359;
   background-color: #f3f3f5; }
   body::after {
@@ -1046,12 +1097,14 @@ body {
     opacity: 0;
     -webkit-transition: opacity .3s 0s, visibility 0s .3s;
     -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    -o-transition: opacity .3s 0s, visibility 0s .3s;
     transition: opacity .3s 0s, visibility 0s .3s; }
   body.cd-overlay::after {
     visibility: visible;
     opacity: 1;
     -webkit-transition: opacity .3s 0s, visibility 0s 0s;
     -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    -o-transition: opacity .3s 0s, visibility 0s 0s;
     transition: opacity .3s 0s, visibility 0s 0s; }
   @media only screen and (min-width: 768px) {
     body::after {
@@ -1070,6 +1123,7 @@ Main components
   width: 90%;
   max-width: 1024px;
   margin: 2em auto;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
   .cd-faq::after {
     clear: both;
@@ -1079,6 +1133,7 @@ Main components
     .cd-faq {
       position: relative;
       margin: 4em auto;
+      -webkit-box-shadow: none;
       box-shadow: none; } }
 
 .cd-faq-categories a {
@@ -1094,6 +1149,7 @@ Main components
   color: #ffffff;
   white-space: nowrap;
   border-bottom: 1px solid #555b61;
+  -o-text-overflow: ellipsis;
   text-overflow: ellipsis; }
   .cd-faq-categories a::before, .cd-faq-categories a::after {
     /* plus icon on the right */
@@ -1116,6 +1172,7 @@ Main components
   .cd-faq-categories {
     width: 20%;
     float: left;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); }
     .cd-faq-categories a {
       font-size: 13px;
@@ -1125,6 +1182,7 @@ Main components
       padding: 0 24px;
       -webkit-transition: background 0.2s, padding 0.2s;
       -moz-transition: background 0.2s, padding 0.2s;
+      -o-transition: background 0.2s, padding 0.2s;
       transition: background 0.2s, padding 0.2s; }
       .cd-faq-categories a::before, .cd-faq-categories a::after {
         display: none; }
@@ -1152,6 +1210,7 @@ Main components
       opacity: 0;
       -webkit-transition: opacity 0.2s;
       -moz-transition: opacity 0.2s;
+      -o-transition: opacity 0.2s;
       transition: opacity 0.2s; }
     .cd-faq-categories .selected {
       background: #42464b !important; }
@@ -1183,7 +1242,10 @@ Main components
   transform: translateZ(0) translateX(100%);
   -webkit-transition: -webkit-transform .3s;
   -moz-transition: -moz-transform .3s;
-  transition: transform .3s; }
+  transition: -webkit-transform .3s;
+  -o-transition: transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s; }
   .cd-faq-items.slide-in {
     -webkit-transform: translateZ(0) translateX(0%);
     -moz-transform: translateZ(0) translateX(0%);
@@ -1242,6 +1304,7 @@ Main components
   backface-visibility: hidden;
   -webkit-transition: right 0.4s;
   -moz-transition: right 0.4s;
+  -o-transition: right 0.4s;
   transition: right 0.4s; }
   .cd-close-panel::before, .cd-close-panel::after {
     /* close icon in CSS */
@@ -1277,9 +1340,11 @@ Main components
     display: block; }
   .cd-faq-group .cd-faq-title {
     background: transparent;
+    -webkit-box-shadow: none;
     box-shadow: none;
     margin: 1em 0; }
     .no-touch .cd-faq-group .cd-faq-title:hover {
+      -webkit-box-shadow: none;
       box-shadow: none; }
     .cd-faq-group .cd-faq-title h2 {
       text-transform: uppercase;
@@ -1296,11 +1361,17 @@ Main components
       .cd-faq-group > li {
         background: #ffffff;
         margin-bottom: 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
         -webkit-transition: box-shadow 0.2s;
         -moz-transition: box-shadow 0.2s;
-        transition: box-shadow 0.2s; }
+        -webkit-transition: -webkit-box-shadow 0.2s;
+        transition: -webkit-box-shadow 0.2s;
+        -o-transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s, -webkit-box-shadow 0.2s; }
         .no-touch .cd-faq-group > li:hover {
+          -webkit-box-shadow: 0 1px 10px rgba(108, 125, 142, 0.3);
           box-shadow: 0 1px 10px rgba(108, 125, 142, 0.3); }
       .cd-faq-group .cd-faq-title {
         margin: 2em 0 1em; }
@@ -1331,9 +1402,13 @@ Main components
         backface-visibility: hidden;
         -webkit-transition-property: -webkit-transform;
         -moz-transition-property: -moz-transform;
+        transition-property: -webkit-transform;
+        -o-transition-property: transform;
         transition-property: transform;
+        transition-property: transform, -webkit-transform;
         -webkit-transition-duration: 0.2s;
         -moz-transition-duration: 0.2s;
+        -o-transition-duration: 0.2s;
         transition-duration: 0.2s; }
       .cd-faq-trigger::before {
         -webkit-transform: rotate(45deg);
@@ -1375,4 +1450,4 @@ Main components
     .no-js .cd-faq-content {
       display: block; } }
 
-/*# sourceMappingURL=application.css.map */
+
