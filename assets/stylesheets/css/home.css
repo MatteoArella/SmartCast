@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$highlight".
-        on line 16 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/home.scss
+        on line 16 of /home/biar/Documents/31-01/SmartCast/assets/stylesheets/sass/home.scss
 
 11:     vertical-align: middle;
 12:     h1 {
@@ -15,7 +15,7 @@ Error: Undefined variable: "$highlight".
 21: .button {
 
 Backtrace:
-/home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/home.scss:16
+/home/biar/Documents/31-01/SmartCast/assets/stylesheets/sass/home.scss:16
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -84,4 +84,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$highlight\".\A         on line 16 of /home/biar/Documents/05-01/SmartCast/assets/stylesheets/sass/home.scss\A \A 11:     vertical-align: middle;\A 12:     h1 {\A 13:       font-size: 5rem;\A 14:       font-weight: 700;\A 15:       letter-spacing: 3px;\A 16:       color: $highlight;\A 17:     }\A 18:   }\A 19: }\A 20: \A 21: .button {"; }
+  content: "Error: Undefined variable: \"$highlight\".\A         on line 16 of /home/biar/Documents/31-01/SmartCast/assets/stylesheets/sass/home.scss\A \A 11:     vertical-align: middle;\A 12:     h1 {\A 13:       font-size: 5rem;\A 14:       font-weight: 700;\A 15:       letter-spacing: 3px;\A 16:       color: $highlight;\A 17:     }\A 18:   }\A 19: }\A 20: \A 21: .button {"; }
