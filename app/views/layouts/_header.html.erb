@@ -7,15 +7,18 @@
 				<li>
 					<%= link_to "Explore", root_path %>
 				</li>
+			<% if !user_signed_in? %>
 				<li>
-					<%= link_to "Sign In", sign_in_path %>
+					<%= link_to "Sign In", sign_in_path if !user_signed_in? %>
 				</li>
+			<% end %>
     		<li>
     			<%= link_to "Create Podcast", root_path %>
     		</li>
         <li>
             <%= link_to "FAQ", root_path %>
         </li>
+      <% if user_signed_in? %>
     		<li>
     			<div class="dropdown">
 	    			<button class="dropbtn">
@@ -29,6 +32,7 @@
     				</div>
     			</div>
     		</li>
+    	<% end %>
 			</ul>
 		</nav>
 	</div>

@@ -23,16 +23,17 @@
 	}
 }
 
-.actions {
-	width: 100%;
-}
-
 .devise-container {
 	margin: 0 auto;
-	width: 20%;
+	padding: 2rem;
+	width: 25%;
 	table {
 		width: 100%;
 	}
+	border: 1px solid $highlight;
+	border-radius: .35rem;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
 }
 
 .field {
@@ -47,5 +48,7 @@
 }
 
 .actions {
-	margin: 0 auto;
+	width: 100%;
+	padding: 0;
+	top: 0;
 }
