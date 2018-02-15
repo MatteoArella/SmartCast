@@ -19,6 +19,9 @@ module NavigationHelpers
     when /^the SmartCast home page$/
       '/'
 
+    when /^the Sign Up page$/
+      sign_up_path
+
     when /^the Sign In page$/
       sign_in_path
 

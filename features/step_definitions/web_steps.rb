@@ -53,6 +53,10 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
+When /^(?:|I )press "([^"]*)" radio button$/ do |radio|
+  find("input[value='#{radio}']").click
+end
+
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end

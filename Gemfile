@@ -56,8 +56,8 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.7'
 
-  # Use FactoryGirl gem for model data testing
-  gem 'factory_girl'
+  # Use FactoryBot gem for model data testing
+  gem 'factory_bot'
 
 end
 

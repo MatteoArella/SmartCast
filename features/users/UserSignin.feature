@@ -1,17 +1,19 @@
-Feature: Artist Sign up
+Feature: User Sign in
 
-	As an Artist user,
-	I want to sign up,
-	So that I can create new podcasts
+	As a user,
+	I want to be able to sign in,
+	So that I can access my account
 
-# sign up 
-Scenario: Artist Sign up from homepage Sign In button
+Background: Not authenticated user
+	Given I am not authenticated
+
+# sign in
+Scenario: User sign in from homepage Sign In button
 	Given I am on the SmartCast home page
 	When I follow "Sign In"
 	Then I should be on the Sign In page
-	And I should see "Sign up"
 
-Scenario: Artist Sign up from Sign In page
+Scenario: User sign in from Sign In page
 	Given I am on the Sign In page
 	When I follow "Sign up"
 	Then I should be on the Sign Up page

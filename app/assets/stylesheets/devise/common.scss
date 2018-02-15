@@ -1,0 +1,51 @@
+/*
+<div id="error_explanation">
+      <h2>1 error prohibited this user from being saved:</h2>
+      <ul><li>Email can&#39;t be blank</li></ul>
+    </div>
+*/
+
+/* devise styling */
+#error_explanation {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 3.6rem;
+	background: rgba(208,103,82, 0.85);
+	z-index: 999;
+	color: white;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 0.5rem 0;
+	ul {
+		list-style: none;
+	}
+}
+
+.actions {
+	width: 100%;
+}
+
+.devise-container {
+	margin: 0 auto;
+	width: 20%;
+	table {
+		width: 100%;
+	}
+}
+
+.field {
+	padding: 0.5rem;
+	input[type="password"], input[type="text"], input[type="email"] {
+		width: 90%;
+	}
+	label {
+		color: $highlight;
+		font-weight: 700;
+	}
+}
+
+.actions {
+	margin: 0 auto;
+}

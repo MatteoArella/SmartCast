@@ -5,26 +5,27 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="../podcast/explore.html">Explore</a>
+					<%= link_to "Explore", root_path %>
 				</li>
 				<li>
 					<%= link_to "Sign In", sign_in_path %>
 				</li>
     		<li>
-    			<a href="../podcast/new.html">Create Podcast</a>
+    			<%= link_to "Create Podcast", root_path %>
     		</li>
         <li>
-            <a href="../other_pages/faq_page.html">FAQ</a>
+            <%= link_to "FAQ", root_path %>
         </li>
     		<li>
     			<div class="dropdown">
 	    			<button class="dropbtn">
-	    				<img src="../../assets/images/user-logo.png" alt="user-logo"/><p>Username</p>
+	    				<%= image_tag("user-logo.png", alt: "user-logo") %>
+	    				<p>Username</p>
 	    			</button>
     				<div class="dropdown-content">
-    					<a href="../profile/profile.html">Profile</a>
-    					<a href="../profile/account_settings.html">Account settings</a>
-    					<a href="#">Logout</a>
+    					<%= link_to "Profile", root_path %>
+    					<%= link_to "Account Settings", root_path %>
+    					<%= link_to "Sign Out", sign_out_path, :method => 'delete' %>
     				</div>
     			</div>
     		</li>
@@ -32,3 +33,5 @@
 		</nav>
 	</div>
 </header>
+
+<%= content_tag :div, nil, :class => "spacer" if controller.controller_name != 'welcome' %>
