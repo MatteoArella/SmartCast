@@ -1,4 +1,4 @@
-header {
+/*header {
 	position: fixed;
 	margin-top: 0;
 	width: 100vw;
@@ -74,7 +74,6 @@ header {
 					z-index: 1;
 				}
 
-				/* Links inside the dropdown */
 				.dropdown-content a {
 					color: black;
 					padding: 12px 16px;
@@ -82,19 +81,105 @@ header {
 					display: block;
 				}
 
-				/* Change color of dropdown links on hover */
 				.dropdown-content a:hover {background-color: lighten($highlight, 40%);}
 
-				/* Show the dropdown menu on hover */
 				.dropdown:hover .dropdown-content {
 					display: block;
 				}
 
-				/* Change the background color of the dropdown button when the dropdown content is shown */
 				.dropdown:hover .dropbtn {
 					background-color: $highlight;
 				}
 			}
 		}
 	}
+}*/
+
+header {
+	position: fixed;
+	margin-top: 0;
+	width: 100vw;
+	color: white;
+	font-weight: bold;
+	padding: 0;
+	display: table;
+	z-index: 1;
+	div nav {
+		#logo {
+		padding-top: 0.25rem;
+		float: left;
+		img {
+			max-width: 3rem;
+			max-height: 3rem;
+		}
+	}
+		ul {
+			float: right;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			li {
+				float: left;
+			}
+		}
+	}
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: darken(white, 10%);
+    line-height: 3.5rem;
+    text-align: center;
+    height: 3.5rem;
+    text-decoration: none;
+    padding: 0 2rem 0 2rem;
+}
+
+.dropbtn {
+	width: 160px;
+}
+
+.dropbtn img {
+	padding: 0;
+	margin: 0;
+	max-width: 2rem;
+	max-height: 2rem;
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+	padding-right: 2px;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+   background-color: rgba($dark, 0.2);
+   color: $highlight;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    .username-dropdown {
+    	color: $highlight;
+    }
+    a {
+	    color: $dark;
+	    text-decoration: none;
+	    display: block;
+	    text-align: left;
+	    &:hover {
+	    	background-color: darken(white, 8%);
+	    }
+		}
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

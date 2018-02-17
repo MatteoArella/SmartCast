@@ -54,7 +54,7 @@ body {
 #notice_wrapper {
 	width: 100%;
 	position: absolute;
-	margin-top: 3.6rem;
+	margin-top: 3.5rem;
 	background: rgba(208,103,82, 0.85);
 	z-index: 1;
 	p {
@@ -110,11 +110,11 @@ body {
 }
 
 .button-white {
-	background: white;
+	background: darken(white, 7.5%);
 	color: $dark;
 	&:hover {
 		color: $dark;
-		background: darken(white, 7.5%);
+		background: darken(white, 10.5%);
 	}
 }
 .welcome-page-text {
@@ -179,6 +179,7 @@ body {
 	}
 }
 
+/*
 .dropdown {
 	display: inline-block;
 	&:hover {
@@ -190,7 +191,7 @@ body {
 		display: none;
 		position: absolute;
 	}
-}
+}*/
 
 .border-animation {
 	color: $dark;
@@ -286,8 +287,8 @@ body {
 	}			
 }
 
-@import 'partials/header';
+@import 'partials/*';
 @import 'welcome/index';
 @import 'devise/common';
-@import 'devise/registrations/new';
+@import 'devise/registrations/*';
 @import 'devise/sessions/new';

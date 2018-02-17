@@ -9,34 +9,36 @@
 	</head>
 	<body>
 
-		<% if alert %>
-			<div id="notice_wrapper">
-				<p class="alert"><%= alert %></p>
-			</div>
-		<% elsif notice %>
-			<div id="notice_wrapper">
-				<p class="notice"><%= notice %></p>
-			</div>
-		<% end %>
+		<!--<div class="container-fixed">-->
+			<% if alert %>
+				<div id="notice_wrapper">
+					<p class="alert"><%= alert %></p>
+				</div>
+			<% elsif notice %>
+				<div id="notice_wrapper">
+					<p class="notice"><%= notice %></p>
+				</div>
+			<% end %>
 
-		<%= render 'layouts/header' %>
+			<%= render 'layouts/header' %>
 
-		<%= yield %>
+			<%= yield %>
 
-		<script>
-			$(document).ready(function(){
-				setTimeout(function() {
-					$('#notice_wrapper').fadeOut("slow", function() {
-						$this.remove();
-					});
+			<script>
+				$(document).ready(function(){
+					setTimeout(function() {
+						$('#notice_wrapper').fadeOut("slow", function() {
+							$this.remove();
+						});
 
-					// devise errors div block
-					$('#error_explanation').fadeOut("slow", function() {
-						$this.remove();
-					});
-				}, 4500 );
-			});
-		</script>
+						// devise errors div block
+						$('#error_explanation').fadeOut("slow", function() {
+							$this.remove();
+						});
+					}, 4500 );
+				});
+			</script>
+		<!--</div>-->
 
 	</body>
 </html>
