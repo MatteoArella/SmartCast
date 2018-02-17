@@ -63,7 +63,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
 
   # Use FactoryBot gem for model data testing
-  gem 'factory_bot'
+  gem 'factory_bot', '~> 4.0'
 
 end
 

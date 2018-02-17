@@ -258,7 +258,7 @@ DEPENDENCIES
   devise-encryptable
   devise-scrypt
   dotenv-rails
-  factory_bot
+  factory_bot (~> 4.0)
   jbuilder (~> 2.0)
   jquery-rails
   launchy
