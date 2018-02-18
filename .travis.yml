@@ -2,17 +2,15 @@ dist: trusty
 language: ruby
 rvm:
   - 2.4.1
-env:
-  - DB=postgresql
 addons:
-  postgresql: 9.6
+  #postgresql: 9.6
   #code_climate:
       #repo_token: <%= ENV["CODE_CLIMATE_TOKEN"] %>
 #after_success:
   #- bundle exec codeclimate-test-reporter
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
+  #- cp config/database.yml.travis config/database.yml
+  #- psql -c 'create database travis_ci_test;' -U postgres
 
 script:
   - RAILS_ENV=test bundle exec rake db:create rake db:migrate --trace
