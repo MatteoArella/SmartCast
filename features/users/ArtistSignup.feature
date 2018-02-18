@@ -26,4 +26,4 @@ Scenario: Artist Sign up (happy path)
   And I press "artist" radio button
   And I press "Sign up"
   Then I should be on the SmartCast home page
-  Then I should see "You have signed up successfully"
+  Then I should see a success message

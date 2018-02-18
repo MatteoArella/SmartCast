@@ -168,6 +168,8 @@ li.dropdown {
     z-index: 1;
     .username-dropdown {
     	color: $highlight;
+    	background-color: darken(white, 8%);
+    	border-bottom: 1px solid darken(white, 20%);
     }
     a {
 	    color: $dark;

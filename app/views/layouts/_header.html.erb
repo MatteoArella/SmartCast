@@ -30,9 +30,10 @@
     		<li class="dropdown">
     			<a href="javascript:void(0)" class="dropbtn">
     				<%= image_tag("user-logo.png", alt: "user-logo") %>
-    				<%= current_user.username %>
+    				
     			</a>
   				<div class="dropdown-content">
+  					<a class="username-dropdown"><%= current_user.username %></a>
   					<%= link_to "Profile", root_path %>
   					<%= link_to "Account Settings", root_path %>
   					<%= link_to "Sign Out", sign_out_path, :method => 'delete' %>

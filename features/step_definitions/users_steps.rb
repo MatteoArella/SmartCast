@@ -3,12 +3,12 @@ Given /^I am not authenticated$/ do
   page.driver.submit :delete, sign_out_path, {}
 end
 
-Given /^I am a registered user$/ do
+Given /^I am a registered and confirmed user$/ do
 	username = 'dummyUsername'
 	email = 'testing@man.net'
   password = 'secretpass'
   role = 'artist'
-  User.new(:username => username, :email => email, :password => password, :password_confirmation => password, :role => role).save!
+  User.new(:username => username, :email => email, :password => password, :password_confirmation => password, :role => role, :confirmed_at => DateTime.now).save!
 end
 
 When /^I sign in with valid email and password$/ do
@@ -33,6 +33,15 @@ When /^I sign in with invalid credentials$/ do
 	fill_in "user[login]", :with => username
   fill_in "user_password", :with => password
   click_button "Sign in"
+end
+
+Then /^I should see a success message$/ do
+  text = "confirmation"
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
 end
 
 Then /^I should see an error message$/ do

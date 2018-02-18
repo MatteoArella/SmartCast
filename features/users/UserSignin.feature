@@ -5,7 +5,7 @@ Feature: User Sign in
 	So that I can access my account
 
 Background: Registered but not authenticated user
-	Given I am a registered user
+	Given I am a registered and confirmed user
 	Given I am not authenticated
 
 Scenario: User sign in from homepage Sign In button
