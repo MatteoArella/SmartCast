@@ -46,6 +46,8 @@ group :development, :test do
   # load env file
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
+  gem 'coveralls', require: false
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -62,8 +64,13 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.7'
 
+  gem 'guard-rspec'
+
   # Use FactoryBot gem for model data testing
-  gem 'factory_bot', '~> 4.0'
+  gem 'factory_bot_rails', '~> 4.0'
+
+  # Fake data generator
+  gem 'faker'
 
 end
 

@@ -5,6 +5,8 @@
 # files.
 
 require 'cucumber/rails'
+require 'coveralls'
+Coveralls.wear_merged!("rails")
 
 #FactoryBot.find_definitions
 #World(FactoryBot::Syntax::Methods)

@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   validates :username, presence: :true, length: {maximum: 20 }, uniqueness: { case_sensitive: false }
   validate :validate_username
 
+  validates :password_confirmation, presence: true, on: :create
+
+  validates :role, presence: :true
+
 	def validate_username
 	  if User.where(email: username).exists?
 	    errors.add(:username, :invalid)
