@@ -68,6 +68,9 @@ body {
 
 .bg-dark {
 	background-color: $dark;
+	&:hover {
+		background-color: lighten($dark, 3%);
+	}
 }
 
 .spacer {

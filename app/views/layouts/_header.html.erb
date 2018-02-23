@@ -6,7 +6,7 @@
 			<% if controller.controller_name == 'welcome' %>
 				<%= link_to image_tag("logo-highlight.png", alt: "logo"), root_path, id: "logo" %>
 			<% else %>
-				<%= link_to image_tag("logo-highlight.png", alt: "logo"), root_path, id: "logo" %>
+				<%= link_to image_tag("logo-highlight-white.png", alt: "logo"), root_path, id: "logo" %>
 			<% end %>
 			<ul>
 				<li>
@@ -42,30 +42,6 @@
     	<% end %>
 			</ul>
 		</nav>
-	<!--
-		<nav>
-			<ul>
-				<%= link_to content_tag(:li, "Explore"), root_path %>
-				<%= link_to( content_tag(:li, "Sign In"), sign_in_path ) if !user_signed_in? %>
-				<%= link_to content_tag(:li, "Create Podcast"), root_path %>
-				<%= link_to content_tag(:li, "FAQ"), root_path %>
-				<% if user_signed_in? %>
-					<li>
-	    			<div class="dropdown">
-		    			<button class="dropbtn">
-		    				<%= image_tag("user-logo.png", alt: "user-logo") %>
-		    				<p>Username</p>
-		    			</button>
-	    				<div class="dropdown-content">
-	    					<%= link_to "Profile", root_path %>
-	    					<%= link_to "Account Settings", root_path %>
-	    					<%= link_to "Sign Out", sign_out_path, :method => 'delete' %>
-	    				</div>
-	    			</div>
-	    		</li>
-				<% end %>
-			</ul>
-		</nav> -->
 	</div>
 </header>
 
