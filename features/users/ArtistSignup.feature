@@ -1,3 +1,4 @@
+@sign_up
 Feature: Artist Sign up
 
 	As an Artist user,

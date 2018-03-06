@@ -4,11 +4,12 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I am a registered and confirmed user$/ do
-	username = 'dummyUsername'
-	email = 'testing@man.net'
-  password = 'secretpass'
-  role = 'artist'
-  User.new(:username => username, :email => email, :password => password, :password_confirmation => password, :role => role, :confirmed_at => DateTime.now).save!
+	#username = 'dummyUsername'
+	#email = 'testing@man.net'
+  #password = 'secretpass'
+  #role = 'artist'
+  #User.new(:username => username, :email => email, :password => password, :password_confirmation => password, :role => role, :confirmed_at => DateTime.now).save!
+  create(:user)
 end
 
 When /^I sign in with valid email and password$/ do

@@ -53,6 +53,8 @@ li a, .dropbtn {
 		height: 2rem;
 		vertical-align: middle;
 		padding-right: 2px;
+		border-radius: 0.5rem;
+		border: 1px solid $highlight;
 	}
 }
 

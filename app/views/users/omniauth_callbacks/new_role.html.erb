@@ -1,0 +1,35 @@
+<div class="banner signup-banner">
+  <h1>Sign Up to SmartCast</h1>
+</div>
+
+<div class="wrapper-skinny devise-container">
+
+  <%= form_tag user_new_role_registration_path do %>
+
+    <div class="field">
+      <label>Choose a role: </label>
+      <table id="sign-up-role-table">
+        <td>
+          <%= f.label :role_artist, :class => "label-container" do %>
+          Artist
+          <%= f.radio_button :role, 'artist', :checked => true %>
+          <span class="checkmark"></span>
+          <% end %>
+        </td>
+        <td>
+        <%= f.label :role_learner, :class => "label-container" do %>
+        Learner
+        <%= f.radio_button :role, 'learner'%>
+        <span class="checkmark"></span>
+        <% end %>
+        </td>
+      </table>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign up with Facebook", new_user_role_registration_path, :method => 'post', :class => "button button-highlight" %>
+      <%= link_to "Cancel", root_path, :class => "button button-white"
+    </div>
+
+  <% end %>
+
+</div>

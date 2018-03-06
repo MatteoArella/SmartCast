@@ -1,3 +1,4 @@
+@sign_in
 Feature: User Sign in
 
 	As a user,
