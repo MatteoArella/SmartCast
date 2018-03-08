@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_role
-    session[:user_role] = params[:user][:role].gsub("\\", "")
+    session[:user_role] = sign_up_role_params[:role].gsub("\\", "")
     redirect_to user_facebook_omniauth_authorize_path
   end
 

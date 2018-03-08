@@ -39,7 +39,7 @@
   					<a class="username-dropdown"><%= current_user.username %></a>
   					<%= link_to "Profile", root_path %>
   					<%= link_to "Account Settings", root_path %>
-  					<%= link_to "Sign Out", sign_out_path, :method => 'delete', :onclick => 'return FB.logout();' %>
+  					<%= link_to "Sign Out", sign_out_path, :method => 'delete' %>
   				</div>
     		</li>
     	<% end %>
