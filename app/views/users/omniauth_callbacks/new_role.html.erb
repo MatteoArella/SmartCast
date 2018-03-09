@@ -3,33 +3,30 @@
 </div>
 
 <div class="wrapper-skinny devise-container">
-
-  <%= form_tag user_new_role_registration_path do %>
-
+  <%= form_tag create_user_role_path do -%>
     <div class="field">
       <label>Choose a role: </label>
       <table id="sign-up-role-table">
         <td>
-          <%= f.label :role_artist, :class => "label-container" do %>
-          Artist
-          <%= f.radio_button :role, 'artist', :checked => true %>
-          <span class="checkmark"></span>
-          <% end %>
+          <label for="user_role_artist" class="label-container">
+            Artist
+            <input type="radio" value="artist" name="user[role]" id="user_role_artist" checked/>
+            <span class="checkmark"></span>
+          </label>
         </td>
         <td>
-        <%= f.label :role_learner, :class => "label-container" do %>
-        Learner
-        <%= f.radio_button :role, 'learner'%>
-        <span class="checkmark"></span>
-        <% end %>
+          <label for="user_role_learner" class="label-container">
+            Learner
+            <input type="radio" value="learner" name="user[role]" id="user_role_learner" />
+            <span class="checkmark"></span>
+          </label>
         </td>
       </table>
     </div>
+
     <div class="actions">
-      <%= f.submit "Sign up with Facebook", new_user_role_registration_path, :method => 'post', :class => "button button-highlight" %>
-      <%= link_to "Cancel", root_path, :class => "button button-white"
+      <%= submit_tag "Sign Up with Facebook", :class => "button button-highlight" %>
+      <%= render "devise/shared/links" %>
     </div>
-
-  <% end %>
-
+  <% end -%>
 </div>

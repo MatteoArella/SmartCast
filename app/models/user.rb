@@ -17,15 +17,17 @@ class User < ActiveRecord::Base
   validates :role, presence: :true
 
   def self.from_omniauth(auth, role)
-    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.password_confirmation = user.password
-      user.username = auth.info.name
-      user.avatar = auth.info.image
-      user.role = role
-      user.skip_confirmation!
-    end
+    password = Devise.friendly_token[0,20]
+    User.create!(
+      provider: auth["provider"],
+      uid: auth["uid"],
+      username: auth["info"]["name"],
+      email: auth["info"]["email"],
+      password: password,
+      password_confirmation: password,
+      avatar: auth["info"]["image"],
+      role: role,
+      confirmed_at: Date.today)
   end
 
 	def validate_username

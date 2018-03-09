@@ -15,7 +15,7 @@ Scenario Outline: User sign up with Facebook
 	When I press <role> radio button
 	And I press "Sign Up with Facebook"
 	Then I should be on the SmartCast homepage
-	And I should see "Successfully authenticated from Facebook account"
+	And I should see "Successfully Signed Up with Facebook"
 	
 	Examples:
 		| role 			|

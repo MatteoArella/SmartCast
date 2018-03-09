@@ -56,7 +56,7 @@
 
     <div class="actions">
       <%= f.submit "Sign up", :class => "button button-highlight" %>
-      <%= link_to "Sign Up with Facebook", new_user_role_path, :class => 'button button-white' %><br />
+      <%= link_to "Sign Up with Facebook", user_facebook_omniauth_authorize_path, :class => 'button button-white' %><br />
       <%= render "devise/shared/links" %>
     </div>
 
