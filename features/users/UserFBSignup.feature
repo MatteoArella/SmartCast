@@ -8,17 +8,16 @@ Feature: User sign up with Facebook
 Background: Not authenticated user
 	Given I am not authenticated
 
-@artist
-Scenario Outline: Artist sign up with Facebook from Sign up page
+Scenario Outline: User sign up with Facebook
 	Given I am on the Sign up page
 	When I follow "Sign Up with Facebook"
 	Then I should be on the role selection page
-	And I click on <role> radio button
-	And I follow "Sign up"
+	When I press <role> radio button
+	And I press "Sign Up with Facebook"
 	Then I should be on the SmartCast homepage
-	And I should see a success message
+	And I should see "Successfully authenticated from Facebook account"
 	
 	Examples:
-		| role 		|
-		| artist 	|
-		| learner |
+		| role 			|
+		| "artist" 	|
+		| "learner" |
