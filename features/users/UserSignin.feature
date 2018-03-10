@@ -1,3 +1,4 @@
+@sign_in
 Feature: User Sign in
 
 	As a user,
@@ -28,4 +29,4 @@ Scenario: User sign in with username (happy path)
 Scenario: Failed sign in (sad path)
 	Given I am on the Sign In page
 	When I sign in with invalid credentials
-	Then I should see an error message
+	Then I should see "Invalid"

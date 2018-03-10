@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
 	prepend_before_action :check_captcha, only: [:create, :edit] # Change this to be any actions you want to protect.
 
   private

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable
+         :confirmable, :omniauthable, omniauth_providers: %i[facebook]
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -15,6 +15,20 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
 
   validates :role, presence: :true
+
+  def self.from_omniauth(auth, role)
+    password = Devise.friendly_token[0,20]
+    User.create!(
+      provider: auth["provider"],
+      uid: auth["uid"],
+      username: auth["info"]["name"],
+      email: auth["info"]["email"],
+      password: password,
+      password_confirmation: password,
+      avatar: auth["info"]["image"],
+      role: role,
+      confirmed_at: Date.today)
+  end
 
 	def validate_username
 	  if User.where(email: username).exists?

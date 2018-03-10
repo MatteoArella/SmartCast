@@ -9,7 +9,7 @@ require 'coveralls'
 Coveralls.wear_merged!("rails")
 
 #FactoryBot.find_definitions
-#World(FactoryBot::Syntax::Methods)
+World(FactoryBot::Syntax::Methods)
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -61,3 +61,22 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# Omniauth Testing
+Before('@omniauth_test') do
+  OmniAuth.config.test_mode = true
+  #Capybara.default_host = 'http://example.com'
+
+  OmniAuth.config.add_mock(:facebook, {
+    :uid => '123456',
+    :provider => 'facebook',
+    :info => {
+      :name => 'facebookuser',
+      :email => 'test@foo.com',
+      :image => 'http://graph.facebook.com/1234567/picture?type=square'
+    }
+  })
+end
+
+After('@omniauth_test') do
+  OmniAuth.config.test_mode = false
+end

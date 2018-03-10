@@ -1,0 +1,32 @@
+<div class="banner signup-banner">
+  <h1>Sign Up to SmartCast</h1>
+</div>
+
+<div class="wrapper-skinny devise-container">
+  <%= form_tag create_user_role_path do -%>
+    <div class="field">
+      <label>Choose a role: </label>
+      <table id="sign-up-role-table">
+        <td>
+          <label for="user_role_artist" class="label-container">
+            Artist
+            <input type="radio" value="artist" name="user[role]" id="user_role_artist" checked/>
+            <span class="checkmark"></span>
+          </label>
+        </td>
+        <td>
+          <label for="user_role_learner" class="label-container">
+            Learner
+            <input type="radio" value="learner" name="user[role]" id="user_role_learner" />
+            <span class="checkmark"></span>
+          </label>
+        </td>
+      </table>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Confirm", :class => "button button-highlight" %>
+      <%= link_to "Cancel", root_path, :class => "button button-white" %>
+    </div>
+  <% end -%>
+</div>

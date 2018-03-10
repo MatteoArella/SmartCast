@@ -29,11 +29,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: "Repeat Password" %>
     </div>
 
-        <div class="field">
-          <label>Choose a role: </label>
-          <table id="sign-up-role-table">
-
-            <td>
+    <div class="field">
+      <label>Choose a role: </label>
+      <table id="sign-up-role-table">
+        <td>
           <%= f.label :role_artist, :class => "label-container" do %>
             Artist
             <%= f.radio_button :role, 'artist', :checked => true %>
@@ -48,17 +47,18 @@
           <% end %>
         </td>
       </table>
-        </div>
+    </div>
 
-        <div class="field">
-          <%= flash[:recaptcha_error] %>
-          <%= recaptcha_tags %>
-        </div>
+    <div class="field">
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+    </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up", :class => "button button-highlight" %>
-          <%= render "devise/shared/links" %>
-        </div>
+    <div class="actions">
+      <%= f.submit "Sign Up", :class => "button button-highlight" %>
+      <%= link_to "Sign Up with Facebook", user_facebook_omniauth_authorize_path, :class => 'button button-white' %><br />
+      <%= render "devise/shared/links" %>
+    </div>
 
   <% end %>
 
