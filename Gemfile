@@ -89,3 +89,6 @@ end
 group :production do
   gem 'pg'
 end
+
+
+ruby "2.3.0"
