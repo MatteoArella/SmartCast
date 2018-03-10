@@ -25,7 +25,7 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
   timeout: 5000
-  database: smartcast_production
+  database: <%= ENV['SMARTCAST_DATABASE_DATABASE'] %>
   username: <%= ENV['SMARTCAST_DATABASE_USER'] %>
   password: <%= ENV['SMARTCAST_DATABASE_PASSWORD'] %>
 
