@@ -1,5 +1,4 @@
 Given /^I am not authenticated$/ do
-  #visit('/users/sign_out') # ensure that at least
   page.driver.submit :delete, sign_out_path, {}
 end
 
@@ -10,19 +9,19 @@ end
 When /^I sign in with valid email and password$/ do
 	fill_in "user[login]", :with => @user.email
   fill_in "user_password", :with => @user.password
-  click_button "Sign in"
+  click_button "Sign In"
 end
 
 When /^I sign in with valid username and password$/ do
 	fill_in "user[login]", :with => @user.username
   fill_in "user_password", :with => @user.password
-  click_button "Sign in"
+  click_button "Sign In"
 end
 
 When /^I sign in with invalid credentials$/ do
 	fill_in "user[login]", :with => @user.username
   fill_in "user_password", :with => "wrongPassword"
-  click_button "Sign in"
+  click_button "Sign In"
 end
 
 Then /^I should see a success message$/ do
