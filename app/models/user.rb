@@ -9,25 +9,33 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
-  validates :username, presence: :true, length: {maximum: 20 }, uniqueness: { case_sensitive: false }
+  validates :username, presence: :true, length: { maximum: 20 }
+  validates_uniqueness_of :username
   validate :validate_username
-
-  validates :password_confirmation, presence: true, on: :create
 
   validates :role, presence: :true
 
   def self.from_omniauth(auth, role)
-    password = Devise.friendly_token[0,20]
-    User.create!(
+    # first user from omniauth
+    if role.nil?
+      user = User.where(email: auth["info"]["email"]).first
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      #user.username = auth["info"]["name"]
+      user.avatar = auth["info"]["image"]
+    else
+      user = User.create!(
       provider: auth["provider"],
       uid: auth["uid"],
       username: auth["info"]["name"],
       email: auth["info"]["email"],
-      password: password,
-      password_confirmation: password,
+      #password: password,
+      #password_confirmation: password,
       avatar: auth["info"]["image"],
       role: role,
       confirmed_at: Date.today)
+    end
+    user
   end
 
 	def validate_username
@@ -35,6 +43,20 @@ class User < ActiveRecord::Base
 	    errors.add(:username, :invalid)
 	  end
 	end
+
+  def validate_email
+    if User.where(email: email, provider: [nil, ""]).exists?
+      errors.add(:email, :invalid)
+    end
+  end
+
+  def email_required?
+    super && provider.blank?
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
 
   def self.find_for_database_authentication(warden_conditions = {})
     conditions = warden_conditions.dup

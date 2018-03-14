@@ -9,7 +9,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def create_role
     role = sign_up_role_params[:role].gsub("\\", "")
-    @user = User.from_omniauth(session["devise.facebook_data"], role)
+    begin
+      @user = User.from_omniauth(session["devise.facebook_data"], role)
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash.error = invalid.record.errors
+    end
     user_omniauth_sign_in
   end
 
@@ -20,10 +24,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def omniauth_generic_callback
-    @user = User.where(provider: omniauth_params.provider, uid: omniauth_params.uid).first
-    unless @user.nil?
+    #@user = User.where(provider: omniauth_params.provider, uid: omniauth_params.uid).first
+    if User.where(email: omniauth_params.info.email).exists?
+      @user = User.from_omniauth(omniauth_params, nil)
       user_omniauth_sign_in
-    else
+    else # new user
       session["devise.facebook_data"] = omniauth_params
       redirect_to new_user_role_path # select role
     end
