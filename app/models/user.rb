@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validate :validate_username
 
+  validates :password_confirmation, presence: :true, if: :password_required?
+  validates_confirmation_of :password
+
   validates :role, presence: :true
 
   def self.from_omniauth(auth, role)
@@ -29,8 +32,6 @@ class User < ActiveRecord::Base
       uid: auth["uid"],
       username: auth["info"]["name"],
       email: auth["info"]["email"],
-      #password: password,
-      #password_confirmation: password,
       avatar: auth["info"]["image"],
       role: role,
       confirmed_at: Date.today)
@@ -43,16 +44,6 @@ class User < ActiveRecord::Base
 	    errors.add(:username, :invalid)
 	  end
 	end
-
-  def validate_email
-    if User.where(email: email, provider: [nil, ""]).exists?
-      errors.add(:email, :invalid)
-    end
-  end
-
-  def email_required?
-    super && provider.blank?
-  end
 
   def password_required?
     super && provider.blank?
