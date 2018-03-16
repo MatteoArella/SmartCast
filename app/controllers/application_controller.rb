@@ -17,22 +17,22 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.default_locale = extract_locale || I18n.default_locale
-    #if language_change_necessary?
-    #  I18n.locale = the_new_locale
-    #  set_locale_cookie(I18n.locale)
-    #else
-    #  use_locale_from_cookie
-    #end
+    #I18n.default_locale = extract_locale || I18n.default_locale
+    if language_change_necessary?
+      I18n.locale = the_new_locale
+      set_locale_cookie(I18n.locale)
+    else
+      use_locale_from_cookie
+    end
   end
 
   def language_change_necessary?
-    cookies['language'].nil? || params[:language]
+    params[:language] || cookies['language'].nil?
   end
 
   def the_new_locale
     new_locale = params[:language]
-    if I18n.available_locales.include?(new_locale)
+    if I18n.available_locales.map { |locale| locale.to_s }.include?(new_locale)
       new_locale
     else
       I18n.default_locale.to_s
