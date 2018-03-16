@@ -10,16 +10,16 @@
 			<% end %>
 			<ul>
 				<li>
-					<%= link_to "Explore", user_signed_in?? root_path : sign_in_path %>
+					<%= link_to t("explore"), user_signed_in?? root_path : sign_in_path %>
 				</li>
 			<% if !user_signed_in? %>
 				<li>
-					<%= link_to "Sign In", sign_in_path if !user_signed_in? %>
+					<%= link_to t("devise.sessions.new.sign_in"), sign_in_path if !user_signed_in? %>
 				</li>
 			<% end %>
 			<% if !user_signed_in? || current_user.role == 'artist' %>
     		<li>
-    			<%= link_to "Create Podcast", user_signed_in?? root_path : sign_in_path %>
+    			<%= link_to t("create"), user_signed_in?? root_path : sign_in_path %>
     		</li>
     	<% end %>
         <li>
@@ -37,12 +37,21 @@
     			</a>
   				<div class="dropdown-content">
   					<a class="username-dropdown"><%= current_user.username %></a>
-  					<%= link_to "Profile", root_path %>
-  					<%= link_to "Account Settings", root_path %>
-  					<%= link_to "Sign Out", sign_out_path, :method => 'delete' %>
+  					<%= link_to t("user.profile"), root_path %>
+  					<%= link_to t("user.account_settings"), root_path %>
+  					<%= link_to t("devise.sessions.delete.sign_out"), sign_out_path, :method => 'delete' %>
   				</div>
     		</li>
     	<% end %>
+        <li class="dropdown dropdown-locales">
+          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
+          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
+          <div class="dropdown-content dropdown-content-locales">
+            <% I18n.available_locales.each do |locale| %>
+              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
+            <% end %>
+          </div>
+        </li>
 			</ul>
 		</nav>
 	</div>

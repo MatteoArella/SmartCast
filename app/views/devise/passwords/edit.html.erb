@@ -1,5 +1,5 @@
 <div class="banner signup-banner">
-  <h1>Change your password</h1>
+  <h1><%= t("banners.change_password") %></h1>
 </div>
 
 <div class="wrapper-skinny devise-container">
@@ -8,22 +8,22 @@
     <%= f.hidden_field :reset_password_token %>
 
     <div class="field">
-      <%= f.label :password, "New password" %>
+      <%= f.label :password, t("user.password.new") %>
       <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <em>(<%= t("devise.shared.minimum_password_length", length: @minimum_password_length) %>)</em><br />
       <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "off", :class => "border-animation" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", :class => "border-animation", placeholder: t("user.password.new_label") %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Confirm new password" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation" %>
+      <%= f.label :password_confirmation, t("user.password.new_password_confirm") %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: t("user.password.repeat_password_confirm") %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Change my password", :class => "button button-highlight" %>
+      <%= f.submit t("confirm"), :class => "button button-highlight" %>
+      <%= link_to t("cancel"), root_path, :class => "button button-white" %>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>

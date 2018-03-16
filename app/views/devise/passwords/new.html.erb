@@ -1,5 +1,5 @@
 <div class="banner signup-banner">
-  <h1>Forgot your password?</h1>
+  <h1><%= t("banners.forgot_password") %></h1>
 </div>
 
 <div class="wrapper-skinny devise-container">
@@ -7,12 +7,12 @@
 	  <%= devise_error_messages! %>
 
 	  <div class="field">
-	    <%= f.label :email %><br />
-	    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "border-animation" %>
+	    <%= f.label :email, t("user.registration.email") %><br />
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "border-animation", placeholder: t("user.registration.email_label") %>
 	  </div>
 
 	  <div class="actions">
-	    <%= f.submit "Send me reset password instructions", :class => "button button-highlight" %><br/>
+	    <%= f.submit t("devise.passwords.new.send_me_reset_password_instructions"), :class => "button button-highlight" %><br/>
 	    <%= render "devise/shared/links" %>
 	  </div>
 	<% end %>

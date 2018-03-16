@@ -1,11 +1,11 @@
 <div id="background" class="wrapper-skinny">
 	<div id="home-content">
 		<h1>SmartCast</h1>
-		<h3 class="welcome-page-text">Discover your favourite Podcast, or create your own</h3>
+		<h3 class="welcome-page-text"><%= t('welcome.subtitle') %></h3>
 
 		<div id="welcome-buttons-bar">
-			<%= link_to "Create Podcast", root_path, class: "button button-highlight" %>
-			<%= link_to "Explore", root_path, class: "button button-white" %>
+			<%= link_to t("create"), root_path, class: "button button-highlight" %>
+			<%= link_to t("explore"), root_path, class: "button button-white" %>
 		</div>
 	</div>
 </div>

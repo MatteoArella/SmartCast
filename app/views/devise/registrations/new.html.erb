@@ -1,5 +1,5 @@
 <div class="banner signup-banner">
-  <h1>Sign Up to SmartCast</h1>
+  <h1><%= t("banners.sign_up") %></h1>
 </div>
 
 <div class="wrapper-skinny devise-container">
@@ -7,41 +7,41 @@
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :username%>
-      <%= f.text_field :username, autofocus: true, :class => "border-animation", placeholder: "Enter Username" %>
+      <%= f.label :username, t("user.registration.username") %>
+      <%= f.text_field :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
     </div>
 
     <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autocomplete: "email", :class => "border-animation", placeholder: "Enter Email" %>
+      <%= f.label :email, t("user.registration.email") %>
+      <%= f.email_field :email, autocomplete: "email", :class => "border-animation", placeholder: t("user.registration.email_label") %>
     </div>
 
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= t("devise.registrations.new.minimum_password_length", length: @minimum_password_length) %>)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", :class => "border-animation", placeholder: "Enter Password" %>
+      <%= f.password_field :password, autocomplete: "off", :class => "border-animation", placeholder: t("user.registration.password_label") %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: "Repeat Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: t("user.registration.password_confirmation_label") %>
     </div>
 
     <div class="field">
-      <label>Choose a role: </label>
+      <label><%= t("user.registration.role_selection_label") %></label>
       <table id="sign-up-role-table">
         <td>
           <%= f.label :role_artist, :class => "label-container" do %>
-            Artist
+            <%= t("user.role.artist") %>
             <%= f.radio_button :role, 'artist', :checked => true %>
             <span class="checkmark"></span>
           <% end %>
         </td>
         <td>
           <%= f.label :role_learner, :class => "label-container" do %>
-            Learner
+            <%= t("user.role.learner") %>
             <%= f.radio_button :role, 'learner'%>
             <span class="checkmark"></span>
           <% end %>
@@ -55,8 +55,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign Up", :class => "button button-highlight" %>
-      <%= link_to "Sign Up with Facebook", user_facebook_omniauth_authorize_path, :class => 'button button-white' %><br />
+      <%= f.submit t("devise.shared.links.sign_up"), :class => "button button-highlight" %>
+      <%= link_to t("devise.shared.links.sign_up_with_provider", provider: "Facebook"), user_facebook_omniauth_authorize_path, :class => 'button button-white' %><br />
       <%= render "devise/shared/links" %>
     </div>
 
