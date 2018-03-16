@@ -59,7 +59,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-   background-color: rgba($dark, 0.2);
+   background-color: rgba($dark, 0.4);
    color: $highlight;
 }
 
@@ -91,4 +91,26 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropbtn-locales {
+	width: 40px;
+	img {
+		max-width: 1.4rem;
+		max-height: 1.4rem;
+		width: 1.4rem;
+		height: 1.4rem;
+		border-radius: 0;
+		border: none;
+	}
+}
+
+.dropdown-content-locales {
+
+	a img {
+		max-width: 30px;
+		max-height: 30px;
+		width: 30px;
+		height: 30px;
+	}
 }

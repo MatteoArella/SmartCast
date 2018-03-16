@@ -1,13 +1,13 @@
 <div class="banner signin-banner">
-  <h1>Sign In to SmartCast</h1>
+  <h1><%= t("banners.sign_in") %></h1>
 </div>
 
 <div class="wrapper-skinny devise-container">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="field">
-      <%= f.label :login, "Username or Email" %><br />
-      <%= f.text_field :login, placeholder: "Username or Email", :class => "border-animation"  %>
+      <%= f.label :login, t("user.session.login_label") %><br />
+      <%= f.text_field :login, placeholder: t("user.session.login_label"), :class => "border-animation"  %>
     </div>
       
     <div class="field">
@@ -24,18 +24,17 @@
 
     <div class="field">
       <%- if devise_mapping.recoverable? %>
-      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(resource_name) %><br />
       <% end -%>
       <%- if devise_mapping.confirmable? %>
-      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+      <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
       <% end -%>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign In", :class => "button button-highlight" %>
-      <%= link_to "Sign Up", new_registration_path(resource_name), :class => "button button-white" %>
-      <%= link_to "Sign In with Facebook", user_facebook_omniauth_authorize_path, :class => "button button-white" %>
-      <%- # render "devise/shared/links" -%>
+      <%= f.submit t("devise.sessions.new.sign_in"), :class => "button button-highlight" %>
+      <%= link_to t("devise.registrations.new.sign_up"), new_registration_path(resource_name), :class => "button button-white" %>
+      <%= link_to t("devise.shared.links.sign_in_with_provider", provider: "Facebook"), user_facebook_omniauth_authorize_path, :class => "button button-white" %>
     </div>
 
   <% end %>
