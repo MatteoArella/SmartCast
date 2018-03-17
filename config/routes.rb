@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     post '/users/sign_up/role' => 'users/omniauth_callbacks#create_role', as: :create_user_role
   end
 
-  resources :users
+  get '/users/settings' => 'users/users#settings'
+
+  resources :users, :module => 'users'
+
+  
 
   #get 'welcome/index'
 

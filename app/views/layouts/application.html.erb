@@ -36,7 +36,13 @@
 							$this.remove();
 						});
 					}, 4500 );
+
+					$('details').click(function (event) {
+	    			$('details').not(this).removeAttr("open");  
+	  			});
 				});
+
+				
 
 			</script>
 		<!--</div>-->
