@@ -1,42 +1,51 @@
 class User < ActiveRecord::Base
+
+  SOCIALS = {
+    facebook: 'Facebook'
+  }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :omniauthable, omniauth_providers: %i[facebook]
+         :confirmable, :omniauthable, omniauth_providers: SOCIALS.keys
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
+  has_many :identities, :dependent => :destroy
+
   validates :username, presence: :true, length: { maximum: 20 }
   validates_uniqueness_of :username
   validate :validate_username
 
-  validates :password_confirmation, presence: :true, if: :password_required?
+  validates :password_confirmation, presence: :true
   validates_confirmation_of :password
 
   validates :role, presence: :true
 
-  def self.from_omniauth(auth, role)
-    # first user from omniauth
-    if role.nil?
-      user = User.where(email: auth["info"]["email"]).first
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      #user.username = auth["info"]["name"]
-      user.avatar = auth["info"]["image"]
-    else
-      user = User.create!(
-      provider: auth["provider"],
-      uid: auth["uid"],
-      username: auth["info"]["name"],
-      email: auth["info"]["email"],
-      avatar: auth["info"]["image"],
-      role: role,
-      confirmed_at: Date.today)
+  def self.from_omniauth(auth, role, current_user = nil)
+    identity = Identity.from_omniauth(auth)
+    if identity.user.blank?
+      # associa current_user all'identità o un nuovo user
+      user = current_user.nil? ? User.where(:email => auth['info']['email']).first : current_user
+      if user.blank?
+        user = User.new
+        user.provider = auth["provider"]
+        user.uid = auth["uid"]
+        user.fetch_details(auth)
+        user.role = role
+        user.password = Devise.friendly_token[0, 20]
+        user.password_confirmation = user.password
+        user.skip_confirmation!
+        user.fetch_details(auth)
+        user.save
+      end
+      identity.user = user
+      identity.save
     end
-    user
+    identity.user
   end
 
 	def validate_username
@@ -45,16 +54,22 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-  def password_required?
-    super && provider.blank?
-  end
-
   def self.find_for_database_authentication(warden_conditions = {})
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
       where(conditions.to_hash).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_hash).first
+    end
+  end
+
+  private
+
+  def fetch_details(auth)
+    unless auth["provider"] == 'twitter'
+      self.username = auth["info"]["name"]
+      self.email = auth["info"]["email"]
+      self.avatar = auth["info"]["image"]
     end
   end
 end
