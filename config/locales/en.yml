@@ -16,7 +16,10 @@ en:
 
   user:
     profile: "Profile"
-    account_settings: "Account Settings"
+    account_settings:
+      settings: "Account Settings"
+      current_password: "Current Password"
+      current_password_label: "Insert current Password"
     registration:
       username: "Username"
       username_label: "Enter Username"

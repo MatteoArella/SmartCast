@@ -1,5 +1,5 @@
 <div class="banner account-settings-banner">
-  <h1><%= t("user.account_settings") %></h1>
+  <h1><%= t("user.settings.account_settings") %></h1>
 </div>
 
 <div class="wrapper">
@@ -8,13 +8,23 @@
       <details>
         <summary>General</summary>
         <div class="wrapper-skinny slider">
-          <table>
-            <td class="text-align-right"><h2>Name</h2></td>
-            <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Name" /></td>
-            <tr />
-            <td class="text-align-right"><h2>Surname</h2></td>
-            <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Surname" /></td>
-          </table>
+          <%= form_tag root_path do -%>
+            <div class="field">
+              <%= label_tag :username, t("user.registration.username") %>
+              <%= text_field_tag :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
+            </div>
+<!--
+            <table>
+              <td class="text-align-right"><h2>Name</h2></td>
+              <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Name" /></td>
+              <tr />
+              <td class="text-align-right"><h2>Surname</h2></td>
+              <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Surname" /></td>
+            </table> -->
+            <div class="actions">
+              <%= submit_tag t("devise.shared.links.sign_up"), :class => "button button-highlight" %>
+            </div>
+          <% end -%>
         </div>
       </details>
     </article>
@@ -23,6 +33,28 @@
       <details>
         <summary>Security</summary>
         <div class="wrapper-skinny slider">
+          <%= form_tag users_password_change_path do -%>
+            <div class="field">
+              <%= label_tag 'user_current_password', t("user.account_settings.current_password") %><br />
+              <%= password_field_tag 'user[current_password]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.account_settings.current_password_label") %>
+            </div>
+
+            <div class="field">
+              <%= label_tag 'user_password', t("user.password.new") %><br />
+              <%= password_field_tag 'user[password]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.password.new_label") %>
+            </div>
+
+            <div class="field">
+              <%= label_tag 'user_password_confirmation', t("user.password.new_password_confirm") %><br />
+              <%= password_field_tag 'user[password_confirm]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.password.repeat_password_confirm") %>
+            </div>
+
+            <div class="actions">
+              <%= submit_tag t("confirm"), :class => "button button-highlight" %>
+              <%= link_to t("cancel"), root_path, :class => "button button-white" %>
+            </div>
+
+          <!--
           <table>
             <td class="text-align-right"><h2>Current Password</h2></td>
             <td><input class="border-animation" type="password" placeholder="Password" /></td>
@@ -32,7 +64,9 @@
             <tr/>
             <td class="text-align-right"><h2>Reinsert New Password</h2></td>
             <td><input class="border-animation" type="password" placeholder="Reinsert New Password" /></td>
-        </table>
+        </table> -->
+
+          <% end -%>
         </div>
       </details>
     </article>

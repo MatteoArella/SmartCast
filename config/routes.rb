@@ -6,11 +6,13 @@ Rails.application.routes.draw do
     get '/users/sign_in' => 'sessions#new', as: :sign_in
     delete '/users/sign_out' => 'sessions#destroy', as: :sign_out
     get '/users/sign_up' => 'users/registrations#new', as: :sign_up
+    get '/users/edit' => 'users/registrations#edit'
     get '/users/sign_up/role' => 'users/omniauth_callbacks#new_role', as: :new_user_role
     post '/users/sign_up/role' => 'users/omniauth_callbacks#create_role', as: :create_user_role
   end
 
   get '/users/settings' => 'users/users#settings'
+  post '/users/password/change' => 'users/users#change_password'
 
   resources :users, :module => 'users'
 

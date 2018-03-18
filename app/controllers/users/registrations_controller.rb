@@ -1,6 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 	prepend_before_action :check_captcha, only: [:create, :edit] # Change this to be any actions you want to protect.
 
+  def edit
+    @user = current_user
+  end
+
   private
 
   def sign_up_params

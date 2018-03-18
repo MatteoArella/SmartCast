@@ -16,7 +16,10 @@ de:
 
   user:
     profile: "Profil"
-    account_settings: "Kontooptionen"
+    account_settings: 
+      settings: "Kontooptionen"
+      current_password: "Password corrente"
+      current_password_label: "Inserisci password corrente"
     registration:
       username: "Nutzername"
       username_label: "Nutzername eingeben"
