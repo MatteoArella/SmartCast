@@ -25,27 +25,18 @@ class User < ActiveRecord::Base
 
   validates :role, presence: :true
 
-  def self.from_omniauth(auth, role, current_user = nil)
-    identity = Identity.from_omniauth(auth)
-    if identity.user.blank?
-      # associa current_user all'identità o un nuovo user
-      user = current_user.nil? ? User.where(:email => auth['info']['email']).first : current_user
-      if user.blank?
-        user = User.new
-        user.provider = auth["provider"]
-        user.uid = auth["uid"]
-        user.fetch_details(auth)
-        user.role = role
-        user.password = Devise.friendly_token[0, 20]
-        user.password_confirmation = user.password
-        user.skip_confirmation!
-        user.fetch_details(auth)
-        user.save
-      end
-      identity.user = user
-      identity.save
-    end
-    identity.user
+  def self.from_omniauth(auth, role)
+    identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
+    user = User.new
+    user.fetch_details(auth)
+    user.role = role
+    user.skip_confirmation!
+    user.password = Devise.friendly_token[0, 20]
+    user.password_confirmation = user.password
+    user.save
+    identity.user = user
+    identity.save
+    user
   end
 
 	def validate_username
@@ -62,8 +53,6 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
-
-  private
 
   def fetch_details(auth)
     unless auth["provider"] == 'twitter'

@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20180318184213) do
     t.string   "username"
     t.string   "email"
     t.string   "avatar"
-    t.string   "token"
-    t.string   "secret"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
