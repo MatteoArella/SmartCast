@@ -78,8 +78,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def user_omniauth_sign_in(provider)
-    sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
-    set_flash_message(:notice, :success, kind: User::SOCIALS[provider]) if is_navigational_format?
+    sign_in @user#, event: :authentication #this will throw if @user is not activated
+    redirect_to root_path
+    set_flash_message(:notice, :success, kind: User::SOCIALS[provider.to_sym]) if is_navigational_format?
   end
 
   def sign_up_role_params

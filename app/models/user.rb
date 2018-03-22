@@ -27,12 +27,13 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth, role)
     identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
+    password = Devise.friendly_token[0, 20]
     user = User.new
     user.fetch_details(auth)
     user.role = role
     user.skip_confirmation!
-    user.password = Devise.friendly_token[0, 20]
-    user.password_confirmation = user.password
+    user.password = password
+    user.password_confirmation = password
     user.save
     identity.user = user
     identity.save
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
 	    errors.add(:username, :invalid)
 	  end
 	end
+
+  def password_required?
+    super
+  end
 
   def self.find_for_database_authentication(warden_conditions = {})
     conditions = warden_conditions.dup
