@@ -1,0 +1,23 @@
+<body bgcolor="CCFFFF">
+
+<% provide(:title, 'Create your own podcast') %>
+<h1 align ="center">Create </h1>
+<h1 align ="center">your</h1>
+<h1 align ="center">own podcast</h1>
+<h1 align ="center">in SmartCast</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" align ="center">
+    <%= form_for(@podcast) do |f| %>
+      
+
+    <p >  <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %></p>
+
+
+      <%= f.submit "Create my podcast", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

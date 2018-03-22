@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   validates :role, presence: :true
 
+  has_many :podcasts, dependent: :destroy
+
   def self.from_omniauth(auth, role)
     # first user from omniauth
     if role.nil?

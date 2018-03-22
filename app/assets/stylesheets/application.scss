@@ -7,10 +7,14 @@
 @import 'partials/layout'; // responsive grid and media queries
 
 /* --------------------------------
-
 Primary style
-
 -------------------------------- */
+
+$white: #FFFFFF;
+$highlight: #d2674e;
+$dark: #22292e;
+$light: #EDEFF5;
+$usa: "009999";
 
 
 .container-fixed {
@@ -143,6 +147,10 @@ input {
   		padding: 4.5rem 0;
   	}
 }
+.podcasts_banner {
+	background-image: image-url("podcasts_banner.jpg");
+}
+
 
 .pagination:before, .pagination:after {
 	content: " ";
@@ -285,3 +293,4 @@ input {
 @import 'devise/common';
 @import 'devise/registrations/*';
 @import 'devise/sessions/new';
+@import 'podcast';

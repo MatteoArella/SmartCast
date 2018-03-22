@@ -10,7 +10,7 @@
 			<% end %>
 			<ul>
 				<li>
-					<%= link_to t("explore"), user_signed_in?? root_path : sign_in_path %>
+					<%= link_to t("explore"), user_signed_in?? podcasts_path : sign_in_path %>
 				</li>
 			<% if !user_signed_in? %>
 				<li>
@@ -19,7 +19,7 @@
 			<% end %>
 			<% if !user_signed_in? || current_user.role == 'artist' %>
     		<li>
-    			<%= link_to t("create"), user_signed_in?? root_path : sign_in_path %>
+    			<%= link_to t("create"), user_signed_in?? new_podcast_path : sign_in_path %>
     		</li>
     	<% end %>
         <li>
@@ -37,8 +37,8 @@
     			</a>
   				<div class="dropdown-content">
   					<a class="username-dropdown"><%= current_user.username %></a>
-  					<%= link_to t("user.profile"), root_path %>
-  					<%= link_to t("user.account_settings"), root_path %>
+  					<%= link_to t("user.profile"), user_path(current_user) %>
+  					<%= link_to t("user.account_settings"), edit_user_path(current_user) %>
   					<%= link_to t("devise.sessions.delete.sign_out"), sign_out_path, :method => 'delete' %>
   				</div>
     		</li>
