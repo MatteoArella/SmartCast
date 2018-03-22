@@ -7,7 +7,7 @@ FactoryBot.define do
 		email									{ Faker::Internet.unique.email }
 		password 								{ password }
     	password_confirmation 					{ password }
-		role									{ 'artist' }
+		type									{ 'Artist' }
 		confirmed_at							{ Date.today }
 		avatar									nil
 	end

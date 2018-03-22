@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def create_role
-    role = sign_up_role_params[:role].gsub("\\", "")
+    role = sign_up_type_params[:type].gsub("\\", "")
     begin
       @user = User.from_omniauth(session["devise.oauth_data"], role)
     rescue ActiveRecord::RecordInvalid => invalid
@@ -83,8 +83,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     set_flash_message(:notice, :success, kind: User::SOCIALS[provider.to_sym]) if is_navigational_format?
   end
 
-  def sign_up_role_params
-    params.require(:user).permit(:role)
+  def sign_up_type_params
+    params.require(:user).permit(:type)
   end
 
   def omniauth_params

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
     facebook: 'Facebook'
   }
 
+  PERMITTED_ROLES = ['Artist', 'Learner']
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :lockable,
@@ -23,21 +25,23 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: :true
   validates_confirmation_of :password
 
-  validates :role, presence: :true
+  validates :type, presence: :true
+  validate :validate_type
 
   def self.from_omniauth(auth, role)
     identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
     password = Devise.friendly_token[0, 20]
-    user = User.new
-    user.fetch_details(auth)
-    user.role = role
-    user.skip_confirmation!
-    user.password = password
-    user.password_confirmation = password
-    user.save
-    identity.user = user
-    identity.save
-    user
+
+    User.new.tap do |user|
+      user.fetch_details(auth)
+      user.type = role
+      user.skip_confirmation!
+      user.password = password
+      user.password_confirmation = password
+      user.save
+      identity.user = user
+      identity.save
+    end
   end
 
 	def validate_username
@@ -46,8 +50,10 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-  def password_required?
-    super
+  def validate_type
+    unless PERMITTED_ROLES.include? type
+      errors.add(:type, :invalid)
+    end
   end
 
   def self.find_for_database_authentication(warden_conditions = {})
