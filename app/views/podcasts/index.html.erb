@@ -1,0 +1,19 @@
+<body bgcolor="009999">
+
+<div id="banner" class="podcasts_banner" >
+	<h1 align="center">Discover your new favorite podcast</h1>
+</div>
+<div id="podcasts" class="cf">
+      <% provide(:title, "All podcasts") %>
+      <div class="podcast_overview">
+		<%for pod in Podcast.all %>
+			<li>
+				
+					<h2 align= "center"><%= link_to pod.name, podcast_path(pod.id) %></h2>
+					<p class="description" align= "center"><%= pod.description %></p>
+			
+			</li>
+		<%end%> 
+  	</div>
+</div>
+

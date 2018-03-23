@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318184213) do
+ActiveRecord::Schema.define(version: 20180321153813) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "podcast_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "mp3"
+    t.string   "mp3_file_name"
+    t.integer  "mp3_file_size"
+    t.string   "mp3_content_type"
+  end
+
+  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +39,16 @@ ActiveRecord::Schema.define(version: 20180318184213) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

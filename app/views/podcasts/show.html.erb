@@ -1,0 +1,23 @@
+<% provide(:name, @podcast.name) %>
+
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @podcast.name %></h1>
+          <p class="description"><%= @podcast.description %></p>
+            
+            </div>
+             </div>
+              
+                <h1>
+          					<%for e in @podcast.episodes %>
+          						<h2 class = "description"><%= e.name%></h2>
+          					<%end%> 
+
+                </h1>
+                
+                
+          <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "btn btn-lg btn-primary" %>
+       
+
+  </div>
