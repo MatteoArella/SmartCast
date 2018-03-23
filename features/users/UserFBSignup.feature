@@ -19,5 +19,5 @@ Scenario Outline: User sign up with Facebook
 	
 	Examples:
 		| role 			|
-		| "artist" 	|
-		| "learner" |
+		| "Artist" 	|
+		| "Learner" |

@@ -14,7 +14,7 @@
 				</li>
 			<% if !user_signed_in? %>
 				<li>
-					<%= link_to t("devise.sessions.new.sign_in"), sign_in_path if !user_signed_in? %>
+					<%= link_to t("devise.sessions.new.sign_in"), sign_in_path unless user_signed_in? %>
 				</li>
 			<% end %>
 			<% if !user_signed_in? %>
