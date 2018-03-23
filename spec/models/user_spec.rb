@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is not valid without a role' do
-  	user = FactoryBot.build(:user, :role => nil)
+  	user = FactoryBot.build(:user, :type => nil)
   	expect(user).to_not be_valid
   end
 
