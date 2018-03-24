@@ -1,23 +1,53 @@
-<% provide(:name, @podcast.name) %>
-
-<div id="podcast_show">
-  <div id="show_banner">
-    <div class="wrapper_skinny">
-      <h1><%= @podcast.name %></h1>
-          <p class="description"><%= @podcast.description %></p>
-            
-            </div>
-             </div>
-              
-                <h1>
-          					<%for e in @podcast.episodes %>
-          						<h2 class = "description"><%= e.name%></h2>
-          					<%end%> 
-
-                </h1>
-                
-                
-          <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "btn btn-lg btn-primary" %>
-       
-
+<div class="banner show-podcast-banner">
+  <%= image_tag "welcome_background.jpg", alt: "podcast-thumbnail" %>
+  <h1><%= @podcast.name %></h1>
+  <div class="pod-description">
+    <table>
+      <td>
+        <p class="col-large"><%= @podcast.description %></p>
+      </td>
+      <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), user_path(@artist) %></td>
+      <td class="col-medium"><%= link_to @artist.username, user_path(@artist) %></td>
+      <td class="col-medium">Created at --</td>
+    </table>
   </div>
+</div>
+
+  <div id="episodes">
+    <div class="wrapper-skinny">
+      <ul class="cf">
+        <% for e in @podcast.episodes %>
+          <li class="cf">
+            <div class="episode_thumbnail">
+              <a href="#"><img src="../../assets/images/welcome_background.jpg" alt="episode-thumbnail" /></a>
+            </div>
+            <div class="episode_overview">
+              <table>
+                <td class="col-large">
+                  <h2><%= e.name %></h2>
+                  <p class="description"><%= e.description %></p>
+                </td>
+                <td>
+                  <a class="button button-highlight" href="../episode/edit.html">Edit</a>
+                </td>
+                <td>
+                  <a class="button button-alert" href="#">Delete</a>
+                </td>
+              </table>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="pagination">
+        <span class="previous_page disabled">Previous</span>
+        <em class="current">1</em>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a class="next_page" href="#">Next</a>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "btn btn-lg btn-primary" %>
+</div>

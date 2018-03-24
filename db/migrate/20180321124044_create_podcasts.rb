@@ -3,7 +3,8 @@ class CreatePodcasts < ActiveRecord::Migration
     create_table :podcasts do |t|
       t.string :name
       t.text :description
-      t.references :user, index: true, foreign_key: true
+      t.string :image
+      t.references :artist, index: true, foreign_key: true
 
       t.timestamps null: false
     end

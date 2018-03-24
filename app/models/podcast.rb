@@ -1,5 +1,5 @@
 class Podcast < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :artist
   has_many :episodes, dependent: :destroy
 
   
