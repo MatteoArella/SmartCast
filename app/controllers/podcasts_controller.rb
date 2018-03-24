@@ -1,7 +1,7 @@
 class PodcastsController < ApplicationController
 	
 	def index
-		@podcasts = Podcast.all
+		@podcasts = Podcast.paginate(:page => params[:page])
 	end
 
 	def new
@@ -11,6 +11,7 @@ class PodcastsController < ApplicationController
 	def show
 		@podcast = Podcast.find(params[:id])
 		@artist = Artist.find(@podcast.artist_id)
+		@episodes = @podcast.episodes.paginate(:page => params[:page])
 	end
 
 
@@ -36,6 +37,6 @@ end
 private
 
   	def podcast_params
-      	params.require(:podcast).permit(:name, :description)  
+      	params.require(:podcast).permit(:name, :description, :image)  
 	end
 end

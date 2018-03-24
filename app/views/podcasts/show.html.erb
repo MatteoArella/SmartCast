@@ -1,5 +1,5 @@
 <div class="banner show-podcast-banner">
-  <%= image_tag "welcome_background.jpg", alt: "podcast-thumbnail" %>
+  <%= image_tag @podcast.image.url, alt: "podcast-thumbnail" %>
   <h1><%= @podcast.name %></h1>
   <div class="pod-description">
     <table>
@@ -16,10 +16,10 @@
   <div id="episodes">
     <div class="wrapper-skinny">
       <ul class="cf">
-        <% for e in @podcast.episodes %>
+        <% for e in @episodes %>
           <li class="cf">
             <div class="episode_thumbnail">
-              <a href="#"><img src="../../assets/images/welcome_background.jpg" alt="episode-thumbnail" /></a>
+              <a href="#"><%= image_tag e.image.url, alt: "episode-thumbnail" %></a>
             </div>
             <div class="episode_overview">
               <table>
@@ -40,14 +40,10 @@
       </ul>
 
       <div class="pagination">
-        <span class="previous_page disabled">Previous</span>
-        <em class="current">1</em>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a class="next_page" href="#">Next</a>
+        <%= will_paginate @episodes %>
       </div>
     </div>
   </div>
 
-  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "btn btn-lg btn-primary" %>
+  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
 </div>

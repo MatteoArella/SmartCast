@@ -34,7 +34,7 @@ end
 
 private
 	def episode_params
-		params.require(:episode).permit(:title, :description, :mp3)
+		params.require(:episode).permit(:title, :description, :mp3, :image)
 	end
 
 	def find_podcast

@@ -37,6 +37,16 @@ gem "recaptcha", require: "recaptcha/rails"
 
 gem 'omniauth-facebook'
 
+# image uploader
+gem 'carrierwave'
+
+# image resizer
+gem 'mini_magick'
+
+# Amazon S3 service
+gem 'fog-aws'
+
+gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
 # Use ActiveModel has_secure_password

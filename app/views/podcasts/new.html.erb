@@ -3,10 +3,10 @@
 </div>
 
 
-<%= form_for(@podcast, html: { id: "input-container", class: "cf wrapper"}) do |f| %>
+<%= form_for(@podcast, html: { :multipart => true, id: "input-container", class: "cf wrapper"}) do |f| %>
   <div id="image-upload">
-    <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
-    <label for="thumbnail" class="inputfile-label">Choose a file</label>
+    <%= f.file_field :image %>
+    <!--<label for="image" class="inputfile-label">Choose a file</label>-->
   </div>
   <div id="title">
   	<%= f.text_field :name, placeholder: "Insert Podcast title", class: "border-animation" %>

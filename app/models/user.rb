@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   validates :type, presence: :true
   validate :validate_type
 
+  # mount_uploader :avatar, ImageUploader
+
   def self.from_omniauth(auth, role)
     identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
     password = Devise.friendly_token[0, 20]

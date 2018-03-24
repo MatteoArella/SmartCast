@@ -15,7 +15,7 @@
     	<% for pod in @podcasts %>
 	      <%= link_to(pod) do %>
 	        <li>
-	          <%= image_tag "welcome_background.jpg", alt: "Podcast image" %>
+	          <%= image_tag pod.image.url, alt: "Podcast image" %>
 	          <div class="podcast-overview">
 	            <h2><%= pod.name %></h2>
 	            <p class="episode-count"><%= pod.episodes.count %> episodes</p>
@@ -28,9 +28,5 @@
 </div>
 
 <div class="pagination">
-  <span class="previous_page disabled">Previous</span>
-  <em class="current">1</em>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a class="next_page" href="#">Next</a>
+  <%= will_paginate @podcasts %>
 </div>

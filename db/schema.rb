@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180321153813) do
   create_table "episodes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "image"
     t.integer  "podcast_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
