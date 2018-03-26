@@ -7,6 +7,7 @@ class Users::UsersController < ApplicationController
 
 	def update_username
 		@user = current_user
+
 		if @user.update(change_username_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
@@ -16,12 +17,12 @@ class Users::UsersController < ApplicationController
     else
     	flash.notice = @user.errors.full_messages.to_sentence
     	redirect_to account_settings_path
-      #render template: "users/settings"
     end
 	end
 
 	def update_password
     @user = current_user
+
     if @user.update_with_password(change_password_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
@@ -31,7 +32,6 @@ class Users::UsersController < ApplicationController
     else
     	flash.notice = @user.errors.full_messages.to_sentence
     	redirect_to account_settings_path
-      #render template: "users/settings"
     end
   end
 
