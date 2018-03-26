@@ -1,28 +1,21 @@
 <div class="banner account-settings-banner">
-  <h1><%= t("user.settings.account_settings") %></h1>
+  <h1><%= t("user.account_settings.settings") %></h1>
 </div>
 
 <div class="wrapper">
   <section>
     <article>
       <details>
-        <summary>General</summary>
+        <summary><%= t("user.account_settings.sections.profile") %></summary>
         <div class="wrapper-skinny slider">
-          <%= form_tag root_path do -%>
+          <%= form_for(@user, :url => { :action => "update_username" } ) do |f| %>
             <div class="field">
-              <%= label_tag :username, t("user.registration.username") %>
-              <%= text_field_tag :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
+              <%= f.label :username, t("user.registration.username") %>
+              <%= f.text_field :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
             </div>
-<!--
-            <table>
-              <td class="text-align-right"><h2>Name</h2></td>
-              <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Name" /></td>
-              <tr />
-              <td class="text-align-right"><h2>Surname</h2></td>
-              <td><input class="border-animation" type="text" maxlength="20" placeholder="Change Surname" /></td>
-            </table> -->
             <div class="actions">
-              <%= submit_tag t("devise.shared.links.sign_up"), :class => "button button-highlight" %>
+              <%= submit_tag t("confirm"), :class => "button button-highlight" %>
+              <%= link_to t("cancel"), root_path, :class => "button button-white" %>
             </div>
           <% end -%>
         </div>
@@ -31,41 +24,28 @@
 
     <article>
       <details>
-        <summary>Security</summary>
+        <summary><%= t("user.account_settings.sections.security") %></summary>
         <div class="wrapper-skinny slider">
-          <%= form_tag users_password_change_path do -%>
+          <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
             <div class="field">
-              <%= label_tag 'user_current_password', t("user.account_settings.current_password") %><br />
-              <%= password_field_tag 'user[current_password]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.account_settings.current_password_label") %>
+              <%= f.label :current_password, t("user.account_settings.current_password") %><br />
+              <%= f.password_field :current_password, autocomplete: "off", :class => "border-animation", placeholder: t("user.account_settings.current_password_label") %>
             </div>
 
             <div class="field">
-              <%= label_tag 'user_password', t("user.password.new") %><br />
-              <%= password_field_tag 'user[password]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.password.new_label") %>
+              <%= f.label :password, t("user.password.new") %><br />
+              <%= f.password_field :password, autocomplete: "off", :class => "border-animation", placeholder: t("user.password.new_label") %>
             </div>
 
             <div class="field">
-              <%= label_tag 'user_password_confirmation', t("user.password.new_password_confirm") %><br />
-              <%= password_field_tag 'user[password_confirm]', "", autocomplete: "off", :class => "border-animation", placeholder: t("user.password.repeat_password_confirm") %>
+              <%= f.label :password_confirmation, t("user.password.new_password_confirm") %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: t("user.password.repeat_password_confirm") %>
             </div>
 
             <div class="actions">
               <%= submit_tag t("confirm"), :class => "button button-highlight" %>
               <%= link_to t("cancel"), root_path, :class => "button button-white" %>
             </div>
-
-          <!--
-          <table>
-            <td class="text-align-right"><h2>Current Password</h2></td>
-            <td><input class="border-animation" type="password" placeholder="Password" /></td>
-            <tr/>
-            <td class="text-align-right"><h2>New Password</h2></td>
-            <td><input class="border-animation" type="password" placeholder="New Password" /></td>
-            <tr/>
-            <td class="text-align-right"><h2>Reinsert New Password</h2></td>
-            <td><input class="border-animation" type="password" placeholder="Reinsert New Password" /></td>
-        </table> -->
-
           <% end -%>
         </div>
       </details>
@@ -73,9 +53,9 @@
 
     <article>
       <details>
-        <summary>Delete Account</summary>
+        <summary><%= t("user.account_settings.sections.delete_account") %></summary>
         <div class="wrapper-skinny button-bar slider">
-          <a class="button button-alert" href="#">Delete Account</a>
+          <%= link_to t("user.account_settings.sections.delete_account"), "", :class => "button button-alert" %>
         </div>
       </details>
     </article>

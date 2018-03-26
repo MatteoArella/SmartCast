@@ -20,6 +20,10 @@ it:
       settings: "Opzioni Account"
       current_password: "Password corrente"
       current_password_label: "Inserisci Password corrente"
+      sections:
+        profile: "Profilo"
+        security: "Sicurezza"
+        delete_account: "Cancella Account"
     registration:
       username: "Nome utente"
       username_label: "Inserisci Nome utente"

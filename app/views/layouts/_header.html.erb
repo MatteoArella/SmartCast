@@ -25,6 +25,15 @@
         <li>
             <%= link_to "FAQ", root_path %>
         </li>
+        <li class="dropdown dropdown-locales">
+          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
+          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
+          <div class="dropdown-content dropdown-content-locales">
+            <% I18n.available_locales.each do |locale| %>
+              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
+            <% end %>
+          </div>
+        </li>
 
       <% if user_signed_in? %>
     		<li class="dropdown">
@@ -38,20 +47,12 @@
   				<div class="dropdown-content">
   					<a class="username-dropdown"><%= current_user.username %></a>
   					<%= link_to t("user.profile"), root_path %>
-  					<%= link_to t("user.account_settings.settings"), users_settings_path %>
+  					<%= link_to t("user.account_settings.settings"), account_settings_path %>
   					<%= link_to t("devise.sessions.delete.sign_out"), sign_out_path, :method => 'delete' %>
   				</div>
     		</li>
     	<% end %>
-        <li class="dropdown dropdown-locales">
-          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
-          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
-          <div class="dropdown-content dropdown-content-locales">
-            <% I18n.available_locales.each do |locale| %>
-              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
-            <% end %>
-          </div>
-        </li>
+        
 			</ul>
 		</nav>
 	</div>
