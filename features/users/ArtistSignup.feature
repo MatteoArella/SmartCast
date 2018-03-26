@@ -24,7 +24,7 @@ Scenario: Artist Sign up (happy path)
   And I fill in "user_email" with "testing@man.net"
   And I fill in "user_password" with "secretpass"
   And I fill in "user_password_confirmation" with "secretpass"
-  And I press "artist" radio button
+  And I press "Artist" radio button
   And I press "Sign Up"
   Then I should be on the SmartCast home page
   Then I should see a success message

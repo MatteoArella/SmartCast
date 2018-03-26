@@ -8,16 +8,16 @@
       <label><%= t("user.registration.role_selection_label") %> <em><%= link_to "(?)", "#" %></em></label>
       <table id="sign-up-role-table">
         <td>
-          <label for="user_role_artist" class="label-container">
+          <label for="user_type_artist" class="label-container">
             <%= t("user.role.artist") %>
-            <input type="radio" value="artist" name="user[role]" id="user_role_artist" checked/>
+            <input type="radio" value="Artist" name="user[type]" id="user_type_artist" checked/>
             <span class="checkmark"></span>
           </label>
         </td>
         <td>
-          <label for="user_role_learner" class="label-container">
+          <label for="user_type_learner" class="label-container">
             <%= t("user.role.learner") %>
-            <input type="radio" value="learner" name="user[role]" id="user_role_learner" />
+            <input type="radio" value="Learner" name="user[type]" id="user_type_learner" />
             <span class="checkmark"></span>
           </label>
         </td>
