@@ -1,0 +1,50 @@
+@keyframes slideDown {
+	0% {
+		height: 0;
+	}	
+	100% {
+		max-height: 40000px;
+	}
+}
+
+.account-settings-banner {
+	background-image: image-url('explore_banner.jpg');
+}
+
+section {
+	margin-top: 5rem;
+	text-align: center;
+	article {
+		details {
+			border: 1px solid $highlight;
+			border-top: none;
+			border-radius: 0.6rem 0.6rem 0 0;
+
+			-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+			summary::-webkit-details-marker {
+				display: none;
+			}
+			summary:focus {
+				outline-style: none;
+			}
+			summary {
+				border-radius: 0.6rem 0.6rem 0 0;
+				background-color: $highlight;
+				cursor: pointer;
+				margin-top: 1rem;
+				padding: 1rem;
+				font-size: 2rem;
+				color: white;
+			}
+			div {
+				padding: 1rem;
+				margin: auto;
+				a {
+					width: 80%;
+				}
+			}
+		}
+	}
+}
