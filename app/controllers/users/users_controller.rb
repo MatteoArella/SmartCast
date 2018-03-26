@@ -8,7 +8,7 @@ class Users::UsersController < ApplicationController
 	def update_username
 		@user = current_user
 
-		if @user.update(change_username_params)
+		if @user.update_attribute(:username, change_username_params[:username])
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
 

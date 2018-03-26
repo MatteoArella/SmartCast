@@ -8,7 +8,7 @@
       <details>
         <summary><%= t("user.account_settings.sections.profile") %></summary>
         <div class="wrapper-skinny slider">
-          <%= form_for(@user, :url => { :action => "update_username" } ) do |f| %>
+          <%= form_for(@user, as: :user, :url => { :action => "update_username" } ) do |f| %>
             <div class="field">
               <%= f.label :username, t("user.registration.username") %>
               <%= f.text_field :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
@@ -26,7 +26,7 @@
       <details>
         <summary><%= t("user.account_settings.sections.security") %></summary>
         <div class="wrapper-skinny slider">
-          <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+          <%= form_for(@user, as: :user, :url => { :action => "update_password" } ) do |f| %>
             <div class="field">
               <%= f.label :current_password, t("user.account_settings.current_password") %><br />
               <%= f.password_field :current_password, autocomplete: "off", :class => "border-animation", placeholder: t("user.account_settings.current_password_label") %>
