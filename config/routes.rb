@@ -6,15 +6,20 @@ Rails.application.routes.draw do
     get '/users/sign_in' => 'sessions#new', as: :sign_in
     delete '/users/sign_out' => 'sessions#destroy', as: :sign_out
     get '/users/sign_up' => 'users/registrations#new', as: :sign_up
+    #get '/users/edit' => 'users/registrations#edit'
     get '/users/sign_up/role' => 'users/omniauth_callbacks#new_role', as: :new_user_role
     post '/users/sign_up/role' => 'users/omniauth_callbacks#create_role', as: :create_user_role
   end
 
-  resources :users#, only: [:show]
+  scope :users, :module => 'users' do
+    get '/settings' => 'users#settings', as: :account_settings
+    patch '/settings/update_username' => 'users#update_username', as: :update_username
+    patch '/settings/update_password' => 'users#update_password', as: :update_password
+  end
 
   resources :podcasts do 
     resources :episodes 
-  end 
+  end
 
   #get 'welcome/index'
 
@@ -23,7 +28,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
+  #root 'us'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
