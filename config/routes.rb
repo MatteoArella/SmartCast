@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     patch '/settings/update_password' => 'users#update_password', as: :update_password
   end
 
+  resources :podcasts do 
+    resources :episodes 
+  end
+
   #get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
