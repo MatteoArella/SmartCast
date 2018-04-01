@@ -33,16 +33,16 @@
       <label><%= t("user.registration.role_selection_label") %></label>
       <table id="sign-up-role-table">
         <td>
-          <%= f.label :role_artist, :class => "label-container" do %>
+          <%= f.label :type_artist, :class => "label-container" do %>
             <%= t("user.role.artist") %>
-            <%= f.radio_button :role, 'artist', :checked => true %>
+            <%= f.radio_button :type, 'Artist', :checked => true %>
             <span class="checkmark"></span>
           <% end %>
         </td>
         <td>
-          <%= f.label :role_learner, :class => "label-container" do %>
+          <%= f.label :type_learner, :class => "label-container" do %>
             <%= t("user.role.learner") %>
-            <%= f.radio_button :role, 'learner'%>
+            <%= f.radio_button :type, 'Learner'%>
             <span class="checkmark"></span>
           <% end %>
         </td>

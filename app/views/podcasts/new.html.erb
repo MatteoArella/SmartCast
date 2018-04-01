@@ -1,23 +1,25 @@
-<body bgcolor="CCFFFF">
-
-<% provide(:title, 'Create your own podcast') %>
-<h1 align ="center">Create </h1>
-<h1 align ="center">your</h1>
-<h1 align ="center">own podcast</h1>
-<h1 align ="center">in SmartCast</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3" align ="center">
-    <%= form_for(@podcast) do |f| %>
-      
-
-    <p >  <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control' %></p>
-
-
-      <%= f.submit "Create my podcast", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<div class="banner create-podcast-banner">
+  <h1>Create your Podcast</h1>
 </div>
+
+
+<%= form_for(@podcast, html: { :multipart => true, id: "input-container", class: "cf wrapper"}) do |f| %>
+  <div id="image-upload">
+    <%= f.file_field :image %>
+    <!--<label for="image" class="inputfile-label">Choose a file</label>-->
+  </div>
+  <div id="title">
+  	<%= f.text_field :name, placeholder: "Insert Podcast title", class: "border-animation" %>
+  </div>
+  <div id="description" >
+    <%= f.text_area :description, placeholder: "Insert Podcast description", class: "border-animation" %>
+  </div>
+
+  <div class="btn-bar">
+    
+    <div class="right">
+      <%= f.submit "Create my podcast", class: "button button-highlight" %>
+      <%= link_to "Edit", root_path, class: "button button-white" %>
+    </div>
+  </div>
+<% end %>

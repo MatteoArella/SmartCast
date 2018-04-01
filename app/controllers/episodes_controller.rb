@@ -1,14 +1,36 @@
 class EpisodesController < ApplicationController
 
-	before_action :find_podcast
+	before_action :find_podcast, only: [:show, :index, :create, :new]
 
 	def index
 		@episodes= Episode.all
 	end
 
 	def new
-		@episode= Episode.new
+		@episode = @podcast.episodes.new
 	end
+	def show 
+		@episode = Episode.find(params[:id])
+		@comments = @episode.comments
+	end
+  def edit 
+    @episode = Episode.find(params[:id])
+  end
+
+	def destroy
+		
+    		Episode.find(params[:id]).destroy
+    		redirect_to root_path
+  	end
+  	def update
+   	 @episode = Episode.find(params[:id])
+    	if @episode.update_attributes(episode_params)
+    	  
+     	 redirect_to root_path
+    	else
+      		render 'edit'
+   	 end
+	  end
 
 	def create
 		@episode= Episode.new
@@ -28,13 +50,37 @@ class EpisodesController < ApplicationController
 	      	redirect_to root_path
 	    end
 	end
-
 	
 end
 
+
+
+  def vote
+    @episode = Episode.find(params[:id])
+    type = params[:type]
+    if type == "upvote"
+      current_user.vottes << @episode
+      #@episode.voted_by << current_user
+      flash[:success] = "You favorited " + @episode.name
+      redirect_to :back
+
+    elsif type == "downvote"
+      current_user.vottes.delete(@episode)
+      #@episode.voted_by.delete(current_user)
+      flash[:success] = "You unfavorited " + @episode.name
+      redirect_to :back
+
+    else
+      # Type missing, nothing happens
+      flash[:danger] = "Nothing happened"
+      redirect_to :back
+    end
+  end
+
+
 private
 	def episode_params
-		params.require(:episode).permit(:title, :description, :mp3)
+		params.require(:episode).permit(:name, :description, :mp3, :image)
 	end
 
 	def find_podcast

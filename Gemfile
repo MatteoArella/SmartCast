@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'mp3_player'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
@@ -37,6 +37,18 @@ gem "recaptcha", require: "recaptcha/rails"
 
 gem 'omniauth-facebook'
 
+# image uploader
+gem 'carrierwave'
+
+# image resizer
+gem 'mini_magick'
+
+# Amazon S3 service
+gem 'fog-aws'
+
+gem 'will_paginate', '~> 3.1.0'
+gem 'paperclip'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,8 +78,6 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'launchy'
-  
-  gem 'paperclip'
 
   gem 'capybara'
 

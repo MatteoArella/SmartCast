@@ -1,0 +1,12 @@
+<%= form_for ([@episode, @comment]) do |f| %>
+	
+
+	<div id="content" >
+		<%= f.label :content %><br>
+		<%= f.text_area :content %>
+	</div>
+
+<div align= "center">
+	<%= f.submit class: "button button_highlight button_block"%>
+</div>
+<% end %>

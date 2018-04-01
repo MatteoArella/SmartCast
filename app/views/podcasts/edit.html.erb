@@ -1,0 +1,27 @@
+ <div class="banner show-podcast-banner">
+  
+      <h1>Edit Podcast</h1>
+    </div>
+
+ <%= form_for(@podcast) do |f| %>
+   <div id="image-upload">
+    <%= f.file_field :image %>
+    <!--<label for="image" class="inputfile-label">Choose a file</label>-->
+  </div>
+  <div id="title" align="center">
+    <h1> edit name:</h1>
+    <%= f.text_field :name, placeholder: "Insert Podcast title", class: "border-animation" %>
+  </div>
+  <div id="description" align="center" > <h1> edit description </h1>
+    <%= f.text_area :description, placeholder: "Insert Podcast description", class: "border-animation" %>
+  </div>
+
+  <div class="btn-bar">
+    
+    <div class="right">
+           <%= f.submit "Save changes", class: "btn btn-primary" %>
+    
+    </div>
+<% end %>
+       
+  

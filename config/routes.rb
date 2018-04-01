@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'faq' => 'faq_page#show'
+  
+
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   devise_scope :user do
@@ -10,17 +13,26 @@ Rails.application.routes.draw do
     post '/users/sign_up/role' => 'users/omniauth_callbacks#create_role', as: :create_user_role
   end
 
-  resources :users
+  resources :users#, only: [:show]
+
+  resources :episodes, only: [:destroy, :edit, :update]
 
   resources :podcasts do 
-	resources :episodes 
-	end 
+    resources :episodes do
+      resources :comments
+    end
+  end 
+resources :episodes do
+    resources :comments
+    put :vote, on: :member
+  end
 
-  
+  resources :comments, only: [:destroy, :edit, :update]
+
+  resources :votes 
 
 
-
-
+#resources :episodes, only: [:show, :edit, :update, :destroy]
 
   #get 'welcome/index'
 
