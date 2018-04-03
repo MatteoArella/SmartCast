@@ -1,0 +1,51 @@
+<% provide(:name, @episode.name) %>
+
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @episode.name %></h1>
+    </div>
+      <p class="description"><%= @episode.description %></p>
+   
+          
+    <div class="wrapper_skinny" align = "center" >
+      <%= image_tag @episode.image.url(:medium), class: "current_episode_thumbnail" %>
+      
+  
+ 
+    </div>
+    </div>
+  </div>
+  <div align="center">
+  <a href="#">Play Audio</a>
+
+  
+<%= mp3_player @episode.mp3.url%>
+
+
+
+
+<div align= "center"><%= render @comments %></div>
+</div>
+  <%= link_to "Add comment", new_podcast_episode_comment_path(@podcast, @episode), class: "button button-highlight" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

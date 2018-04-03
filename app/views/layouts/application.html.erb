@@ -6,6 +6,8 @@
 	  <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Comfortaa' %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
+	  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js' %>
+	  <%= mp3_player_headers without_swfobject: true %>
 	</head>
 	<body>
 

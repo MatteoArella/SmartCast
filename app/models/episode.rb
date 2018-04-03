@@ -1,5 +1,8 @@
 class Episode < ActiveRecord::Base
   belongs_to :podcast
+  has_many :comments, dependent: :destroy
+has_many :votes, dependent: :destroy
+has_many :voted_by, through: :votes, source: :user
 
   mount_uploader :image, ImageUploader
 

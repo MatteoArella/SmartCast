@@ -8,7 +8,7 @@
       </td>
       <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), user_path(@artist) %></td>
       <td class="col-medium"><%= link_to @artist.username, user_path(@artist) %></td>
-      <td class="col-medium">Created at --</td>
+      <td class="col-medium"><%= link_to "Edit Podcast", edit_podcast_path%></td>
     </table>
   </div>
 </div>
@@ -24,15 +24,21 @@
             <div class="episode_overview">
               <table>
                 <td class="col-large">
-                  <h2><%= e.name %></h2>
+                  <h2><%= link_to e.name, podcast_episode_path(@podcast, e)
+                  %></h2>
                   <p class="description"><%= e.description %></p>
                 </td>
-                <td>
-                  <a class="button button-highlight" href="../episode/edit.html">Edit</a>
-                </td>
-                <td>
-                  <a class="button button-alert" href="#">Delete</a>
-                </td>
+		<% if current_user.admin? or current_user == @podcast.artist%>
+
+                	<td>
+                  		<%= link_to "Edit", edit_episode_path(e), class: "button button-highlight" %>
+                	</td>
+                	<td>
+                  		<%= link_to "Delete", e, method: :delete,
+                                  data: { confirm: "You sure?" }, class: "button button-highlight" %>
+                	</td>
+
+		<% end %>
               </table>
             </div>
           </li>
@@ -46,4 +52,8 @@
   </div>
 
   <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", @podcast, method: :delete,
+                                  data: { confirm: "You sure?" }, class: "button button-highlight" %>
+<% end %>
 </div>

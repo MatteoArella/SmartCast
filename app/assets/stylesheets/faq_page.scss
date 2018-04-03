@@ -1,0 +1,49 @@
+// Place all the styles related to the Faq_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+	/* top and left value assigned in jQuery */
+
+*, *::after, *::before {
+	box-sizing:border-box;
+}
+
+*::after, *::before {
+	content: '';
+}
+
+body {
+	font: {
+		size: 100%;
+		family: $faq-page-font; // variables inside partials > _variables.scss
+	}
+	color: $color-1;
+	background-color: $color-3;
+
+	&::after {
+		/* overlay layer visible on small devices when the right panel slides in */
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($color-1, .8);
+		visibility: hidden;
+		opacity: 0;
+		-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+		-moz-transition: opacity .3s 0s, visibility 0s .3s;
+		transition: opacity .3s 0s, visibility 0s .3s;
+	}
+
+	&.cd-overlay::after {
+		visibility: visible;
+		opacity: 1;
+		-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+		-moz-transition: opacity .3s 0s, visibility 0s 0s;
+		transition: opacity .3s 0s, visibility 0s 0s;
+	}
+a {
+	color: $color-2;
+	text-decoration: none;
+}
+
+}

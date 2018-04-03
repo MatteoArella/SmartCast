@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   has_many :identities, :dependent => :destroy
+  has_many :comments, dependent: :destroy
+has_many :votes, dependent: :destroy
+has_many :vottes, through: :votes, source: :episode
 
   validates :username, presence: :true, length: { maximum: 20 }
   validates_uniqueness_of :username

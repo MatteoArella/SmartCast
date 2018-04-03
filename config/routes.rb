@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'faq' => 'faq_page#show'
+  
+
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   devise_scope :user do
@@ -17,9 +20,21 @@ Rails.application.routes.draw do
     patch '/settings/update_password' => 'users#update_password', as: :update_password
   end
 
+ resources :episodes, only: [:destroy, :edit, :update]
+
   resources :podcasts do 
-    resources :episodes 
+    resources :episodes do
+      resources :comments
+    end
+  end 
+resources :episodes do
+    resources :comments
+    put :vote, on: :member
   end
+
+  resources :comments, only: [:destroy, :edit, :update]
+
+  resources :votes 
 
   #get 'welcome/index'
 
