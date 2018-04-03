@@ -2,8 +2,6 @@
   <h1>Discover your favourite Podcast</h1>
 </div>
 
-
-
 <div id="search-container"class="cf">
   <%= form_tag(podcasts_path, :method => "get", class: "navbar-form", id: "search-form") do %>
   <div name="search-text">
@@ -11,9 +9,6 @@
     <input type="submit" value="Search" class="button button-highlight"/></div>
     <% end %>
 </div> 
-
-
-
 
 <div id="podcasts" class="cf">
   <div class="wrapper">
@@ -29,8 +24,7 @@
 	            <p class="episode-count"><%= pod.episodes.count %> episodes</p>
 	          </div>
 	        </li>
-	      <% end %>
-      
+	      <% end %>      
 <% end %>
 
 <% else %>
@@ -62,30 +56,3 @@
 <div class="pagination">
   <%= will_paginate @podcasts %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,13 +1,13 @@
 class EpisodesController < ApplicationController
 
-	before_action :find_podcast, only: [:show, :index, :create, :new]
+  before_action :find_podcast, only: [:show, :index, :create, :new]
 
 	def index
 		@episodes= Episode.all
 	end
 
 	def new
-		@episode = @podcast.episodes.new
+    @episode = @podcast.episodes.new
 	end
 	def show 
 		@episode = Episode.find(params[:id])
@@ -49,11 +49,8 @@ class EpisodesController < ApplicationController
 	    	flash[:success] = "Your episode was created!"
 	      	redirect_to root_path
 	    end
-	end
-	
-end
-
-
+    end
+  end
 
   def vote
     @episode = Episode.find(params[:id])
@@ -81,7 +78,7 @@ end
 private
 	def episode_params
 		params.require(:episode).permit(:name, :description, :mp3, :image)
-	end
+  end
 
 	def find_podcast
 		@podcast = Podcast.find(params[:podcast_id])

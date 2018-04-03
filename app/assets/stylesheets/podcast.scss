@@ -52,7 +52,7 @@
 		h1 {
 			font-size: 5rem;
 			font-weight: 300;
-			color: $white;
+      color: white;
 			margin: 0 0 .5rem 0;
 		}
 		.description {
@@ -66,7 +66,7 @@
 			text-transform: uppercase;
 			font-weight: 700;
 			text-align: center;
-			color: $white;
+			color: white;
 			display: inline;
 			background: $highlight;
 			border-radius: 2rem;
@@ -163,8 +163,8 @@
 			text-decoration: none;
 		}
 		.jp-jplayer,.jp-audio {
-    width: 70%;
-    margin: 3rem auto .5rem auto;
+        width: 70%;
+		    margin: 3rem auto .5rem auto;
 		}
 		.jp-title {
 	    font-size: 12px;

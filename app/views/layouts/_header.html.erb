@@ -17,16 +17,22 @@
           <%= link_to t("devise.sessions.new.sign_in"), sign_in_path if !user_signed_in? %>
         </li>
       <% end %>
-      <% if !user_signed_in? || current_user.type == 'Artist' %>
         <li>
           <%= link_to t("create"), user_signed_in?? new_podcast_path : sign_in_path %>
         </li>
-      <% end %>
         <li>
             <%= link_to "Faq", faq_path %>
         </li>
-
-      <% if user_signed_in? %>
+        <li class="dropdown dropdown-locales">
+          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
+          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
+          <div class="dropdown-content dropdown-content-locales">
+            <% I18n.available_locales.each do |locale| %>
+              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
+            <% end %>
+          </div>
+        </li>
+       <% if user_signed_in? %>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">
           <% if current_user.avatar == nil %> 
@@ -43,15 +49,6 @@
           </div>
         </li>
       <% end %>
-        <li class="dropdown dropdown-locales">
-          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
-          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
-          <div class="dropdown-content dropdown-content-locales">
-            <% I18n.available_locales.each do |locale| %>
-              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
-            <% end %>
-          </div>
-        </li>
       </ul>
     </nav>
   </div>

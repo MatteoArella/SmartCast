@@ -16,7 +16,14 @@ en:
 
   user:
     profile: "Profile"
-    account_settings: "Account Settings"
+    account_settings:
+      settings: "Account Settings"
+      current_password: "Current Password"
+      current_password_label: "Insert current Password"
+      sections:
+        profile: "Profile"
+        security: "Security"
+        delete_account: "Delete Account"
     registration:
       username: "Username"
       username_label: "Enter Username"

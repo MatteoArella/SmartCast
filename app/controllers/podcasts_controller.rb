@@ -1,17 +1,14 @@
 class PodcastsController < ApplicationController
-
-
-
-
-def index
-  if params[:search]
-@search = params[:search]
-    #@podcasts = Podcast.where(:name => :search ).paginate(:page => params[:page], :per_page => 50)
-  end
+  
+  def index
+    if params[:search]
+      @search = params[:search]
+      #@podcasts = Podcast.where(:name => :search ).paginate(:page => params[:page], :per_page => 50)
+    end
 
     @podcasts = Podcast.paginate(:page => params[:page], :per_page => 50)
-    
-end
+
+  end
 
 
 	def edit
@@ -32,7 +29,6 @@ end
 
 	
 	end
-
 
 	def new
 		@podcast = Podcast.new
@@ -73,5 +69,5 @@ private
 
   	def podcast_params
       	params.require(:podcast).permit(:name, :description, :image, :search)  
-	end
+    end
 end
