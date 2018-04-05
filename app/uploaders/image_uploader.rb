@@ -12,15 +12,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #end
 
 	version :large do
-		process resize_to_limit: [800, 800]
+		process resize_to_limit: [600, 600]
 	end
 
 	version :medium, :from_version => :large do
 		process resize_to_limit: [300, 150]
 	end
 
-	version :thumb, :from_version => :medium do
-		process resize_to_fit: [100, 100]
+	version :thumb do
+		process :crop
+		resize_to_fill(100, 100)
 	end
 
 	version :square do
@@ -29,6 +30,19 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 	version :banner_image do
 		process resize_to_limit: [1200, 800]
+	end
+
+	def crop
+	  if model.crop_x.present?
+	    resize_to_limit(600, 600)
+	    manipulate! do |img|
+	      x = model.crop_x.to_i
+	      y = model.crop_y.to_i
+	      w = model.crop_w.to_i
+	      h = model.crop_h.to_i
+	      img.crop!(x, y, w, h)
+	    end
+	  end
 	end
 
 	def extension_white_list

@@ -36,6 +36,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update_avatar
+    @user = current_user
+
+    if @user.update_attribute(:avatar, change_avatar_params[:avatar])
+      if params[:user][:avatar].present?
+        render template: 'users/crop'
+      else
+        redirect_to users_path(@user), notice: "Successfully updated user."
+      end
+    else
+      redirect_to root_path
+    end
+  end
 
   private
 
@@ -63,5 +76,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def change_password_params
     params.require(:user).permit(:current_password, :password, :password_confirmation)
-  end  
+  end 
+
+  def change_avatar_params
+    params.require(:user).permit(:avatar)
+  end
 end

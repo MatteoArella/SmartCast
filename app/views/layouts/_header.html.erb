@@ -41,7 +41,7 @@
           <% if current_user.avatar == nil %> 
             <%= image_tag("user-logo.png", alt: "user-logo") %>
           <% else %>
-            <%= image_tag(current_user.avatar, alt: "user-logo") %>
+            <%= image_tag(current_user.avatar.url(:thumb), alt: "user-logo") %>
           <% end %>
           </a>
           <div class="dropdown-content">

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post '/users/sign_up/role' => 'users/omniauth_callbacks#create_role', as: :create_user_role
     patch '/users/update_username' => 'users/registrations#update_username', as: :update_username
     patch '/users/update_password' => 'users/registrations#update_password', as: :update_password
+    patch '/user/update_avatar' => 'users/registrations#update_avatar', as: :update_avatar
   end
 
   #scope :users, :module => 'users' do
