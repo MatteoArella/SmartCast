@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     patch '/settings/update_password' => 'users#update_password', as: :update_password
   end
 
+  resources :users
+  
   resources :podcasts do 
     resources :episodes 
   end
