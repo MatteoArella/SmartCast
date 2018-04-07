@@ -25,6 +25,9 @@ module SmartCast
     # config.i18n.default_locale = :de
     config.i18n.available_locales = [:en, :it, :fr, :de]
 
+    # Load vendor assets stylesheets
+    config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321153813) do
+ActiveRecord::Schema.define(version: 20180405110327) do
 
   create_table "episodes", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +73,10 @@ ActiveRecord::Schema.define(version: 20180321153813) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "avatar"
+    t.integer  "crop_x"
+    t.integer  "crop_y"
+    t.integer  "crop_w"
+    t.integer  "crop_h"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
