@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: SOCIALS.keys
 
-  mount_uploader :avatar, ImageUploader
+  mount_uploader :avatar, AvatarUploader
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

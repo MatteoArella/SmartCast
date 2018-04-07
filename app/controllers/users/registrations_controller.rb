@@ -6,6 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render template: 'users/edit'
   end
 
+  #def update_profile
+  #  @user = current_user
+  #  redirect_to root_path if @user.nil?
+
+
+  #end
+
   def update_username
     @user = current_user
 
@@ -39,18 +46,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_avatar
     @user = current_user
 
-    if @user.update_attribute(:avatar, change_avatar_params[:avatar])
-      if params[:user][:avatar].present?
-        render template: 'users/crop'
-      else
-        redirect_to users_path(@user), notice: "Successfully updated user."
-      end
-    else
-      redirect_to root_path
+    if change_avatar_params[:avatar].present?
+      failed_settings(@user) unless @user.update_attribute(:avatar, change_avatar_params[:avatar])
+      render template: 'users/crop'
     end
+
+    if change_avatar_params[:crop_x].present?
+      unless (@user.update_attribute(:crop_x, change_avatar_params[:crop_x]) ||
+              @user.update_attribute(:crop_y, change_avatar_params[:crop_y]) ||
+              @user.update_attribute(:crop_h, change_avatar_params[:crop_h]) ||
+              @user.update_attribute(:crop_w, change_avatar_params[:crop_w]))
+        failed_settings(@user)
+      end
+      flash.notice = "Successfully updated user."
+      redirect_to users_path(@user) 
+    end
+
   end
 
   private
+
+  def failed_settings(user)
+    flash.notice = user.errors.full_messages.to_sentence
+    redirect_to edit_user_registration_path(user)
+  end
 
   def sign_up_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :type).tap do |par|
@@ -79,6 +98,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end 
 
   def change_avatar_params
-    params.require(:user).permit(:avatar)
+    params.require(:user).permit(:avatar, :crop_x, :crop_y, :crop_h, :crop_w)
   end
 end
