@@ -6,9 +6,9 @@
       <td>
         <p class="col-large"><%= @podcast.description %></p>
       </td>
-      <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), user_path(@artist) %></td>
-      <td class="col-medium"><%= link_to @artist.username, user_path(@artist) %></td>
-      <td class="col-medium">Created at --</td>
+      <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(@artist) %></td>
+      <td class="col-medium"><%= link_to @artist.username, users_path(@artist) %></td>
+      <td class="col-medium">Created at <%= @podcast.created_at %></td>
     </table>
   </div>
 </div>

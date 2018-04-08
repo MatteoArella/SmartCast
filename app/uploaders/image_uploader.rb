@@ -1,5 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
-	include CarrierWave::MiniMagick
+	include CarrierWave::RMagick
 
 	#storage :file
 
@@ -12,15 +12,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   #end
 
 	version :large do
-		process resize_to_limit: [800, 800]
+		process resize_to_limit: [600, 600]
 	end
 
 	version :medium, :from_version => :large do
 		process resize_to_limit: [300, 150]
 	end
 
-	version :thumb, :from_version => :medium do
-		process resize_to_fit: [100, 100]
+	version :thumb do
+		process resize_to_fill: [100, 100]
 	end
 
 	version :square do

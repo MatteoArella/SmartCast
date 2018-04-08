@@ -1,27 +1,32 @@
-<body bgcolor="009999">
-
-<div id="banner" class="podcasts_banner" >
-  <h1 align="center">SMARTCAST</h1>
+<div class="banner profile-podcast-banner" >
+  
+  <%= image_tag @user.avatar_url(:medium), alt: "user-thumbnail" %>
+  <h1><%= @user.username %></h1>
+  <div>
+    <table>
+      <td><p>Name</p></td>
+      <td>Surname</td>
+      <td>email</td>
+    </table>
+  </div>
 </div>
 
-<div class="row" align="center">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <p>
-        <%= @user.username %>
-      </p>
-      <p>
-        <%= @user.email %>
-      </p>
-      <hr align=”center” size=”1″ width=”300″ noshade></hr>
-        <%for pod in @user.podcasts %>
-			<li>
-				
-					<h2><%= link_to pod.name, podcast_path(pod.id) %></h2>
-					
-			</li>
-		<%end%> 
-      </h1>
-    </section>
-  </aside>
+<% if @user.type == 'Artist' %>
+<div id="podcasts" class="cf">
+  <div class="wrapper">
+    <ul class="cf">
+      <% for pod in @user.podcasts %>
+        <%= link_to(pod) do %>
+          <li>
+            <%= image_tag pod.image.url, alt: "Podcast image" %>
+            <div class="podcast-overview">
+              <h2><%= pod.name %></h2>
+              <p class="episode-count"><%= pod.episodes.count %> episodes</p>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
+<% end %>
