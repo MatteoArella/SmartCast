@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401094135) do
+ActiveRecord::Schema.define(version: 20180408154845) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180401094135) do
     t.string   "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "token"
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
