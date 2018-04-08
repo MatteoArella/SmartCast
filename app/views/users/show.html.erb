@@ -1,5 +1,6 @@
 <div class="banner profile-podcast-banner" >
-  <%= image_tag "#{@user.avatar}?type=large", alt: "user-thumbnail" %>
+  
+  <%= image_tag @user.avatar_url(:medium), alt: "user-thumbnail" %>
   <h1><%= @user.username %></h1>
   <div>
     <table>
@@ -10,6 +11,7 @@
   </div>
 </div>
 
+<% if @user.type == 'Artist' %>
 <div id="podcasts" class="cf">
   <div class="wrapper">
     <ul class="cf">
@@ -27,3 +29,4 @@
     </ul>
   </div>
 </div>
+<% end %>

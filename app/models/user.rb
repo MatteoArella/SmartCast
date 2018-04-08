@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
 
   after_update :crop_avatar
 
+  #def initialize(attributes=nil)
+  #  attr_with_defaults = {:avatar => "user-default.png"}.merge(attributes)
+  #  super(attr_with_defaults)
+  #end
+
   def self.from_omniauth(auth, role)
     identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
     password = Devise.friendly_token[0, 20]

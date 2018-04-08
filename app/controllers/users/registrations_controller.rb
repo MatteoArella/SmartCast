@@ -6,13 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render template: 'users/edit'
   end
 
-  #def update_profile
-  #  @user = current_user
-  #  redirect_to root_path if @user.nil?
-
-
-  #end
-
   def update_username
     @user = current_user
 
@@ -45,6 +38,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_avatar
     @user = current_user
+
+    if change_avatar_params.empty?
+      flash.notice = "Please select an image"
+      redirect_to edit_user_registration_path(@user)
+    end
 
     if change_avatar_params[:avatar].present?
       failed_settings(@user) unless @user.update_attribute(:avatar, change_avatar_params[:avatar])
@@ -98,6 +96,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end 
 
   def change_avatar_params
-    params.require(:user).permit(:avatar, :crop_x, :crop_y, :crop_h, :crop_w)
+    params.fetch(:user, { }).permit(:avatar, :crop_x, :crop_y, :crop_h, :crop_w)
   end
 end

@@ -18,9 +18,11 @@
               <%= link_to t("cancel"), root_path, :class => "button button-white" %>
             </div>
           <% end -%>
+          <br /><br />
           <%= form_for(@user, as: :user, :url => { :action => "update_avatar" } ) do |f| %>
             <div class="field">
-              <label>Update avatar</label>
+              <label>Update avatar</label><br />
+              <%= image_tag @user.avatar.url(:thumb) %>
               <%= f.file_field :avatar %>
             </div>
             <div class="actions">
