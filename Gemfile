@@ -59,6 +59,9 @@ gem 'paperclip'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'cancan', '~> 1.6', '>= 1.6.10'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

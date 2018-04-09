@@ -83,6 +83,23 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?
+    false
+  end
+
+  def artist?
+    false
+  end
+
+  def learner?
+    false
+  end
+
+  def guest?
+     #this method return true if the User are not logged in the system
+     true
+  end
+    
   def crop_avatar
     avatar.recreate_versions! if crop_x.present?
   end

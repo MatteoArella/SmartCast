@@ -23,8 +23,8 @@ class PodcastsController < ApplicationController
       		flash[:danger] = "Error in creating the podcast!"
   			render 'new'
 	  	else
-	    	@podcast = current_user.podcasts.create(podcast_params)
-	    	#@podcast.user_id= current_user.id
+	    	@podcast = Podcast.new(podcast_params)
+	    	@podcast.artist_id = current_user.id
 	    if @podcast.save
 	    	flash[:success] = "Your podcast was created!"
 	      	redirect_to podcast_path(@podcast)
