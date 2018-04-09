@@ -12,9 +12,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: SOCIALS.keys
 
+  mount_uploader :avatar, AvatarUploader
+
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   has_many :identities, :dependent => :destroy
 
@@ -28,7 +31,12 @@ class User < ActiveRecord::Base
   validates :type, presence: :true
   validate :validate_type
 
-  # mount_uploader :avatar, ImageUploader
+  after_update :crop_avatar
+
+  #def initialize(attributes=nil)
+  #  attr_with_defaults = {:avatar => "user-default.png"}.merge(attributes)
+  #  super(attr_with_defaults)
+  #end
 
   def self.from_omniauth(auth, role)
     identity = Identity.where(uid: auth['uid'], provider: auth['provider']).first
@@ -90,5 +98,9 @@ class User < ActiveRecord::Base
   def guest?
      #this method return true if the User are not logged in the system
      true
+  end
+    
+  def crop_avatar
+    avatar.recreate_versions! if crop_x.present?
   end
 end

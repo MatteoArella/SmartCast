@@ -41,7 +41,8 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 
 # image resizer
-gem 'mini_magick'
+#gem 'mini_magick'
+gem 'rmagick'
 
 # Amazon S3 service
 gem 'fog-aws'
