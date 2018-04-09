@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     get '/:id' => 'users#show'
   end
 
-  resources :users
-  
   resources :podcasts do 
     resources :episodes 
   end
