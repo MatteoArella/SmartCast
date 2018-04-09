@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require jquery.Jcrop
 //= require turbolinks
+//= require ./faq
 //= require_tree .
+
+
