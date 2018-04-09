@@ -74,4 +74,21 @@ class User < ActiveRecord::Base
       self.avatar = auth["info"]["image"]
     end
   end
+
+  def admin?
+    false
+  end
+
+  def artist?
+    false
+  end
+
+  def learner?
+    false
+  end
+
+  def guest?
+     #this method return true if the User are not logged in the system
+     true
+  end
 end
