@@ -1,10 +1,5 @@
-
-<% provide(:title, 'Create your own episode') %>
-<h1>Create your own episode</h1>
-
-  <div id="form">
-	  <div class="wrapper_skinny">
-			<%= render 'form' %>
-		</div>
-	</div>
+<div class="banner episode-banner">
+  <h1><%= t("episode.new") %></h1>
 </div>
+
+<%= render 'form' %>

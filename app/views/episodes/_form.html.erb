@@ -1,3 +1,26 @@
+<%= form_for ([@podcast, @episode], html: { id: "input-container", class: "cf wrapper"}) do |f| %>
+    <div id="image-upload">
+      <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
+      <label for="thumbnail" class="inputfile-label"><%= t("file_choose") %></label>
+    </div>
+    <div id="title">
+      <input type="text" placeholder= class="border-animation" />
+    </div>
+    <div id="description" >
+      <textarea placeholder="Insert Episode description" class="border-animation"></textarea>
+    </div>
+    <div class="btn-bar">
+      <div id="episode-upload">
+        <input type="file" name="thumbnail" id="thumbnail" class="inputfile" />
+        <label for="thumbnail" class="inputfile-label">Choose a file</label>
+      </div>
+      <div class="right">
+        <a class="button button-highlight" href="#">Create</a>
+        <a class="button button-white" href="../podcast/show.html">Cancel</a>
+      </div>
+    </div>
+</form>
+
 <%= form_for ([@podcast, @episode]) do |f| %>
 
 	<div class="field">
