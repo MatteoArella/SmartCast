@@ -28,6 +28,9 @@ module NavigationHelpers
     when /^the role selection page$/
       new_user_role_path
 
+    when /^the Create Podcast page$/
+      new_podcast_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
