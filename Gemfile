@@ -83,7 +83,7 @@ group :development, :test do
 
   gem 'launchy'
 
-  gem 'capybara'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
 
   gem 'rspec-rails', '~> 3.7'
 

@@ -5,7 +5,7 @@ Feature: Create a new podcast
 	I want to create new podcast,
 	So that my audience can watch to my podcast episodes.
 
-Background: Artist user
+Background: Artist user sign in
 	Given I am signed in as an artist user
 
 Scenario: Create podcast from homepage
