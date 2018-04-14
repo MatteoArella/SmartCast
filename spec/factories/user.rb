@@ -11,4 +11,16 @@ FactoryBot.define do
 		confirmed_at							{ Date.today }
 		avatar									nil
 	end
+
+	factory :artist do
+		FactoryBot.build(:user, :type => 'Artist')
+	end
+
+	factory :learner do
+		FactoryBot.build(:user, :type => 'Learner')
+	end
+
+	factory :admin do
+		FactoryBot.build(:user, :type => 'Admin')
+	end
 end
