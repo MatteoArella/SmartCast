@@ -5,8 +5,10 @@
 
 		<div id="welcome-buttons-bar">
 			
+			<% if can? :create, Podcast %>
 				<%= link_to t("create"), new_podcast_path, class: "button button-highlight" %>
-			
+			<% end %>
+
 			<%= link_to t("explore"),podcasts_path , class: "button button-white" %>
 		</div>
 	</div>

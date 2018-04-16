@@ -96,8 +96,7 @@ class User < ActiveRecord::Base
   end
 
   def guest?
-     #this method return true if the User are not logged in the system
-     true
+    true
   end
     
   def crop_avatar

@@ -5,10 +5,22 @@ Feature: Create a new podcast
 	I want to create new podcast,
 	So that my audience can watch to my podcast episodes.
 
-Background: Artist user sign in
-	Given I am signed in as an artist user
+Scenario: Sign In before Create Podcast
+	Given I am not authenticated
+	Given I am on the SmartCast homepage
+	When I follow "Create Podcast" within "#welcome-buttons-bar"
+	Then I should be on the Sign In page
+
+Scenario: Learner cannot Create Podcast
+	Given I am signed in as a learner user
+	Given I am on the SmartCast homepage
+	Then I should not see "Create Podcast"
+
 
 Scenario: Create podcast from homepage
+	Given I am signed in as an artist user
 	Given I am on the SmartCast homepage
-	When I follow on "Create Podcast"
+	When I follow "Create Podcast" within "#welcome-buttons-bar"
 	Then I should be on the Create Podcast page
+
+

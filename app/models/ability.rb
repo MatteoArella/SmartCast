@@ -20,8 +20,5 @@ class Ability
     if user.admin?
         can :manage, :all? #For example, the AdminUser also can 
     end
-
-    if user.type == 'User'
-
   end
 end
