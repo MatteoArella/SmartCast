@@ -46,6 +46,13 @@
             <span class="checkmark"></span>
           <% end %>
         </td>
+        <td>
+          <%= f.label :type_adminuser, :class => "label-container" do %>
+            <%= t("Admin") %>
+            <%= f.radio_button :type, 'AdminUser', :checked => true %>
+            <span class="checkmark"></span>
+          <% end %>
+        </td>
       </table>
     </div>
 

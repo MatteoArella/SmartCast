@@ -8,16 +8,16 @@ FactoryBot.define do
 		email									{ Faker::Internet.unique.email }
 		password 								{ password }
     	password_confirmation 					{ password }
-		type									{ 'Artist' }
+		type									{ 'Learner' }
 		confirmed_at							{ Date.today }
 		avatar									nil
 
-		factory :artist do
-			type								{ 'Artist' }
-		end
-
 		factory :learner do
 			type								{ 'Learner' }
+
+			factory :artist do
+				type							{ 'Artist' }
+			end
 		end
 
 		factory :admin do

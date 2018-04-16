@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   }
 
   PERMITTED_ROLES = ['Artist', 'Learner']
+  APPLICATION_ROLES = PERMITTED_ROLES + ['AdminUser']
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -61,7 +62,7 @@ class User < ActiveRecord::Base
 	end
 
   def validate_type
-    unless PERMITTED_ROLES.include? type
+    unless APPLICATION_ROLES.include? type
       errors.add(:type, :invalid)
     end
   end

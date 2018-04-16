@@ -71,7 +71,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :type).tap do |par|
-      par.except :type unless User::PERMITTED_ROLES.include? par[:type]
+      par.delete :type unless User::PERMITTED_ROLES.include? par[:type]
+      par
     end
   end
 

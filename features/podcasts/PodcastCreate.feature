@@ -11,11 +11,15 @@ Scenario: Sign In before Create Podcast
 	When I follow "Create Podcast" within "#welcome-buttons-bar"
 	Then I should be on the Sign In page
 
-Scenario: Learner cannot Create Podcast
-	Given I am signed in as a learner user
+Scenario Outline: Learner and Admin cannot Create Podcast
+	Given I am signed in as a <role> user
 	Given I am on the SmartCast homepage
 	Then I should not see "Create Podcast"
 
+	Examples:
+		| role    |
+		| learner |
+		| admin   |
 
 Scenario: Create podcast from homepage
 	Given I am signed in as an artist user
