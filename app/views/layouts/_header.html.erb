@@ -17,9 +17,13 @@
           <%= link_to t("devise.sessions.new.sign_in"), sign_in_path if !user_signed_in? %>
         </li>
       <% end %>
-      <% if !user_signed_in? || current_user.type == 'Artist' %>
+      <% if !signed_in? %>
         <li>
-          <%= link_to t("create"), user_signed_in?? new_podcast_path : sign_in_path %>
+          <%= link_to t("create"), sign_in_path %>
+        </li>
+      <% elsif can? :create, Podcast %>
+        <li>
+          <%= link_to t("create"), new_podcast_path %>
         </li>
       <% end %>
         <li>
