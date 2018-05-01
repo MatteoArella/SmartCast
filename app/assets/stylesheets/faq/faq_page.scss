@@ -280,6 +280,7 @@ Main components
 	}
 
 	.cd-faq-title {
+		text_align: left;
 		background: transparent;
 		box-shadow: none;
 		margin: 1em 0;
@@ -326,6 +327,8 @@ Main components
 }
 
 .cd-faq-trigger {
+	text-align: left;
+ 	color: $color-2;
 	position: relative;
 	display: block;
 	margin: 1.6em 0 .4em;

@@ -36,7 +36,6 @@ $(document).on('turbolinks:load', function() {
 
 	//show faq content clicking on faqTrigger
 	faqTrigger.on('click', function(event){
-		alert("CIAOAOAOOADHFMNBN");
 		event.preventDefault();
 		$(this).next('.cd-faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
 	});
