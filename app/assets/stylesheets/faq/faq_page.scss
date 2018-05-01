@@ -74,6 +74,7 @@ Main components
 }
 
 .cd-faq-categories {
+	list-style-type: none;
 	a {
 		position: relative;
 		display: block;
@@ -273,7 +274,7 @@ Main components
 .cd-faq-group {
 	/* hide group not selected */
 	display: none;
-
+	list-style-type: none;
 	&.selected {
 		display: block;
 	}
