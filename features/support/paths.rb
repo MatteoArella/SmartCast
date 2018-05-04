@@ -10,7 +10,7 @@ module NavigationHelpers
   #
   # step definition in web_steps.rb
   #
-  def path_to(page_name)
+  def path_to(page_name, resource = nil)
     case page_name
 
     when /^the home\s?page$/
@@ -30,6 +30,9 @@ module NavigationHelpers
 
     when /^the Create Podcast page$/
       new_podcast_path
+
+    when /^the Podcast Show page$/
+      podcast_path(Podcast.last)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

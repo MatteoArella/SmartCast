@@ -1,0 +1,2 @@
+class VideoPodcast < Podcast
+end
