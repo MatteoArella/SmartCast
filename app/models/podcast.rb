@@ -2,8 +2,16 @@ class Podcast < ActiveRecord::Base
 
   PERMITTED_TYPES = ['AudioPodcast', 'VideoPodcast']
 
-  validates :name, presence: :true, length: { maximum: 20 }
-  validates :description, presence: :true, length: { maximum: 100 }
+  def self.name_max_length
+  	20
+  end
+
+  def self.description_max_length
+  	100
+  end
+
+  validates :name, presence: :true, length: { maximum: name_max_length }
+  validates :description, presence: :true, length: { maximum: description_max_length }
 
   validates :type, presence: :true
   validate :validate_type

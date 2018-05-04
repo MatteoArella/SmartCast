@@ -20,8 +20,8 @@ class PodcastsController < ApplicationController
 		@podcast = podcast = Podcast.create(podcast_params)
 
 		if @podcast.errors.any?
-			flash.notice = @podcast.errors.full_messages.to_sentence
-	      	render 'new'
+			flash.notice = "Failed to Create Podcast " + @podcast.errors.full_messages.to_sentence
+	      	redirect_to new_podcast_path
 		else
 			@podcast.artist_id = current_user.id
 			@podcast.save
