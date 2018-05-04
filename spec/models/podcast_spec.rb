@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Podcast, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should be valid with valid attributes' do
+  	podcast = FactoryBot.build(:podcast)
+  	expect(podcast).to be_valid
+  end
 end

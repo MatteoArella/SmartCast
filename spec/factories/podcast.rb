@@ -5,7 +5,7 @@ FactoryBot.define do
 	factory :podcast do
 		name		{ "Lorem Ipsum" }
 		description	{ "Lorem ipsum dolor sit amet, consectetur adipiscing elit" }
-		image		{ "image.jpg" }
+		image		{ 'image.jpg' }
 
 		factory :audiopodcast do
 			type	{ 'AudioPodcast' }

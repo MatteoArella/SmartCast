@@ -17,36 +17,22 @@ class PodcastsController < ApplicationController
 
 
 	def create
-		@podcast = podcast_create_from_params(params)
+		@podcast = podcast = Podcast.create(podcast_params)
 
-		if @podcast.nil?
+		if @podcast.errors.any?
 			flash.notice = @podcast.errors.full_messages.to_sentence
 	      	render 'new'
 		else
+			@podcast.artist_id = current_user.id
+			@podcast.save
 			flash.notice = "Podcast Successfully Created"
 			redirect_to podcast_path(@podcast)
 		end
 	end
-end	
 
-private
+	private
 
   	def podcast_params
       	params.require(:podcast).permit(:name, :description, :image, :type)  
-	end
-
-	def podcast_create_from_params(params)
-		podcast = Podcast.new
-		podcast.artist_id = current_user.id
-
-		podcast.name = params[:name]
-		podcast.description = params[:description]
-		podcast.image = params[:image]
-		podcast.type = params[:type]
-
-		unless podcast.save
-			nil
-		else
-			podcast
 	end
 end

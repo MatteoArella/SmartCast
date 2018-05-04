@@ -1,8 +1,13 @@
 When /^I fill (videopodcast|audiopodcast) form with valid data$/ do | type |
-	@podcast = create(type.to_sym)
+	fill_in "podcast_name", :with => "Podcast Title"
+	fill_in "podcast_description", :with => "Podcast Description"
+	attach_file("podcast_image", "features/uploads/image.jpg")
+	
+	case type
 
-	fill_in "podcast_name", :with => @podcast.name
-	fill_in "podcast_description", :with => @podcast.description
-	attach_file("podcast_image", File.expand_path("features/uploads/#{@podcast.image}"))
-	find("input[value='#{@podcast.type}']").click
+	when "videopodcast"
+		find("input[value='#{VideoPodcast}']").click
+	when "audiopodcast"
+		find("input[value='#{AudioPodcast}']").click
+	end
 end

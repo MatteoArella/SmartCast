@@ -2,9 +2,6 @@ class Podcast < ActiveRecord::Base
 
   PERMITTED_TYPES = ['AudioPodcast', 'VideoPodcast']
 
-  belongs_to :artist
-  has_many :episodes, dependent: :destroy
-
   validates :name, presence: :true, length: { maximum: 20 }
   validates :description, presence: :true, length: { maximum: 100 }
 
@@ -12,6 +9,11 @@ class Podcast < ActiveRecord::Base
   validate :validate_type
 
   mount_uploader :image, ImageUploader
+
+  validates :image, presence: :true
+
+  belongs_to :artist
+  has_many :episodes, dependent: :destroy
 
   self.per_page = 10
 
