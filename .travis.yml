@@ -1,0 +1,26 @@
+dist: trusty
+language: ruby
+rvm:
+  - 2.3.0
+addons:
+  #postgresql: 9.6
+  #code_climate:
+      #repo_token: <%= ENV["CODE_CLIMATE_TOKEN"] %>
+#after_success:
+  #- bundle exec codeclimate-test-reporter
+before_script:
+  - bundle exec rake db:create --all
+  - bundle exec rake db:migrate --trace
+  #- gem install cucumber
+  #- cp config/database.yml.travis config/database.yml
+  #- psql -c 'create database travis_ci_test;' -U postgres
+
+script:
+  #- RAILS_ENV=test 
+  #- bundle exec rake cucumber
+  #- bundle exec rspec --color --format documentation --require spec_helper --require rails_helper
+  - bundle exec rake ci:tests
+services:
+  #- redis-server
+notifications:
+  email: false

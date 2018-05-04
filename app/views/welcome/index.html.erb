@@ -1,0 +1,13 @@
+<div id="background" class="wrapper-skinny">
+	<div id="home-content">
+		<h1>SmartCast</h1>
+		<h3 class="welcome-page-text"><%= t('welcome.subtitle') %></h3>
+
+		<div id="welcome-buttons-bar">
+			
+				<%= link_to t("create"), new_podcast_path, class: "button button-highlight" %>
+			
+			<%= link_to t("explore"),podcasts_path , class: "button button-white" %>
+		</div>
+	</div>
+</div>

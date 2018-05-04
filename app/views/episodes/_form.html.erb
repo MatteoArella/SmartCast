@@ -1,0 +1,23 @@
+<%= form_for [@podcast, @episode], :html => { id: "input-container", class: "cf wrapper"} do |f| %>
+  <div id="image-upload">
+    <%= f.file_field :image %>
+  </div>
+
+  <div id="title">
+    <%= f.text_field :name, placeholder: "Insert title", class: "border-animation" %><br />
+  </div>
+
+  <div id="description" >
+    <%= f.text_area :description, placeholder: "Insert description", class: "border-animation" %>
+  </div>
+
+  <div class="btn-bar">
+    <div id="episode-upload">
+      <%= f.file_field :mp3 %>
+    </div>
+    <div class="right">
+      <%= f.submit t("create"), class: "button button-highlight" %>
+      <a class="button button-white" href="../podcast/show.html">Cancel</a>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<div class="banner profile-podcast-banner" >
+  
+  <%= image_tag @user.avatar_url(:medium), alt: "user-thumbnail" %>
+  <h1><%= @user.username %></h1>
+  <div>
+    <table>
+      <td><p>Name</p></td>
+      <td>Surname</td>
+      <td>email</td>
+    </table>
+  </div>
+</div>
+
+<% if @user.type == 'Artist' %>
+<div id="podcasts" class="cf">
+  <div class="wrapper">
+    <ul class="cf">
+      <% for pod in @user.podcasts %>
+        <%= link_to(pod) do %>
+          <li>
+            <%= image_tag pod.image.url, alt: "Podcast image" %>
+            <div class="podcast-overview">
+              <h2><%= pod.name %></h2>
+              <p class="episode-count"><%= pod.episodes.count %> episodes</p>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>

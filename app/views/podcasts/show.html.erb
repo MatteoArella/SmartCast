@@ -1,0 +1,49 @@
+<div class="banner show-podcast-banner">
+  <%= image_tag @podcast.image.url, alt: "podcast-thumbnail" %>
+  <h1><%= @podcast.name %></h1>
+  <div class="pod-description">
+    <table>
+      <td>
+        <p class="col-large"><%= @podcast.description %></p>
+      </td>
+      <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(@artist) %></td>
+      <td class="col-medium"><%= link_to @artist.username, users_path(@artist) %></td>
+      <td class="col-medium">Created at <%= @podcast.created_at %></td>
+    </table>
+  </div>
+</div>
+
+  <div id="episodes">
+    <div class="wrapper-skinny">
+      <ul class="cf">
+        <% for e in @episodes %>
+          <li class="cf">
+            <div class="episode_thumbnail">
+              <a href="#"><%= image_tag e.image.url, alt: "episode-thumbnail" %></a>
+            </div>
+            <div class="episode_overview">
+              <table>
+                <td class="col-large">
+                  <h2><%= e.name %></h2>
+                  <p class="description"><%= e.description %></p>
+                </td>
+                <td>
+                  <a class="button button-highlight" href="#">Edit</a>
+                </td>
+                <td>
+                  <a class="button button-alert" href="#">Delete</a>
+                </td>
+              </table>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="pagination">
+        <%= will_paginate @episodes %>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
+</div>

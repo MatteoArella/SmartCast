@@ -1,0 +1,56 @@
+<header class="cf<%= ' bg-dark' unless controller.controller_name == 'welcome' %>">
+
+  <!-- Navigation -->
+  <div class="wrapper-wide cf">
+    <nav>
+      <% if controller.controller_name == 'welcome' %>
+        <%= link_to image_tag("logo-highlight.png", alt: "logo"), root_path, id: "logo" %>
+      <% else %>
+        <%= link_to image_tag("logo-highlight-white.png", alt: "logo"), root_path, id: "logo" %>
+      <% end %>
+      <ul>
+        <li>
+          <%= link_to t("explore"), user_signed_in?? podcasts_path : sign_in_path %>
+        </li>
+      <% if !user_signed_in? %>
+        <li>
+          <%= link_to t("devise.sessions.new.sign_in"), sign_in_path if !user_signed_in? %>
+        </li>
+      <% end %>
+      <% if !user_signed_in? || current_user.type == 'Artist' %>
+        <li>
+          <%= link_to t("create"), user_signed_in?? new_podcast_path : sign_in_path %>
+        </li>
+      <% end %>
+        <li>
+            <%= link_to "FAQ", faq_path %>
+        </li>
+        <li class="dropdown dropdown-locales">
+          <a href="javascript:void(0)" class="dropbtn dropbtn-locales">
+          <%= image_tag("locales/globe.png", alt: "Lang") %></a>
+          <div class="dropdown-content dropdown-content-locales">
+            <% I18n.available_locales.each do |locale| %>
+              <%= link_to image_tag("locales/#{locale}.png", alt: locale), language: locale %>
+            <% end %>
+          </div>
+        </li>
+
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">
+          <%= image_tag(current_user.avatar.url(:thumb), alt: "user-logo") %>
+          </a>
+          <div class="dropdown-content">
+            <a class="username-dropdown"><%= current_user.username %></a>
+            <%= link_to t("user.profile"), users_path(current_user) %>
+            <%= link_to t("user.account_settings.settings"), edit_user_registration_path(current_user) %>
+            <%= link_to t("devise.sessions.delete.sign_out"), sign_out_path, :method => 'delete' %>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<%= content_tag :div, nil, :class => "spacer" if controller.controller_name != 'welcome' %>

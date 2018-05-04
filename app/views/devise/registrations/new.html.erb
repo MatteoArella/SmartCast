@@ -1,0 +1,65 @@
+<div class="banner signup-banner">
+  <h1><%= t("banners.sign_up") %></h1>
+</div>
+
+<div class="wrapper-skinny devise-container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :username, t("user.registration.username") %><br />
+      <%= f.text_field :username, autofocus: true, :class => "border-animation", placeholder: t("user.registration.username_label") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, t("user.registration.email") %><br />
+      <%= f.email_field :email, autocomplete: "email", :class => "border-animation", placeholder: t("user.registration.email_label") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= t("devise.registrations.new.minimum_password_length", length: @minimum_password_length) %>)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", :class => "border-animation", placeholder: t("user.registration.password_label") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "border-animation", placeholder: t("user.registration.password_confirmation_label") %>
+    </div>
+
+    <div class="field">
+      <label><%= t("user.registration.role_selection_label") %></label>
+      <table id="sign-up-role-table">
+        <td>
+          <%= f.label :type_artist, :class => "label-container" do %>
+            <%= t("user.role.artist") %>
+            <%= f.radio_button :type, 'Artist', :checked => true %>
+            <span class="checkmark"></span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.label :type_learner, :class => "label-container" do %>
+            <%= t("user.role.learner") %>
+            <%= f.radio_button :type, 'Learner'%>
+            <span class="checkmark"></span>
+          <% end %>
+        </td>
+      </table>
+    </div>
+
+    <div class="field">
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t("devise.shared.links.sign_up"), :class => "button button-highlight" %>
+      <%= link_to t("devise.shared.links.sign_up_with_provider", provider: "Facebook"), user_facebook_omniauth_authorize_path, :class => 'button button-white' %><br />
+      <%= render "devise/shared/links" %>
+    </div>
+
+  <% end %>
+
+</div>

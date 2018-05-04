@@ -1,0 +1,32 @@
+<div class="banner signup-banner">
+  <h1><%= t("banners.sign_up") %></h1>
+</div>
+
+<div class="wrapper-skinny devise-container">
+  <%= form_tag create_user_role_path do -%>
+    <div class="field">
+      <label><%= t("user.registration.role_selection_label") %> <em><%= link_to "(?)", "#" %></em></label>
+      <table id="sign-up-role-table">
+        <td>
+          <label for="user_type_artist" class="label-container">
+            <%= t("user.role.artist") %>
+            <input type="radio" value="Artist" name="user[type]" id="user_type_artist" checked/>
+            <span class="checkmark"></span>
+          </label>
+        </td>
+        <td>
+          <label for="user_type_learner" class="label-container">
+            <%= t("user.role.learner") %>
+            <input type="radio" value="Learner" name="user[type]" id="user_type_learner" />
+            <span class="checkmark"></span>
+          </label>
+        </td>
+      </table>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag t("confirm"), :class => "button button-highlight" %>
+      <%= link_to t("cancel"), root_path, :class => "button button-white" %>
+    </div>
+  <% end -%>
+</div>

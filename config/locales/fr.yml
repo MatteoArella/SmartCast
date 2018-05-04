@@ -1,0 +1,50 @@
+fr:
+  explore: "Explore"
+  create: "Créer un Podcast"
+  confirm: "Confirme"
+  cancel: "Annule"
+  file_choose: "Choose a file"
+
+  welcome:
+    subtitle: "Découvrez votre podcast préféré, ou créez le vôtre"
+
+  banners:
+    sign_in: "Connectez sur Smartcast"
+    sign_up: "Enregistré sur SmartCast"
+    forgot_password: "Mot de passe oublié?"
+    change_password: "Changez votre mot de passe"
+    confirmations: "Renvoyer les instructions de confirmation"
+
+  user:
+    profile: "Profil"
+    account_settings:
+      settings: "Options de Compte"
+      current_password: "Password corrente"
+      current_password_label: "Inserisci password corrente"
+      sections:
+        profile: "Profil"
+        security: "Sécurité"
+        delete_account: "Supprime le compte"
+    registration:
+      username: "Nom d'utilisateur"
+      username_label: "Saisissez Nom d'utilisateur"
+      email: "Email"
+      email_label: "Saisissez Email"
+      password_label: "Saisissez Mot de Passe"
+      password_confirmation_label: "Répéter Mot de Passe"
+      role_selection_label: "Choisissez un rôle: "
+    password:
+      new: "Nouveau Mot de Passe"
+      new_label: "Entrez nouveau Mot de Passe"
+      new_password_confirm: "Répéter Mot de Passe"
+      repeat_password_confirm: "Répéter nouveau Mot de Passe"
+    session:
+      login_label: "Nom ou Email"
+    role:
+      artist: "Artiste"
+      learner: "Apprenant"
+
+  episode:
+    title: "Insert Episode title"
+    new:
+      "Create a new Podcast Episode"
