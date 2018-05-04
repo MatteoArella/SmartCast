@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+$(document).on('turbolinks:load', function() {
 	//update these values if you change these breakpoints in the style.css file (or _layout.scss if you use SASS)
 	var MqM= 768,
 		MqL = 1024;
@@ -36,7 +36,6 @@ jQuery(document).ready(function($){
 
 	//show faq content clicking on faqTrigger
 	faqTrigger.on('click', function(event){
-		alert("CIAOAOAOOADHFMNBN");
 		event.preventDefault();
 		$(this).next('.cd-faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
 	});
