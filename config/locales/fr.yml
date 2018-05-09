@@ -3,6 +3,7 @@ fr:
   create: "Créer un Podcast"
   confirm: "Confirme"
   cancel: "Annule"
+  file_choose: "Choose a file"
 
   welcome:
     subtitle: "Découvrez votre podcast préféré, ou créez le vôtre"
@@ -42,3 +43,8 @@ fr:
     role:
       artist: "Artiste"
       learner: "Apprenant"
+
+  episode:
+    title: "Insert Episode title"
+    new:
+      "Create a new Podcast Episode"

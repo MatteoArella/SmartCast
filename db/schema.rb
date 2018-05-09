@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20180504094440) do
   end
 
   create_table "episodes", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "name",             null: false
+    t.text     "description",      null: false
     t.string   "image"
     t.integer  "podcast_id"
     t.datetime "created_at",       null: false
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20180504094440) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "podcasts", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "name",        null: false
+    t.text     "description", null: false
     t.string   "image"
     t.integer  "artist_id"
     t.datetime "created_at",  null: false

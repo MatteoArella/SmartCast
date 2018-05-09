@@ -14,13 +14,11 @@ class PodcastsController < ApplicationController
 		@episodes = @podcast.episodes.paginate(:page => params[:page])
 	end
 
-
-
 	def create
-		@podcast = podcast = Podcast.create(podcast_params)
+		@podcast = Podcast.create(podcast_params)
 
 		if @podcast.errors.any?
-			flash.notice = "Failed to Create Podcast " + @podcast.errors.full_messages.to_sentence
+			flash.notice = "Failed to Create Podcast:".join("</br>").html_safe + @podcast.errors.full_messages.to_sentence
 	      	redirect_to new_podcast_path
 		else
 			@podcast.artist_id = current_user.id
@@ -32,7 +30,7 @@ class PodcastsController < ApplicationController
 
 	private
 
-  	def podcast_params
+  def podcast_params
       	params.require(:podcast).permit(:name, :description, :image, :type)  
 	end
 end

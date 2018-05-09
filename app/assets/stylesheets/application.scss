@@ -282,10 +282,9 @@ input {
 
 @import 'partials/*';
 @import 'welcome/index';
-@import 'devise/common';
-@import 'devise/registrations/*';
-@import 'devise/sessions/new';
+@import 'devise/**/*';
 @import 'podcast/*';
-@import 'episodes';
+@import 'episode/*';
 @import 'users/*';
-@import 'jquery.Jcrop'
+@import 'jquery.Jcrop';
+@import 'faq/**/*';
