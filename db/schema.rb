@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180504094440) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "podcasts", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "title",       null: false
     t.text     "description", null: false
     t.string   "image"
     t.integer  "artist_id"

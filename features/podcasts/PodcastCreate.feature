@@ -53,13 +53,13 @@ Scenario Outline: Artist Create Podcast (happy path)
 Scenario Outline: Artist Create Podcast (sad path)
 	Given I am signed in as an artist user
 	Given I am on the Create Podcast page
-	When I fill form with <name>, <description>, <image>
+	When I fill form with <title>, <description>, <image>
 	And I press "Create Podcast"
 	Then I should be on the Create Podcast page
 	And I should see "Failed to Create Podcast"
 
 	Examples:
-		| name									| description	| image 	  |
+		| title									| description	| image 	  |
 		| "" 									| "Des"			| "image.jpg" |
 		| "Pod Name" 							| ""			| "image.jpg" |
 		| "Pod Name" 							| ""			| "" 		  |

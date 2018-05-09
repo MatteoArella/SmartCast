@@ -18,7 +18,7 @@ class PodcastsController < ApplicationController
 		@podcast = Podcast.create(podcast_params)
 
 		if @podcast.errors.any?
-			flash.notice = "Failed to Create Podcast: <br />".html_safe + @podcast.errors.full_messages.to_sentence
+			flash.notice = "Failed to Create Podcast: <br/><br/>" + @podcast.errors.full_messages.join("<br/>")
 	      	redirect_to new_podcast_path
 		else
 			@podcast.artist_id = current_user.id
@@ -31,6 +31,6 @@ class PodcastsController < ApplicationController
 	private
 
   def podcast_params
-      	params.require(:podcast).permit(:name, :description, :image, :type)  
+      	params.require(:podcast).permit(:title, :description, :image, :type)  
 	end
 end

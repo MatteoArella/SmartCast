@@ -1,5 +1,5 @@
 When /^I fill (videopodcast|audiopodcast) form with valid data$/ do | type |
-	fill_in "podcast_name", :with => "Podcast Title"
+	fill_in "podcast_title", :with => "Podcast Title"
 	fill_in "podcast_description", :with => "Podcast Description"
 	attach_file("podcast_image", "features/uploads/image.jpg")
 	
@@ -12,9 +12,9 @@ When /^I fill (videopodcast|audiopodcast) form with valid data$/ do | type |
 	end
 end
 
-When /^I fill form with "([^"]*)", "([^"]*)", "([^"]*)"$/ do | name, description, image |
+When /^I fill form with "([^"]*)", "([^"]*)", "([^"]*)"$/ do | title, description, image |
 
-	fill_in "podcast_name", :with => name
+	fill_in "podcast_title", :with => title
 	fill_in "podcast_description", :with => description
 	attach_file("podcast_image", "features/uploads/#{image}") unless image.blank?
 	
