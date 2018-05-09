@@ -61,7 +61,6 @@ gem 'paperclip'
 
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -74,6 +73,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'cucumber', '~> 3.1'
+
   gem 'cucumber-rails', :require => false
 
   gem 'cucumber-rails-training-wheels'
@@ -83,7 +84,7 @@ group :development, :test do
 
   gem 'launchy'
 
-  gem 'capybara'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
 
   gem 'rspec-rails', '~> 3.7'
 

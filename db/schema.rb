@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405110327) do
+ActiveRecord::Schema.define(version: 20180504094440) do
+
+  create_table "audio_podcasts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "episodes", force: :cascade do |t|
     t.string   "name",             null: false
@@ -48,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180405110327) do
     t.integer  "artist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "type"
   end
 
   add_index "podcasts", ["artist_id"], name: "index_podcasts_on_artist_id"
@@ -84,5 +90,10 @@ ActiveRecord::Schema.define(version: 20180405110327) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
+
+  create_table "video_podcasts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

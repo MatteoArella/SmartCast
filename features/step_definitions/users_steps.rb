@@ -12,6 +12,12 @@ When /^I sign in with valid email and password$/ do
   click_button "Sign In"
 end
 
+Given /^I am signed in as an? (artist|learner|admin) user$/ do |role|
+  @user = create(role.to_sym)
+  step "I am on the Sign In page"
+  step "I sign in with valid email and password"
+end
+
 When /^I sign in with valid username and password$/ do
 	fill_in "user[login]", :with => @user.username
   fill_in "user_password", :with => @user.password

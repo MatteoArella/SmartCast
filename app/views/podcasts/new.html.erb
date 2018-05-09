@@ -3,7 +3,7 @@
 </div>
 
 
-<%= form_for(@podcast, html: { :multipart => true, id: "input-container", class: "cf wrapper"}) do |f| %>
+<%= form_for(@podcast, as: :podcast, :url => { :action => "create" }, html: { :multipart => true, id: "input-container", class: "cf wrapper"}) do |f| %>
   <div id="image-upload">
     <%= f.file_field :image %>
     <!--<label for="image" class="inputfile-label">Choose a file</label>-->
@@ -16,24 +16,26 @@
   </div>
 
   <div class="btn-bar">
-    <div id="pod-type">
+    <div class="field" id="pod-type">
       <ul>
         <li>
-          <label class="container">Podcast audio
-            <input type="radio" name="radio" checked/>
+          <%= f.label :type_audiopodcast, :class => "label-container" do %>
+            Audio Podcast
+            <%= f.radio_button :type, 'AudioPodcast', :checked => true %>
             <span class="checkmark"></span>
-          </label>
+          <% end %>
         </li>
         <li>
-          <label class="container">Podcast video
-            <input type="radio" name="radio" />
+          <%= f.label :type_videopodcast, :class => "label-container" do %>
+            Video Podcast
+            <%= f.radio_button :type, 'VideoPodcast'%>
             <span class="checkmark"></span>
-          </label>
+          <% end %>
         </li>
       </ul>
     </div>
     <div class="right">
-      <%= f.submit "Create my podcast", class: "button button-highlight" %>
+      <%= f.submit "Create Podcast", class: "button button-highlight" %>
       <%= link_to "Edit", root_path, class: "button button-white" %>
     </div>
   </div>

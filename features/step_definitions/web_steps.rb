@@ -31,15 +31,24 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+When /^(?:|I )follow "([^"]*)" within "([^"]*)"$/ do |link, scope|
+  within find(scope) do
+    click_link(link)
+  end
+end
+
+=begin
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
 end
 
+=begin
 # Multi-line step scoper
 When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
+=end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
