@@ -12,17 +12,11 @@ When /^I fill (videopodcast|audiopodcast) form with valid data$/ do | type |
 	end
 end
 
-When /^I fill (videopodcast|audiopodcast) form with "([^"]*)", "([^"]*)", "([^"]*)"$/ do | type, name, description, image |
+When /^I fill form with "([^"]*)", "([^"]*)", "([^"]*)"$/ do | name, description, image |
 
 	fill_in "podcast_name", :with => name
 	fill_in "podcast_description", :with => description
 	attach_file("podcast_image", "features/uploads/#{image}") unless image.blank?
 	
-	case type
-
-	when "videopodcast"
-		find("input[value='#{VideoPodcast}']").click
-	when "audiopodcast"
-		find("input[value='#{AudioPodcast}']").click
-	end
+	find("input[value='#{VideoPodcast}']").click
 end
