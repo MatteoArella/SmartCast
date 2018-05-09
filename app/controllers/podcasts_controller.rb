@@ -14,12 +14,9 @@ class PodcastsController < ApplicationController
 		@episodes = @podcast.episodes.paginate(:page => params[:page])
 	end
 
-
-
 	def create
-		@podcast = Podcast.new
-		if (!params[:podcast][:name].present? or params[:podcast][:description].nil?)
-        
+		#@podcast = Podcast.new
+		if (!podcast_params[:name].present? or podcast_params[:description].nil?)
       		flash[:danger] = "Error in creating the podcast!"
   			render 'new'
 	  	else
@@ -35,7 +32,6 @@ class PodcastsController < ApplicationController
 end	
 
 private
-
   	def podcast_params
       	params.require(:podcast).permit(:name, :description, :image)  
 	end
