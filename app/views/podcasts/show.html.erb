@@ -1,5 +1,5 @@
 <div class="banner show-podcast-banner">
-  <%= image_tag @podcast.image.url, alt: "podcast-thumbnail" %>
+  <%= image_tag @podcast.image.medium, alt: "podcast-thumbnail" %>
   <h1><%= @podcast.title %></h1>
   <div class="pod-description">
     <table>
@@ -8,11 +8,14 @@
       </td>
       <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(@artist) %></td>
       <td class="col-medium"><%= link_to @artist.username, users_path(@artist) %></td>
-      <td class="col-medium">Created at <%= @podcast.created_at %></td>
+      <td class="col-medium">Created at <%= @podcast.created_at.strftime('%d/%m/%Y') %></td>
     </table>
   </div>
 </div>
 
+<%= link_to "Edit podcast", edit_podcast_path(@podcast), class: "button button-highlight" %>
+
+<!--
   <div id="episodes">
     <div class="wrapper-skinny">
       <ul class="cf">
@@ -47,3 +50,4 @@
 
   <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
 </div>
+-->

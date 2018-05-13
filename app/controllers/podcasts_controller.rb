@@ -6,12 +6,6 @@ class PodcastsController < ApplicationController
 
 	def new
 		@podcast = Podcast.new
-	end 
-
-	def show
-		@podcast = Podcast.find(params[:id])
-		@artist = Artist.find(@podcast.artist_id)
-		@episodes = @podcast.episodes.paginate(:page => params[:page])
 	end
 
 	def create
@@ -28,9 +22,29 @@ class PodcastsController < ApplicationController
 		end
 	end
 
+	def show
+		@podcast = Podcast.find(params[:id])
+		@artist = Artist.find(@podcast.artist_id)
+		@episodes = @podcast.episodes.paginate(:page => params[:page])
+	end
+
+	def edit
+		@podcast = Podcast.find(params[:id])
+	end
+
+	def update
+		@podcast = Podcast.find(params[:id])
+
+		if @podcast.update(podcast_params)
+			redirect_to @podcast.becomes(Podcast)
+		else
+			render 'edit'
+		end
+	end
+
 	private
 
   def podcast_params
-      	params.require(:podcast).permit(:title, :description, :image, :type)  
+    params.require(:podcast).permit(:title, :description, :image, :type)
 	end
 end
