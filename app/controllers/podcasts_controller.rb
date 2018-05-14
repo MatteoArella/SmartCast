@@ -1,4 +1,6 @@
 class PodcastsController < ApplicationController
+	before_filter :podcast_params_filter, :only => [:create, :update]
+
 	load_and_authorize_resource
 	
 	def index
@@ -56,11 +58,15 @@ class PodcastsController < ApplicationController
 
 	private
 
+	def podcast_params_filter
+		params[:podcast] = podcast_params
+	end
+
 	def podcast_index_params
 		params.permit(:search)
 	end
 
-  	def podcast_params
+	def podcast_params
     	params.require(:podcast).permit(:title, :description, :image, :type)
 	end
 end

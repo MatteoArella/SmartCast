@@ -26,11 +26,11 @@ Given /^the following users exists:$/ do |fields|
 
     case @type
       when "admin"
-        @admin = create(:admin, :email => @email, :password => @password)
+        @admin = create(:admin, :email => @email, :password => @password, :password_confirmation => @password)
       when "artist"
-        @artist = create(:artist, :email => @email, :password => @password)
+        @artist = create(:artist, :email => @email, :password => @password, :password_confirmation => @password)
       when "learner"
-        @learner = create(:learner, :email => @email, :password => @password)
+        @learner = create(:learner, :email => @email, :password => @password, :password_confirmation => @password)
     end
   end
 end
