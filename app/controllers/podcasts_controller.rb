@@ -1,7 +1,12 @@
 class PodcastsController < ApplicationController
+	load_and_authorize_resource
 	
 	def index
-		@podcasts = Podcast.paginate(:page => params[:page])
+		unless podcast_index_params[:search].nil?
+			@podcasts = Podcast.find_by_title(params[:search]).paginate(:page => params[:page])
+		else
+			@podcasts = Podcast.paginate(:page => params[:page])
+		end
 	end
 
 	def new
@@ -42,9 +47,20 @@ class PodcastsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@podcast = Podcast.find(params[:id])
+		@podcast.destroy!
+		flash[:notice] = "Successfully deleted podcast"
+		redirect_to root_path
+	end
+
 	private
 
-  def podcast_params
-    params.require(:podcast).permit(:title, :description, :image, :type)
+	def podcast_index_params
+		params.permit(:search)
+	end
+
+  	def podcast_params
+    	params.require(:podcast).permit(:title, :description, :image, :type)
 	end
 end

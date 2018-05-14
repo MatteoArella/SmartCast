@@ -34,6 +34,9 @@ module NavigationHelpers
     when /^the Podcast Show page$/
       podcast_path(Podcast.last)
 
+    when /^my podcast page$/
+      podcast_path(Podcast.last)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

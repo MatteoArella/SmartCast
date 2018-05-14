@@ -25,6 +25,10 @@ class Podcast < ActiveRecord::Base
 
   self.per_page = 10
 
+  def self.find_by_title(title)
+    Podcast.where("title LIKE ?", "%#{sanitize_sql_like(title)}%")
+  end
+
   private
 
   def validate_type

@@ -20,3 +20,7 @@ When /^I fill form with "([^"]*)", "([^"]*)", "([^"]*)"$/ do | title, descriptio
 	
 	find("input[value='#{VideoPodcast}']").click
 end
+
+And /^a podcast exists$/ do
+	@podcast = create(:podcast, :artist_id => @artist.id)
+end
