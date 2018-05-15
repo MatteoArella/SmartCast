@@ -18,11 +18,15 @@ Rails.application.routes.draw do
     get '/:id' => 'users#show'
   end
 
-  resources :podcasts do 
+  resources :podcasts do
+    member do
+      put "like" => "podcasts#upvote"
+      put "dislike" => "podcasts#downvote"
+    end
+
     resources :episodes 
   end
 
   root 'welcome#index'
   get 'faq' => 'faq#index'
-  
 end

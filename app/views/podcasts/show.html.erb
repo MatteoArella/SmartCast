@@ -14,8 +14,18 @@
 </div>
 
 <%= link_to "Edit podcast", edit_podcast_path(@podcast), class: "button button-highlight" %>
-<%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, class: "button button-alert" %>
+<%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" %>
 
+
+<%= link_to like_podcast_path(@podcast), method: :put do %>
+  Upvote
+  <%= @podcast.get_upvotes.size %>
+<% end %>
+
+<%= link_to dislike_podcast_path(@podcast), method: :put do %>
+  Downvote
+  <%= @podcast.get_downvotes.size %>
+<% end %>
 <!--
   <div id="episodes">
     <div class="wrapper-skinny">

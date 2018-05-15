@@ -50,6 +50,9 @@ gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
+# like/dislike support
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

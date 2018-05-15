@@ -1,7 +1,7 @@
 class PodcastsController < ApplicationController
 	before_filter :podcast_params_filter, :only => [:create, :update]
-
-	load_and_authorize_resource
+	
+	load_and_authorize_resource :except => [:upvote, :downvote]
 	
 	def index
 		unless podcast_index_params[:search].nil?
@@ -54,6 +54,18 @@ class PodcastsController < ApplicationController
 		@podcast.destroy!
 		flash[:notice] = "Successfully deleted podcast"
 		redirect_to root_path
+	end
+
+	def upvote 
+	  @pod = Podcast.find(params[:id])
+	  @pod.upvote_by current_user
+	  redirect_to :back
+	end  
+
+	def downvote
+	  @podcast = Podcast.find(params[:id])
+	  @podcast.downvote_by current_user
+	  redirect_to :back
 	end
 
 	private

@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
 
   after_update :crop_avatar
 
+  acts_as_voter
+
   #def initialize(attributes=nil)
   #  attr_with_defaults = {:avatar => "user-default.png"}.merge(attributes)
   #  super(attr_with_defaults)

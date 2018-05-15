@@ -20,6 +20,7 @@
 	          <div class="podcast-overview">
 	            <h2><%= pod.title %></h2>
 	            <p class="episode-count"><%= pod.episodes.count %> episodes</p>
+              <p class="episode-count"><%= pod.get_upvotes.size %> Likes</p>
 	          </div>
 	        </li>
 	      <% end %>
