@@ -15,10 +15,10 @@
 
   <div class="field">
     <div class="btn-bar">
-      <a class="button button-alert" href="javascript:void(0);">Delete podcast</a>
+      <%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" if can? :destroy, @podcast %>
       <div class="right">
         <%= f.submit "Save Changes", class: "button button-highlight" %>
-        <%= link_to "Cancel", root_path, class: "button button-white" %>
+        <%= link_to "Cancel", :back, class: "button button-white" %>
       </div>
     </div>
   </div>

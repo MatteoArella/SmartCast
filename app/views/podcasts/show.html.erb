@@ -13,8 +13,8 @@
   </div>
 </div>
 
-<%= link_to "Edit podcast", edit_podcast_path(@podcast), class: "button button-highlight" %>
-<%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" %>
+<%= link_to "Edit podcast", edit_podcast_path(@podcast), class: "button button-highlight" if can? :update, @podcast %>
+<%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" if can? :destroy, @podcast %>
 
 
 <%= link_to like_podcast_path(@podcast), method: :put do %>

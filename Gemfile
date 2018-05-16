@@ -64,6 +64,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 
+# Fake data generator
+gem 'faker', git: 'https://github.com/stympy/faker'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -95,10 +98,6 @@ group :development, :test do
 
   # Use FactoryBot gem for model data testing
   gem 'factory_bot_rails', '~> 4.0'
-
-  # Fake data generator
-  gem 'faker'
-
 end
 
 group :development do
