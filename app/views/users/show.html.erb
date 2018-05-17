@@ -16,11 +16,11 @@
   <div class="wrapper">
     <ul class="cf">
       <% for pod in @user.podcasts %>
-        <%= link_to(pod) do %>
+        <%= link_to(pod.becomes(Podcast)) do %>
           <li>
             <%= image_tag pod.image.url, alt: "Podcast image" %>
             <div class="podcast-overview">
-              <h2><%= pod.name %></h2>
+              <h2><%= pod.title %></h2>
               <p class="episode-count"><%= pod.episodes.count %> episodes</p>
             </div>
           </li>

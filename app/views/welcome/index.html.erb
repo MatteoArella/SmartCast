@@ -5,8 +5,12 @@
 
 		<div id="welcome-buttons-bar">
 			
+			<% if !signed_in? %>
+				<%= link_to t("create"), sign_in_path, class: "button button-highlight" %>
+			<% elsif can? :create, Podcast %>
 				<%= link_to t("create"), new_podcast_path, class: "button button-highlight" %>
-			
+			<% end %>
+
 			<%= link_to t("explore"),podcasts_path , class: "button button-white" %>
 		</div>
 	</div>

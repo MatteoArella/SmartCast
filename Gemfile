@@ -50,6 +50,9 @@ gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
+# like/dislike support
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -61,6 +64,8 @@ gem 'paperclip'
 
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 
+# Fake data generator
+gem 'faker', git: 'https://github.com/stympy/faker'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -74,6 +79,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'cucumber', '~> 3.1'
+
   gem 'cucumber-rails', :require => false
 
   gem 'cucumber-rails-training-wheels'
@@ -83,7 +90,7 @@ group :development, :test do
 
   gem 'launchy'
 
-  gem 'capybara'
+  gem 'capybara', '~> 2.7', '>= 2.7.1'
 
   gem 'rspec-rails', '~> 3.7'
 
@@ -91,10 +98,6 @@ group :development, :test do
 
   # Use FactoryBot gem for model data testing
   gem 'factory_bot_rails', '~> 4.0'
-
-  # Fake data generator
-  gem 'faker'
-
 end
 
 group :development do

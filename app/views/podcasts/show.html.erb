@@ -1,6 +1,6 @@
 <div class="banner show-podcast-banner">
-  <%= image_tag @podcast.image.url, alt: "podcast-thumbnail" %>
-  <h1><%= @podcast.name %></h1>
+  <%= image_tag @podcast.image.medium, alt: "podcast-thumbnail" %>
+  <h1><%= @podcast.title %></h1>
   <div class="pod-description">
     <table>
       <td>
@@ -8,11 +8,25 @@
       </td>
       <td><%= link_to (image_tag @artist.avatar, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(@artist) %></td>
       <td class="col-medium"><%= link_to @artist.username, users_path(@artist) %></td>
-      <td class="col-medium">Created at <%= @podcast.created_at %></td>
+      <td class="col-medium">Created at <%= @podcast.created_at.strftime('%d/%m/%Y') %></td>
     </table>
   </div>
 </div>
 
+<%= link_to "Edit podcast", edit_podcast_path(@podcast), class: "button button-highlight" if can? :update, @podcast %>
+<%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" if can? :destroy, @podcast %>
+
+
+<%= link_to like_podcast_path(@podcast), method: :put do %>
+  Upvote
+  <%= @podcast.get_upvotes.size %>
+<% end %>
+
+<%= link_to dislike_podcast_path(@podcast), method: :put do %>
+  Downvote
+  <%= @podcast.get_downvotes.size %>
+<% end %>
+<!--
   <div id="episodes">
     <div class="wrapper-skinny">
       <ul class="cf">
@@ -28,7 +42,7 @@
                   <p class="description"><%= e.description %></p>
                 </td>
                 <td>
-                  <a class="button button-highlight" href="../episode/edit.html">Edit</a>
+                  <a class="button button-highlight" href="#">Edit</a>
                 </td>
                 <td>
                   <a class="button button-alert" href="#">Delete</a>
@@ -47,3 +61,4 @@
 
   <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
 </div>
+-->

@@ -4,21 +4,23 @@
 
 <div id="search-container" class="cf">
   <form name="search-form">
-    <input type="text" placeholder="Search Podcasts" name="search-text" class="border-animation" />
+    <input type="text" placeholder="Search Podcasts" name="search" class="border-animation" />
     <input type="submit" value="Search" class="button button-highlight"/>
   </form>
 </div>
 
 <div id="podcasts" class="cf">
   <div class="wrapper">
-    <ul class="cf">
+    <ul class="cf"> 
     	<% for pod in @podcasts %>
-	      <%= link_to(pod) do %>
+
+	      <%= link_to(pod.becomes(Podcast)) do %>
 	        <li>
-	          <%= image_tag pod.image.url, alt: "Podcast image" %>
+	          <%= image_tag pod.image.medium, alt: "Podcast image" %>
 	          <div class="podcast-overview">
-	            <h2><%= pod.name %></h2>
+	            <h2><%= pod.title %></h2>
 	            <p class="episode-count"><%= pod.episodes.count %> episodes</p>
+              <p class="episode-count"><%= pod.get_upvotes.size %> Likes</p>
 	          </div>
 	        </li>
 	      <% end %>

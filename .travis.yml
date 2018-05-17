@@ -19,7 +19,8 @@ script:
   #- RAILS_ENV=test 
   #- bundle exec rake cucumber
   #- bundle exec rspec --color --format documentation --require spec_helper --require rails_helper
-  - bundle exec rake ci:tests
+  - bundle exec cucumber
+  - bundle exec rspec
 services:
   #- redis-server
 notifications:

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   }
 
   PERMITTED_ROLES = ['Artist', 'Learner']
+  APPLICATION_ROLES = PERMITTED_ROLES + ['AdminUser']
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -32,6 +33,8 @@ class User < ActiveRecord::Base
   validate :validate_type
 
   after_update :crop_avatar
+
+  acts_as_voter
 
   #def initialize(attributes=nil)
   #  attr_with_defaults = {:avatar => "user-default.png"}.merge(attributes)
@@ -61,7 +64,7 @@ class User < ActiveRecord::Base
 	end
 
   def validate_type
-    unless PERMITTED_ROLES.include? type
+    unless APPLICATION_ROLES.include? type
       errors.add(:type, :invalid)
     end
   end
@@ -96,8 +99,7 @@ class User < ActiveRecord::Base
   end
 
   def guest?
-     #this method return true if the User are not logged in the system
-     true
+    true
   end
     
   def crop_avatar

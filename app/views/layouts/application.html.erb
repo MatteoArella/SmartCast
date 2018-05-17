@@ -12,11 +12,11 @@
 		<!--<div class="container-fixed">-->
 			<% if alert %>
 				<div id="notice_wrapper">
-					<p class="alert"><%= alert %></p>
+					<p class="alert"><%= alert.html_safe %></p>
 				</div>
 			<% elsif notice %>
 				<div id="notice_wrapper">
-					<p class="notice"><%= notice %></p>
+					<p class="notice"><%= notice.html_safe %></p>
 				</div>
 			<% end %>
 
@@ -37,7 +37,7 @@
 						$('#error_explanation').fadeOut("slow", function() {
 							$this.remove();
 						});
-					}, 4500 );
+					}, 7000 );
 
 					$('details').click(function (event) {
 	    			$('details').not(this).removeAttr("open");  
