@@ -4,10 +4,10 @@ class PodcastsController < ApplicationController
 	load_and_authorize_resource param_method: :podcast_params, :except => [:upvote, :downvote]
 	
 	def index
-		unless podcast_index_params[:search].nil?
-			@podcasts = Podcast.find_by_title(params[:search]).paginate(:page => params[:page])
+		unless podcast_search_params[:search].nil?
+			@podcasts = Podcast.find_by_title(params[:search]).order(:cached_votes_up => :desc).paginate(:page => params[:page])
 		else
-			@podcasts = Podcast.paginate(:page => params[:page])
+			@podcasts = Podcast.order(:cached_votes_up => :desc).paginate(:page => params[:page])
 		end
 	end
 
@@ -20,7 +20,7 @@ class PodcastsController < ApplicationController
 
 		if @podcast.errors.any?
 			flash.notice = "Failed to Create Podcast: <br/><br/>" + @podcast.errors.full_messages.join("<br/>")
-	      	redirect_to new_podcast_path
+	    redirect_to new_podcast_path
 		else
 			@podcast.artist_id = current_user.id
 			@podcast.save
@@ -70,11 +70,7 @@ class PodcastsController < ApplicationController
 
 	private
 
-	def podcast_params_filter
-		params[:podcast] = podcast_params
-	end
-
-	def podcast_index_params
+	def podcast_search_params
 		params.permit(:search)
 	end
 

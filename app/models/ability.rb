@@ -5,7 +5,7 @@ class Ability
     user ||= User.new
 
     if user.guest?
-        cannot :manage, :any?
+        cannot :manage, :any
     end
 
     if user.learner?
@@ -23,9 +23,9 @@ class Ability
     end
 
     if user.admin?
-        can :manage, :all? #For example, the AdminUser also can 
-        cannot :create, Podcast
-        cannot :create, Episode
+        can :manage, :all #For example, the AdminUser also can 
+        #cannot :create, Podcast
+        #cannot :create, Episode
     end
   end
 end
