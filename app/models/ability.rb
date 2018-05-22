@@ -24,7 +24,7 @@ class Ability
 
     if user.admin?
         can :manage, :all #For example, the AdminUser also can 
-        #cannot :create, Podcast
+        cannot :create, Podcast
         #cannot :create, Episode
     end
   end

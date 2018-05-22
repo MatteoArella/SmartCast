@@ -1,6 +1,4 @@
 class PodcastsController < ApplicationController
-	#before_filter :podcast_params_filter, :only => [:create, :update]
-	
 	load_and_authorize_resource param_method: :podcast_params, :except => [:upvote, :downvote]
 	
 	def index

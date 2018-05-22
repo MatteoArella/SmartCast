@@ -37,31 +37,3 @@ Scenario Outline: Artist Create podcast from homepage
 		| "#welcome-buttons-bar" |	#from homepage links
 		| "nav"					 |	#from header navbar
 
-Scenario Outline: Artist Create Podcast (happy path)
-	Given I am signed in as an artist user
-	Given I am on the Create Podcast page
-	When I fill <type> form with valid data
-	And I press "Create Podcast"
-	Then I should be on the Podcast Show page
-	And I should see "Podcast Successfully Created"
-
-	Examples:
-		| type 		   |
-		| videopodcast |
-		| audiopodcast |
-
-Scenario Outline: Artist Create Podcast (sad path)
-	Given I am signed in as an artist user
-	Given I am on the Create Podcast page
-	When I fill form with <title>, <description>, <image>
-	And I press "Create Podcast"
-	Then I should be on the Create Podcast page
-	And I should see "Failed to Create Podcast"
-
-	Examples:
-		| title									| description	| image 	  |
-		| "" 									| "Des"			| "image.jpg" |
-		| "Pod Name" 							| ""			| "image.jpg" |
-		| "Pod Name" 							| ""			| "" 		  |
-		| "'A' * Podcast.name_max_length + 1"	| ""			| "" 		  |
-		| "Pod Name"							| "'A' * Podcast.description_max_length + 1" | "" |
