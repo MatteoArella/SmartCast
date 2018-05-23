@@ -5,6 +5,7 @@ class Episodes::AudioEpisodesController < EpisodesController
 
 	def new
 		@episode = AudioEpisode.new
+		render template: "episodes/new"
 	end
 
 	def create
