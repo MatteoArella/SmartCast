@@ -17,16 +17,16 @@
     <div class="field" id="pod-type">
       <ul>
         <li>
-          <%= f.label :type_audiopodcast, :class => "label-container" do %>
+          <%= f.label :category_audiopodcast, :class => "label-container" do %>
             Audio Podcast
-            <%= f.radio_button :type, 'AudioPodcast', :checked => true %>
+            <%= f.radio_button :category, 'AudioPodcast', :checked => true %>
             <span class="checkmark"></span>
           <% end %>
         </li>
         <li>
-          <%= f.label :type_videopodcast, :class => "label-container" do %>
+          <%= f.label :category_videopodcast, :class => "label-container" do %>
             Video Podcast
-            <%= f.radio_button :type, 'VideoPodcast'%>
+            <%= f.radio_button :category, 'VideoPodcast'%>
             <span class="checkmark"></span>
           <% end %>
         </li>

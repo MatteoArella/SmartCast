@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180523085158) do
     t.integer  "artist_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "type"
+    t.string   "category"
     t.integer  "cached_votes_total", default: 0
     t.integer  "cached_votes_score", default: 0
     t.integer  "cached_votes_up",    default: 0

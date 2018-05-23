@@ -64,57 +64,68 @@ AdminUser.create(:email => 'admin@user.com',
 						:confirmed_at => Time.now)
 
 # create podcasts
-pod1 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod1 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist1.id)
+										:artist_id => artist1.id,
+										:category => 'AudioPodcast')
 
-pod2 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod2 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist2.id)
+										:artist_id => artist2.id,
+										:category => 'AudioPodcast')
 
-pod3 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod3 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist3.id)
+										:artist_id => artist3.id,
+										:category => 'AudioPodcast')
 
-pod4 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod4 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist1.id)
+										:artist_id => artist1.id,
+										:category => 'AudioPodcast')
 
-pod5 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod5 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist2.id)
+										:artist_id => artist2.id,
+										:category => 'AudioPodcast')
 
-pod6 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod6 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist3.id)
+										:artist_id => artist3.id,
+										:category => 'AudioPodcast')
 
-pod7 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod7 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist1.id)
+										:artist_id => artist1.id,
+										:category => 'AudioPodcast')
 
-pod8 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod8 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist2.id)
+										:artist_id => artist2.id,
+										:category => 'AudioPodcast')
 
-pod9 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod9 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist3.id)
+										:artist_id => artist3.id,
+										:category => 'AudioPodcast')
 
-pod10 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod10 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist1.id)
+										:artist_id => artist1.id,
+										:category => 'AudioPodcast')
 
-pod11 = AudioPodcast.create(:title => Faker::Lorem.characters(8),
+pod11 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
-										:artist_id => artist2.id)
+										:artist_id => artist2.id,
+										:category => 'AudioPodcast')
