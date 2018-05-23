@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.Jcrop
+//= require jquery.jplayer.min
 //= require turbolinks
 //= require_tree .
 

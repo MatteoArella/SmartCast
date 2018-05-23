@@ -50,6 +50,8 @@ gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
+gem "font-awesome-rails"
+
 # like/dislike support
 gem 'acts_as_votable', '~> 0.10.0'
 

@@ -24,7 +24,7 @@ class Episodes::AudioEpisodesController < EpisodesController
 
 	def show
 		@episode = AudioEpisode.find(params[:id])
-		render :json => @episode
+		render template: "episodes/show"
 	end
 
 	private
