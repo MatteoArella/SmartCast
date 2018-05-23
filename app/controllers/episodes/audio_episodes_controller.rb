@@ -1,4 +1,4 @@
-class AudioEpisodesController < EpisodesController
+class Episodes::AudioEpisodesController < EpisodesController
 	def index
 		@episodes = @podcast.episodes
 	end
@@ -8,7 +8,7 @@ class AudioEpisodesController < EpisodesController
 	end
 
 	def create
-		@episode = @podcast.episodes.create(episode_params)
+		@episode = @podcast.episodes.create(episode_params.merge(:type => 'AudioEpisode'))
 
 		if @episode.errors.any?
 			flash.notice = "Failed to Create Episode: <br/><br/>" + @episode.errors.full_messages.join("<br/>")
@@ -22,11 +22,12 @@ class AudioEpisodesController < EpisodesController
 	end
 
 	def show
-		render :plain => "episode show"
+		@episode = AudioEpisode.find(params[:id])
+		render :json => @episode
 	end
 
 	private
 	def episode_params
-		params.require(episode_type).permit(attributes)
+		params.require(:audio_episode).permit(:title, :description, :image, :mp3)
 	end
 end

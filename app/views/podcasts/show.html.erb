@@ -26,19 +26,19 @@
   Downvote
   <%= @podcast.get_downvotes.size %>
 <% end %>
-<!--
+
   <div id="episodes">
     <div class="wrapper-skinny">
       <ul class="cf">
         <% for e in @episodes %>
           <li class="cf">
             <div class="episode_thumbnail">
-              <a href="#"><%= image_tag e.image.url, alt: "episode-thumbnail" %></a>
+              <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), "#" %>
             </div>
             <div class="episode_overview">
               <table>
                 <td class="col-large">
-                  <h2><%= e.name %></h2>
+                  <h2><%= e.title %></h2>
                   <p class="description"><%= e.description %></p>
                 </td>
                 <td>
@@ -58,10 +58,10 @@
       </div>
     </div>
   </div>
--->
-<%= if @podcast.audio? %>
+
+<% if @podcast.audio? %>
   <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast), class: "button button-highlight" %>
-<%= elsif @podcast.video? %>
+<% elsif @podcast.video? %>
   <%= link_to "Add episode", new_podcast_video_episode_path(@podcast), class: "button button-highlight" %>
 <% end %>
 
