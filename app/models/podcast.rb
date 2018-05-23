@@ -21,11 +21,18 @@ class Podcast < ActiveRecord::Base
   validates :image, presence: :true
 
   belongs_to :artist
-  has_many :episodes, dependent: :destroy
 
   acts_as_votable
 
   self.per_page = 10
+
+  def video?
+    false
+  end
+
+  def audio?
+    false
+  end
 
   def self.find_by_title(title)
     Podcast.where("title LIKE ?", "%#{sanitize_sql_like(title)}%")

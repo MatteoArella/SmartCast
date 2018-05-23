@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515142714) do
-
-  create_table "audio_podcasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180523085158) do
 
   create_table "episodes", force: :cascade do |t|
-    t.string   "name",             null: false
+    t.string   "title",            null: false
     t.text     "description",      null: false
     t.string   "image"
     t.integer  "podcast_id"
@@ -29,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180515142714) do
     t.string   "mp3_file_name"
     t.integer  "mp3_file_size"
     t.string   "mp3_content_type"
+    t.string   "type"
   end
 
   add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
@@ -94,11 +90,6 @@ ActiveRecord::Schema.define(version: 20180515142714) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
-
-  create_table "video_podcasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

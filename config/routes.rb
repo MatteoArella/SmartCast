@@ -24,7 +24,8 @@ Rails.application.routes.draw do
       put "dislike" => "podcasts#downvote"
     end
 
-    resources :episodes 
+    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode'
+    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode'
   end
 
   root 'welcome#index'

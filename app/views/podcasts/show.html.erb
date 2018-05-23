@@ -58,7 +58,11 @@
       </div>
     </div>
   </div>
-
-  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
-</div>
 -->
+<%= if @podcast.audio? %>
+  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast), class: "button button-highlight" %>
+<%= elsif @podcast.video? %>
+  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast), class: "button button-highlight" %>
+<% end %>
+
+</div>

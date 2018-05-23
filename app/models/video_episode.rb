@@ -1,0 +1,3 @@
+class VideoEpisode < Episode
+
+end
