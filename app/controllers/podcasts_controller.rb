@@ -1,5 +1,5 @@
 class PodcastsController < ApplicationController
-	load_and_authorize_resource param_method: :podcast_params, :except => [:upvote, :downvote]
+	load_and_authorize_resource :except => [:upvote, :downvote]
 	
 	def index
 		unless podcast_search_params[:search].nil?
@@ -74,5 +74,13 @@ class PodcastsController < ApplicationController
 
 	def podcast_params
     	params.require(:podcast).permit(:title, :description, :image, :category)
+	end
+
+	def create_params
+		podcast_params
+	end
+
+	def update_params
+		podcast_params
 	end
 end
