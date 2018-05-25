@@ -33,7 +33,11 @@
         <% for e in @episodes %>
           <li class="cf">
             <div class="episode_thumbnail">
-              <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), "#" %>
+              <% if @podcast.audio? %>
+                <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), podcast_audio_episode_path(@podcast.id, e.id) %>
+              <% elsif @podcast.video? %>
+                <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), podcast_video_episode_path(@podcast.id, e.id) %>
+              <% end %>
             </div>
             <div class="episode_overview">
               <table>
@@ -60,9 +64,9 @@
   </div>
 
 <% if @podcast.audio? %>
-  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast), class: "button button-highlight" %>
+  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" %>
 <% elsif @podcast.video? %>
-  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast), class: "button button-highlight" %>
+  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" %>
 <% end %>
 
 </div>

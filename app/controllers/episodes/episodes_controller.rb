@@ -1,4 +1,4 @@
-class EpisodesController < ApplicationController
+class Episodes::EpisodesController < ApplicationController
 
 	before_action :find_podcast # initialize @podcast variable
 
