@@ -1,8 +1,4 @@
 class Episodes::AudioEpisodesController < Episodes::EpisodesController
-	def index
-		@episodes = @podcast.episodes
-	end
-
 	def new
 		@episode = AudioEpisode.new
 		render template: "episodes/new"
@@ -16,6 +12,7 @@ class Episodes::AudioEpisodesController < Episodes::EpisodesController
 	    redirect_to new_podcast_audio_episode_path(@podcast.id)
 		else
 			@episode.podcast_id = @podcast.id
+			@episode.artist_id = @podcast.artist_id
 			@episode.save
 			flash.notice = "Episode Successfully Created"
 			redirect_to podcast_audio_episode_path(@podcast.id, @episode.id)

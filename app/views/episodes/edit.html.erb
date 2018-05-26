@@ -1,0 +1,5 @@
+<div class="banner create-episode-banner">
+  <h1>Edit your Podcast Episode</h1>
+</div>
+
+<%= render partial: "episodes/#{@episode.type.tableize}/edit", object: @episode %>
