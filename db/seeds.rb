@@ -140,10 +140,12 @@ video = VideoEpisode.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
 										:podcast_id => pod12.id,
+										:artist_id => pod12.artist_id,
 										:mp4 => Rails.root.join("features/uploads/video.mp4").open)
 
 audio = AudioEpisode.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
 										:podcast_id => pod10.id,
+										:artist_id => pod10.artist_id
 										:mp3 => Rails.root.join("features/uploads/audio.mp3").open)
