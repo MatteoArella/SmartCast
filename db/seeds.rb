@@ -147,5 +147,5 @@ audio = AudioEpisode.create(:title => Faker::Lorem.characters(8),
 										:description => Faker::Lorem.characters(10),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
 										:podcast_id => pod10.id,
-										:artist_id => pod10.artist_id
+										:artist_id => pod10.artist_id,
 										:mp3 => Rails.root.join("features/uploads/audio.mp3").open)
