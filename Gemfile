@@ -44,9 +44,6 @@ gem 'carrierwave'
 #gem 'mini_magick'
 gem 'rmagick'
 
-# Amazon S3 service
-gem 'fog-aws'
-
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
@@ -115,6 +112,7 @@ end
 group :production do
   gem 'pg', '~> 0.18.4'
   gem 'rails_12factor', '0.0.2'
+  gem 'aws-sdk-s3'
 end
 
 
