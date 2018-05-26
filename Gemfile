@@ -52,6 +52,8 @@ gem 'paperclip'
 
 gem "font-awesome-rails"
 
+gem "jw_player_helper"
+
 # like/dislike support
 gem 'acts_as_votable', '~> 0.10.0'
 
