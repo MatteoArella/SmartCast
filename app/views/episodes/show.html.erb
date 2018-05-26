@@ -1,5 +1,18 @@
-<div class="banner create-episode-banner">
-  <h1>Create your Podcast Episode</h1>
+<div class="banner show-podcast-banner">
+  <%= image_tag @episode.image.medium, alt: "episode-thumbnail" %>
+  <h1><%= @podcast.title %></h1>
+  <div class="pod-description">
+    <table>
+      <td>
+        <p class="col-large"><%= @episode.description %></p>
+      </td>
+      <td><%= link_to (image_tag @artist.avatar.thumb, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(@artist) %></td>
+      <td class="col-medium"><%= link_to @artist.username, users_path(@artist) %></td>
+      <td class="col-medium">Created at <%= @episode.created_at.strftime('%d/%m/%Y') %></td>
+    </table>
+  </div>
 </div>
 
-<%= render partial: "episodes/#{@episode.type.tableize}/show", object: @episode %>
+<div class="center">
+	<%= render partial: "episodes/#{@episode.type.tableize}/show", object: @episode %>
+</div>

@@ -280,6 +280,10 @@ input {
 	}			
 }
 
+.center {
+	margin: 0 auto;
+}
+
 @import 'font-awesome';
 @import 'partials/*';
 @import 'welcome/index';
