@@ -1,6 +1,6 @@
 <div class="banner show-podcast-banner">
   <%= image_tag @episode.image.medium, alt: "episode-thumbnail" %>
-  <h1><%= @podcast.title %></h1>
+  <h1><%= @episode.title %></h1>
   <div class="pod-description">
     <table>
       <td>
@@ -18,4 +18,4 @@
 </div>
 
 <%= link_to "Edit episode", edit_polymorphic_path([@podcast, @episode]), class: "button button-highlight" if can? :update, @episode %>
-<%= link_to "Delete podcast", polymorphic_path([@podcast, @episode]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, @episode %>
+<%= link_to "Delete episode", polymorphic_path([@podcast, @episode]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, @episode %>
