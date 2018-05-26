@@ -44,6 +44,9 @@ gem 'carrierwave'
 #gem 'mini_magick'
 gem 'rmagick'
 
+# Amazon S3 service
+gem 'fog-aws'
+
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
