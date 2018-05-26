@@ -112,7 +112,7 @@ end
 group :production do
   gem 'pg', '~> 0.18.4'
   gem 'rails_12factor', '0.0.2'
-  gem 'aws-sdk-s3'
+  gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 end
 
 
