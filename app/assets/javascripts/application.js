@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.Jcrop
+//= require video
 //= require turbolinks
 //= require_tree .
-
-

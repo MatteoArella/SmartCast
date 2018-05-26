@@ -1,1 +1,1 @@
-<%= video_player({file: @episode.mp4.url}, {:width => 640, :height => 480,}, :allowfullscreen => true) %>
+<%= videojs_rails sources: { mp4: @episode.mp4.url}, width:"640" %>
