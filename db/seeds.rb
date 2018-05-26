@@ -129,3 +129,15 @@ pod11 = Podcast.create(:title => Faker::Lorem.characters(8),
 										:image => Rails.root.join("features/uploads/image.jpg").open,
 										:artist_id => artist2.id,
 										:category => 'AudioPodcast')
+
+pod12 = Podcast.create(:title => Faker::Lorem.characters(8),
+										:description => Faker::Lorem.characters(10),
+										:image => Rails.root.join("features/uploads/image.jpg").open,
+										:artist_id => artist1.id,
+										:category => 'VideoPodcast')
+
+video = VideoEpisode.create(:title => Faker::Lorem.characters(8),
+										:description => Faker::Lorem.characters(10),
+										:image => Rails.root.join("features/uploads/image.jpg").open,
+										:podcast_id => pod12.id,
+										:mp4 => Rails.root.join("features/uploads/video.mp4").open)
