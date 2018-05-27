@@ -55,13 +55,13 @@ class PodcastsController < ApplicationController
 	end
 
 	def upvote 
-	  @pod = Podcast.find(params[:id])
+	  @pod = Podcast.find(params[:podcast_id])
 	  @pod.upvote_by current_user
 	  redirect_to :back
 	end  
 
 	def downvote
-	  @podcast = Podcast.find(params[:id])
+	  @podcast = Podcast.find(params[:podcast_id])
 	  @podcast.downvote_by current_user
 	  redirect_to :back
 	end

@@ -3,6 +3,8 @@ class Episodes::EpisodesController < ApplicationController
 	before_action :find_podcast # initialize @podcast variable
 	before_action :find_artist  # initialize @artist variable
 
+	load_and_authorize_resource :except => [:upvote, :downvote]
+
 	def index
 		@episodes = @podcast.episodes
 	end
@@ -29,6 +31,17 @@ class Episodes::EpisodesController < ApplicationController
 		redirect_to podcast_path(@podcast.id)
 	end
 
+	def upvote 
+	  @episode = Episode.find(episode_params_id) # episode_params_id abstract method defined into subclasses
+	  @episode.upvote_by current_user
+	  redirect_to :back
+	end  
+
+	def downvote
+	  @episode = Episode.find(episode_params_id) # episode_params_id abstract method defined into subclasses
+	  @episode.downvote_by current_user
+	  redirect_to :back
+	end
 
 	private
 

@@ -19,3 +19,13 @@
 
 <%= link_to "Edit episode", edit_polymorphic_path([@podcast, @episode]), class: "button button-highlight" if can? :update, @episode %>
 <%= link_to "Delete episode", polymorphic_path([@podcast, @episode]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, @episode %>
+
+<%= link_to polymorphic_path([@podcast, @episode, :like]), method: :put do %>
+  Upvote
+  <%= @episode.get_upvotes.size %>
+<% end %>
+
+<%= link_to polymorphic_path([@podcast, @episode, :dislike]), method: :put do %>
+  Downvote
+  <%= @episode.get_downvotes.size %>
+<% end %>

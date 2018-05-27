@@ -28,4 +28,8 @@ class Episodes::VideoEpisodesController < Episodes::EpisodesController
 	def episode_params
 		params.require(:video_episode).permit(:title, :description, :image, :mp4)
 	end
+
+	def episode_params_id
+		params[:video_episode_id]
+	end
 end

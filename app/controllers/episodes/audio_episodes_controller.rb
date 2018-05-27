@@ -28,4 +28,8 @@ class Episodes::AudioEpisodesController < Episodes::EpisodesController
 	def episode_params
 		params.require(:audio_episode).permit(:title, :description, :image, :mp3)
 	end
+
+	def episode_params_id
+		params[:audio_episode_id]
+	end
 end

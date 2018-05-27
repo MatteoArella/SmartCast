@@ -17,12 +17,12 @@
 <%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" if can? :destroy, @podcast %>
 
 
-<%= link_to like_podcast_path(@podcast), method: :put do %>
+<%= link_to podcast_like_path(@podcast), method: :put do %>
   Upvote
   <%= @podcast.get_upvotes.size %>
 <% end %>
 
-<%= link_to dislike_podcast_path(@podcast), method: :put do %>
+<%= link_to podcast_dislike_path(@podcast), method: :put do %>
   Downvote
   <%= @podcast.get_downvotes.size %>
 <% end %>
@@ -64,9 +64,9 @@
   </div>
 
 <% if @podcast.audio? %>
-  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" %>
+  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" if can? :create, Episode %>
 <% elsif @podcast.video? %>
-  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" %>
+  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" if can? :create, Episode %>
 <% end %>
 
 </div>
