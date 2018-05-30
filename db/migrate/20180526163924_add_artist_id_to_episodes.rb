@@ -1,5 +1,5 @@
 class AddArtistIdToEpisodes < ActiveRecord::Migration
   def change
-  	add_column :episodes, :artist_id, :integer
+  	add_coloumn :episodes, :artist_id, :integer
   end
 end

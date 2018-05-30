@@ -63,10 +63,12 @@
     </div>
   </div>
 
-<% if @podcast.audio? %>
-  <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" if can? :create, Episode %>
-<% elsif @podcast.video? %>
-  <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" if can? :create, Episode %>
+<% if can? :update, @podcast %>
+  <% if @podcast.audio? %>
+    <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" %>
+  <% elsif @podcast.video? %>
+    <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" %>
+  <% end %>
 <% end %>
 
 </div>
