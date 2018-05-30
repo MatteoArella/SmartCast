@@ -3,8 +3,7 @@ class Episodes::EpisodesController < ApplicationController
 	before_action :find_podcast # initialize @podcast variable
 	before_action :find_artist  # initialize @artist variable
 
-	load_and_authorize_resource :podcast
-	#load_and_authorize_resource :episode, through: :podcast, param_method: :episode_params
+	load_and_authorize_resource param_method: :episode_params, except: [:create, :upvote, :downvote]
 
 	def index
 		@episodes = @podcast.episodes

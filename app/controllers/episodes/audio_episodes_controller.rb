@@ -9,11 +9,10 @@ class Episodes::AudioEpisodesController < Episodes::EpisodesController
 
 		if @episode.errors.any?
 			flash.notice = "Failed to Create Episode: <br/><br/>" + @episode.errors.full_messages.join("<br/>")
-	    redirect_to new_podcast_audio_episode_path(@podcast.id)
+	    	redirect_to new_podcast_audio_episode_path(@podcast.id)
 		else
-			render :json => @episode
 			flash.notice = "Episode Successfully Created"
-			#redirect_to podcast_audio_episode_path(@podcast.id, @episode.id)
+			redirect_to podcast_audio_episode_path(@podcast.id, @episode.id)
 		end
 	end
 

@@ -46,10 +46,10 @@
                   <p class="description"><%= e.description %></p>
                 </td>
                 <td>
-                  <a class="button button-highlight" href="#">Edit</a>
+                  <%= link_to "Edit episode", edit_polymorphic_path([@podcast, e]), class: "button button-highlight" if can? :update, e %>
                 </td>
                 <td>
-                  <a class="button button-alert" href="#">Delete</a>
+                  <%= link_to "Delete episode", polymorphic_path([@podcast, e]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, e %>
                 </td>
               </table>
             </div>
