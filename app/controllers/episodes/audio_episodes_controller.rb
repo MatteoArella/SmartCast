@@ -7,6 +7,13 @@ class Episodes::AudioEpisodesController < Episodes::EpisodesController
 	def create
 		@episode = @podcast.episodes.create(episode_params)
 
+
+		comment = @episode.comments.create
+		comment.title = "First comment."
+		comment.comment = "This is the first comment."
+		comment.save
+
+
 		if @episode.errors.any?
 			flash.notice = "Failed to Create Episode: <br/><br/>" + @episode.errors.full_messages.join("<br/>")
 	    	redirect_to new_podcast_audio_episode_path(@podcast.id)

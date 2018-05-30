@@ -8,7 +8,8 @@ class Episode < ActiveRecord::Base
   validates :description, presence: :true
   validates :image, presence: :true
 
-  acts_as_votable
+  acts_as_votable	  #make Episode class votable
+  acts_as_commentable #make Episode class commentable
 
   self.per_page = 15
 end

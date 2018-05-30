@@ -57,6 +57,9 @@ gem 'videojs_rails'
 # like/dislike support
 gem 'acts_as_votable', '~> 0.10.0'
 
+#comments support
+gem 'acts_as_commentable'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -15,7 +15,7 @@ class Ability
 
     if user.artist?
         can :create, Podcast
-        #can :create, Episode, :artist_id => user.id
+        can :create, Episode, :artist_id => user.id
         can :update, Podcast, :artist_id => user.id
         can :destroy, Podcast, :artist_id => user.id
         can :update, Episode, :artist_id => user.id
