@@ -23,17 +23,18 @@ class Episodes::AudioEpisodesController < Episodes::EpisodesController
 		end
 	end
 
-	def show
-		@episode = AudioEpisode.find(params[:id])
-		render template: "episodes/show"
-	end
-
 	private
+	
 	def episode_params
 		params.require(:audio_episode).permit(:title, :description, :image, :mp3).merge(:podcast_id => @podcast.id, :artist_id => @artist.id, :type => 'AudioEpisode')
 	end
 
 	def episode_params_id
 		params[:audio_episode_id]
+	end
+
+	# for show method
+	def find_episode(params)
+		AudioEpisode.find(params)
 	end
 end

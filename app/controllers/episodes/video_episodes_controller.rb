@@ -16,17 +16,18 @@ class Episodes::VideoEpisodesController < Episodes::EpisodesController
 		end
 	end
 
-	def show
-		@episode = VideoEpisode.find(params[:id])
-		render template: "episodes/show"
-	end
-
 	private
+	
 	def episode_params
 		params.require(:video_episode).permit(:title, :description, :image, :mp4).merge(:podcast_id => @podcast.id, :artist_id => @artist.id, :type => 'VideoEpisode')
 	end
 
 	def episode_params_id
 		params[:video_episode_id]
+	end
+
+	# for show method
+	def find_episode(params)
+		VideoEpisode.find(params)
 	end
 end

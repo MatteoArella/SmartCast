@@ -3,7 +3,7 @@ class Episodes::EpisodesController < ApplicationController
 	before_action :find_podcast # initialize @podcast variable
 	before_action :find_artist  # initialize @artist variable
 
-	load_and_authorize_resource param_method: :episode_params, except: [:create, :upvote, :downvote]
+	load_and_authorize_resource param_method: :episode_params, except: [:create, :upvote, :downvote, :comment]
 
 	def index
 		@episodes = @podcast.episodes
@@ -22,6 +22,12 @@ class Episodes::EpisodesController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def show
+		@episode = find_episode(params[:id])
+		@comment = @episode.comments.new
+		render template: "episodes/show"
 	end
 
 	def destroy
@@ -51,5 +57,9 @@ class Episodes::EpisodesController < ApplicationController
 
 	def find_artist
 		@artist = @podcast.artist
+	end
+
+	def comments_params
+		params.require(:comment).permit(:comment)
 	end
 end

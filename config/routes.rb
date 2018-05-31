@@ -19,13 +19,19 @@ Rails.application.routes.draw do
   end
 
   concern :votable do
-    put "like", action: :upvote, as: :like
-    put "dislike", action: :downvote, as: :dislike
+    put 'like', action: :upvote, as: :like
+    put 'dislike', action: :downvote, as: :dislike
+  end
+
+  concern :commentable do
+    #post 'comments', action: :comment
+    #delete 'comments/:id', action: :uncomment
+    resources :comments
   end
 
   resources :podcasts, concerns: :votable do
-    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode', concerns: :votable
-    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode', concerns: :votable
+    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode', concerns: [:votable, :commentable]
+    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode', concerns: [:votable, :commentable]
   end
 
   root 'welcome#index'

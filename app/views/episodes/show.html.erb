@@ -14,18 +14,58 @@
 </div>
 
 <div class="wrapper-skinny center">
-	<%= render partial: "episodes/#{@episode.type.tableize}/show", object: @episode %>
+  <div class="wrapper-skinny">
+	  <%= render partial: "episodes/#{@episode.type.tableize}/show", object: @episode %>
+
+    <div class="votable">
+      <%= link_to polymorphic_path([@podcast, @episode, :like]), method: :put do %>
+        &#x1f44d;
+        <%= @episode.get_upvotes.size %>
+      <% end %>
+
+      <%= link_to polymorphic_path([@podcast, @episode, :dislike]), method: :put do %>
+        &#x1f44e;
+        <%= @episode.get_downvotes.size %>
+      <% end %>
+    </div>
+
+      <%= link_to "Edit episode", edit_polymorphic_path([@podcast, @episode]), class: "button button-highlight" if can? :update, @episode %>
+    <%= link_to "Delete episode", polymorphic_path([@podcast, @episode]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, @episode %>
+  </div>
+  
+  <div class="spacer"></div>
+
+  <div class="wrapper-skinny">
+    <%= form_for(@comment, url: polymorphic_path([@podcast, @episode, :comments]), method: :post) do |f| %>
+      <%= f.text_area :comment, placeholder: "Add a comment", class: "border-animation" %>
+      <%= f.submit "Leave Comment", class: "button button-highlight" %>
+    <% end %>
+  </div>
+
+  <div id="comments">
+    <div class="wrapper-skinny">
+      <ul class="cf">
+        <% #render template: "comments/index" %>
+        <% for comment in @episode.comments %>
+          <% unless comment.user_id.nil? %>
+            <li class="cf">
+              <div id="comment-overview">
+                <div id="author-thumbnail"><%= link_to (image_tag User.find(comment.user_id).avatar.thumb, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(User.find(comment.user_id)) %>
+                </div>
+                <div id="main">
+                  <div id="header">
+                    <%= User.find(comment.user_id).username %>
+                  </div>
+                  <div id="content">
+                    <%= comment.comment %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>
-
-<%= link_to "Edit episode", edit_polymorphic_path([@podcast, @episode]), class: "button button-highlight" if can? :update, @episode %>
-<%= link_to "Delete episode", polymorphic_path([@podcast, @episode]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, @episode %>
-
-<%= link_to polymorphic_path([@podcast, @episode, :like]), method: :put do %>
-  Upvote
-  <%= @episode.get_upvotes.size %>
-<% end %>
-
-<%= link_to polymorphic_path([@podcast, @episode, :dislike]), method: :put do %>
-  Downvote
-  <%= @episode.get_downvotes.size %>
-<% end %>
