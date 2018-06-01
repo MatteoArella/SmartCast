@@ -11,6 +11,11 @@ class Ability
     if user.learner?
         can :read, Podcast
         can :read, Episode
+        
+        can :read, Comment
+        can :create, Comment
+        can :update, Comment, :user_id => user.id
+        can :destroy, Comment, :user_id => user.id
     end
 
     if user.artist?

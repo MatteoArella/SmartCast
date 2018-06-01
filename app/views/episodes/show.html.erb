@@ -59,6 +59,9 @@
                   <div id="content">
                     <%= comment.comment %>
                   </div>
+                  <div id="comment-action-links">
+                    <%= link_to "Delete", polymorphic_path([@podcast, @episode, comment]), method: :delete if can? :destroy, comment %>
+                  </div>
                 </div>
               </div>
             </li>
