@@ -26,16 +26,18 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 
 		if @comment.update(comment_params)
-			redirect_to :back
+			redirect_to polymorphic_path([@podcast, @episode])
 		else
 			if @comment.errors.any?
 				flash.notice = "Failed to update comment: <br/><br/>" + @comment.errors.full_messages.join("<br/>")
+	    		render template: 'comments/edit'
 	    	end
 		end
 	end
 
 	def edit
 		@comment = Comment.find(params[:id])
+		render template: 'comments/edit'
 	end
 
 	def destroy

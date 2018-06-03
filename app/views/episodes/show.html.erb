@@ -42,33 +42,33 @@
     <% end %>
   </div>
 
+  <% #render partial: "comments/index", object: @episode %>
   <div id="comments">
-    <div class="wrapper-skinny">
-      <ul class="cf">
-        <% #render template: "comments/index" %>
-        <% for comment in @episode.comments %>
-          <% unless comment.user_id.nil? %>
-            <li class="cf">
-              <div id="comment-overview">
-                <div id="author-thumbnail"><%= link_to (image_tag User.find(comment.user_id).avatar.thumb, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(User.find(comment.user_id)) %>
+  <div class="wrapper-skinny">
+    <ul class="cf">
+      <% for comment in @episode.comments %>
+        <% unless comment.user_id.nil? %>
+          <li class="cf">
+            <div id="comment-overview">
+              <div id="author-thumbnail"><%= link_to (image_tag User.find(comment.user_id).avatar.thumb, id: "artist-thumbnail", alt: "user-thumbnail"), users_path(User.find(comment.user_id)) %>
+              </div>
+              <div id="main">
+                <div id="header">
+                  <%= User.find(comment.user_id).username %>
                 </div>
-                <div id="main">
-                  <div id="header">
-                    <%= User.find(comment.user_id).username %>
-                  </div>
-                  <div id="content">
-                    <%= comment.comment %>
-                  </div>
-                  <div id="comment-action-links">
-                    <%= link_to "Delete", polymorphic_path([@podcast, @episode, comment]), method: :delete if can? :destroy, comment %>
-                  </div>
+                <div id="content">
+                  <%= comment.comment %>
+                </div>
+                <div id="comment-action-links">
+                  <%= link_to "Edit", edit_polymorphic_path([@episode.podcast, @episode, comment]), class: "button button-highlight" if can? :update, comment %>
+                  <%= link_to "Delete", polymorphic_path([@episode.podcast, @episode, comment]), method: :delete, class: "button button-alert" if can? :destroy, comment %>
                 </div>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% end %>
-      </ul>
-    </div>
+      <% end %>
+    </ul>
   </div>
-
+</div>
 </div>

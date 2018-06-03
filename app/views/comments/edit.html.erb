@@ -1,0 +1,4 @@
+<%= form_for(@comment, url: polymorphic_path([@podcast, @episode, @comment]), method: :patch) do |f| %>
+	<%= f.text_area :comment, placeholder: "Edit comment", class: "border-animation" %>
+	<%= f.submit "Update Comment", class: "button button-highlight" %>
+<% end %>
