@@ -6,14 +6,14 @@ FactoryBot.define do
 		title		{ "Lorem Ipsum" }
 		description	{ "Lorem ipsum dolor sit amet, consectetur adipiscing elit" }
 		image		{ Rack::Test::UploadedFile.new(Rails.root.join('features', 'uploads', 'image.jpg'), 'image/jpeg') }
-		type		{ 'AudioPodcast' }
+		category	{ 'AudioPodcast' }
 
 		factory :audiopodcast do
-			type	{ 'AudioPodcast' }
+			category	{ 'AudioPodcast' }
 		end
 
 		factory :videopodcast do
-			type	{ 'VideoPodcast' }
+			category	{ 'VideoPodcast' }
 		end
 	end
 end

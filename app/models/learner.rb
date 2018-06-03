@@ -1,4 +1,7 @@
 class Learner < User
+
+	
+
 	def learner?
     	true
   	end

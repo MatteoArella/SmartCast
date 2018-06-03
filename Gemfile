@@ -50,8 +50,15 @@ gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 
+gem "font-awesome-rails"
+
+gem 'videojs_rails'
+
 # like/dislike support
 gem 'acts_as_votable', '~> 0.10.0'
+
+#comments support
+gem 'acts_as_commentable'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -111,6 +118,7 @@ end
 group :production do
   gem 'pg', '~> 0.18.4'
   gem 'rails_12factor', '0.0.2'
+  gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 end
 
 

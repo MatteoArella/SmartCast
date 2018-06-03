@@ -1,2 +1,0 @@
-class AudioPodcast < Podcast
-end

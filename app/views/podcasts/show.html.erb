@@ -17,35 +17,39 @@
 <%= link_to "Delete podcast", podcast_path(@podcast), :method => :delete, data: {confirm: "Do you really want to delete this podcast?"}, class: "button button-alert" if can? :destroy, @podcast %>
 
 
-<%= link_to like_podcast_path(@podcast), method: :put do %>
+<%= link_to podcast_like_path(@podcast), method: :put do %>
   Upvote
   <%= @podcast.get_upvotes.size %>
 <% end %>
 
-<%= link_to dislike_podcast_path(@podcast), method: :put do %>
+<%= link_to podcast_dislike_path(@podcast), method: :put do %>
   Downvote
   <%= @podcast.get_downvotes.size %>
 <% end %>
-<!--
+
   <div id="episodes">
     <div class="wrapper-skinny">
       <ul class="cf">
         <% for e in @episodes %>
           <li class="cf">
             <div class="episode_thumbnail">
-              <a href="#"><%= image_tag e.image.url, alt: "episode-thumbnail" %></a>
+              <% if @podcast.audio? %>
+                <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), podcast_audio_episode_path(@podcast.id, e.id) %>
+              <% elsif @podcast.video? %>
+                <%= link_to (image_tag e.image.url, alt: "episode-thumbnail"), podcast_video_episode_path(@podcast.id, e.id) %>
+              <% end %>
             </div>
             <div class="episode_overview">
               <table>
                 <td class="col-large">
-                  <h2><%= e.name %></h2>
+                  <h2><%= e.title %></h2>
                   <p class="description"><%= e.description %></p>
                 </td>
                 <td>
-                  <a class="button button-highlight" href="#">Edit</a>
+                  <%= link_to "Edit episode", edit_polymorphic_path([@podcast, e]), class: "button button-highlight" if can? :update, e %>
                 </td>
                 <td>
-                  <a class="button button-alert" href="#">Delete</a>
+                  <%= link_to "Delete episode", polymorphic_path([@podcast, e]), :method => :delete, data: {confirm: "Do you really want to delete this episode?"}, class: "button button-alert" if can? :destroy, e %>
                 </td>
               </table>
             </div>
@@ -59,6 +63,10 @@
     </div>
   </div>
 
-  <%= link_to "Add episode", new_podcast_episode_path(@podcast), class: "button button-highlight" %>
-</div>
--->
+<% if can? :update, @podcast %>
+  <% if @podcast.audio? %>
+    <%= link_to "Add episode", new_podcast_audio_episode_path(@podcast.id), class: "button button-highlight" %>
+  <% elsif @podcast.video? %>
+    <%= link_to "Add episode", new_podcast_video_episode_path(@podcast.id), class: "button button-highlight" %>
+  <% end %>
+<% end %>

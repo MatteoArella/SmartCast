@@ -11,15 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515142714) do
+ActiveRecord::Schema.define(version: 20180530100059) do
 
-  create_table "audio_podcasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "comments", force: :cascade do |t|
+    t.string   "title",            limit: 50, default: ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.string   "role",                        default: "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "episodes", force: :cascade do |t|
-    t.string   "name",             null: false
+    t.string   "title",            null: false
     t.text     "description",      null: false
     t.string   "image"
     t.integer  "podcast_id"
@@ -29,6 +39,12 @@ ActiveRecord::Schema.define(version: 20180515142714) do
     t.string   "mp3_file_name"
     t.integer  "mp3_file_size"
     t.string   "mp3_content_type"
+    t.string   "type"
+    t.string   "mp4"
+    t.string   "mp4_file_name"
+    t.integer  "mp4_file_size"
+    t.string   "mp4_content_type"
+    t.integer  "artist_id"
   end
 
   add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
@@ -53,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180515142714) do
     t.integer  "artist_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "type"
+    t.string   "category"
     t.integer  "cached_votes_total", default: 0
     t.integer  "cached_votes_score", default: 0
     t.integer  "cached_votes_up",    default: 0
@@ -94,11 +110,6 @@ ActiveRecord::Schema.define(version: 20180515142714) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
-
-  create_table "video_podcasts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

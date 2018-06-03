@@ -186,6 +186,10 @@ input {
 	}
 }
 
+.votable {
+	padding: 2rem;
+}
+
 .border-animation {
 	color: $dark;
 	border-radius: 0.5rem;
@@ -280,6 +284,11 @@ input {
 	}			
 }
 
+.center {
+	margin: 0 auto;
+}
+
+@import 'font-awesome';
 @import 'partials/*';
 @import 'welcome/index';
 @import 'devise/**/*';
@@ -288,3 +297,4 @@ input {
 @import 'users/*';
 @import 'jquery.Jcrop';
 @import 'faq/**/*';
+@import 'video-js';

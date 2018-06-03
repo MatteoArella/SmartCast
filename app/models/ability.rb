@@ -11,11 +11,16 @@ class Ability
     if user.learner?
         can :read, Podcast
         can :read, Episode
+        
+        can :read, Comment
+        can :create, Comment
+        can :update, Comment, :user_id => user.id
+        can :destroy, Comment, :user_id => user.id
     end
 
     if user.artist?
         can :create, Podcast
-        can :create, Episode
+        can :create, Episode, :artist_id => user.id
         can :update, Podcast, :artist_id => user.id
         can :destroy, Podcast, :artist_id => user.id
         can :update, Episode, :artist_id => user.id
@@ -25,7 +30,7 @@ class Ability
     if user.admin?
         can :manage, :all #For example, the AdminUser also can 
         cannot :create, Podcast
-        #cannot :create, Episode
+        cannot :create, Episode
     end
   end
 end

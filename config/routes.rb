@@ -18,13 +18,20 @@ Rails.application.routes.draw do
     get '/:id' => 'users#show'
   end
 
-  resources :podcasts do
-    member do
-      put "like" => "podcasts#upvote"
-      put "dislike" => "podcasts#downvote"
-    end
+  concern :votable do
+    put 'like', action: :upvote, as: :like
+    put 'dislike', action: :downvote, as: :dislike
+  end
 
-    resources :episodes 
+  concern :commentable do
+    #post 'comments', action: :comment
+    #delete 'comments/:id', action: :uncomment
+    resources :comments
+  end
+
+  resources :podcasts, concerns: :votable do
+    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode', concerns: [:votable, :commentable]
+    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode', concerns: [:votable, :commentable]
   end
 
   root 'welcome#index'
