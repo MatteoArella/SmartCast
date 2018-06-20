@@ -54,15 +54,17 @@ class Episodes::EpisodesController < ApplicationController
 			redirect_to user_facebook_omniauth_authorize_path and return
 		end
 
-		access_token = current_user.identities.where(provider: 'facebook').first.token
 		@episode = Episode.find(episode_params_id)
+		#render :text => "www.#{request.domain}:3000#{polymorphic_path([@podcast, @episode])}" and return
+		access_token = current_user.identities.where(provider: 'facebook').first.token
+		
 		@graph = FacebookController.get_graph(access_token)
 		begin
 			@graph.put_wall_post("#{@episode.title},\n #{@episode.description}", {
 				"name" => @episode.title,
-				"link" => polymorphic_path([@podcast, @episode]),
+				"link" => "https://#{request.domain}#{polymorphic_path([@podcast, @episode])}",
 				"description" => @episode.description,
-				"picture" => @episode.image.url
+				"picture" => "https://#{request.domain}#{@episode.image.url}"
 				})
 		rescue Koala::Facebook::APIError => e
 			if(e.fb_error_type == "OAuthException")
