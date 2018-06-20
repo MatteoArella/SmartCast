@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     patch '/users/update_username' => 'users/registrations#update_username', as: :update_username
     patch '/users/update_password' => 'users/registrations#update_password', as: :update_password
     patch '/user/update_avatar' => 'users/registrations#update_avatar', as: :update_avatar
+    delete '/users/:id' => 'users/users#destroy', as: :destroy_user
   end
 
   #scope :users, :module => 'users' do
