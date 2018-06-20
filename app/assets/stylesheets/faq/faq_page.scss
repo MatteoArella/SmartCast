@@ -74,6 +74,7 @@ Main components
 }
 
 .cd-faq-categories {
+	padding-top: 30px;
 	list-style-type: none;
 	a {
 		position: relative;
@@ -393,5 +394,13 @@ Main components
 			display: block;
 		}
 	}
+}
+
+.contact-us {
+	margin: auto;
+    width: 50%;
+    border: 5px solid $color-2;;
+   	border-radius: 8px;
+    padding: 10px;
 }
 

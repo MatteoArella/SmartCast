@@ -1,7 +1,18 @@
 class UserMailer < ApplicationMailer
-	def sample_email(user)
+	def email_to_admin(user, admin, subject, body)
   		@user = user
+  		@subject = subject
+  		@body = body
+  		@admin = admin
+    	mail(to: @admin.email)
+  	end
+
+  	def email_to_user(user, email, subject, body) 
+  		@user = user
+  		@subject = subject
+  		@body = body
+  		@email = email
     	#@url  = 'http://example.com/login'
-    	mail(to: 'tordi.simone@gmail.com' , subject: 'Welcome to My Awesome Site')
+    	mail(to: @email)
   	end
 end

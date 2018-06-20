@@ -36,4 +36,5 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get 'faq' => 'faq#index'
+  post 'faq/contactUS' => 'faq#contactUS'
 end
