@@ -37,6 +37,9 @@ gem "recaptcha", require: "recaptcha/rails"
 
 gem 'omniauth-facebook'
 
+# Facebook Graph API
+gem 'koala', '~> 3.0'
+
 # image uploader
 gem 'carrierwave'
 
