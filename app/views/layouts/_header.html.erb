@@ -48,6 +48,9 @@
             <a class="username-dropdown"><%= current_user.username %></a>
             <%= link_to t("user.profile"), users_path(current_user) %>
             <%= link_to t("user.account_settings.settings"), edit_user_registration_path(current_user) %>
+            <% if current_user.admin?%>
+                <%= link_to "Users list", users_index_path %>
+            <% end %>
             <%= link_to t("devise.sessions.delete.sign_out"), sign_out_path, :method => 'delete' %>
           </div>
         </li>

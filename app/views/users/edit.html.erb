@@ -67,7 +67,7 @@
       <details>
         <summary><%= t("user.account_settings.sections.delete_account") %></summary>
         <div class="wrapper-skinny button-bar slider">
-          <%= link_to t("user.account_settings.sections.delete_account"), "", :class => "button button-alert" %>
+          <%= link_to t("user.account_settings.sections.delete_account"), destroy_user_path(current_user.id), method: :delete, :class => "button button-alert" %>
         </div>
       </details>
     </article>

@@ -1,0 +1,27 @@
+<div class="banner smartcast-banner">
+  <h1>Users list</h1>
+</div>
+
+<div id="podcasts" class="cf">
+  <div class="wrapper">
+    <ul class="cf"> 
+    	<% for user in @users %>
+
+	      <%= link_to(users_path(user)) do %>
+	        <li>
+	          <%= image_tag user.avatar.medium, alt: "User image" %>
+	          <div class="podcast-overview">
+	            <h2><%= user.username %></h2>
+	       		
+              <p class="episode-count"><%= user.email%></p>
+	          </div>
+	        </li>
+	      <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="pagination">
+  <%= will_paginate @users%>
+</div>
