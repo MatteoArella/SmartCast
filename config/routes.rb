@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   concern :shareable do
-    post 'facebook_share', action: :facebook_share
+    get 'facebook_share', action: :facebook_share
   end
 
   resources :podcasts, concerns: :votable do

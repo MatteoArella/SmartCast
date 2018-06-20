@@ -51,7 +51,7 @@ class Episodes::EpisodesController < ApplicationController
 
 	def facebook_share
 		if current_user.identities.where(provider: 'facebook').first.nil?
-			redirect_to user_facebook_omniauth_authorize_path
+			redirect_to user_facebook_omniauth_authorize_path and return
 		end
 
 		access_token = current_user.identities.where(provider: 'facebook').first.token
