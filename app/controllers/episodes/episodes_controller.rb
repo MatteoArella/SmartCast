@@ -66,6 +66,7 @@ class Episodes::EpisodesController < ApplicationController
 				"description" => @episode.description,
 				"picture" => @episode.image.url
 				})
+			flash["notice"] = "Episode successfully shared on Facebook"
 		rescue Koala::Facebook::APIError => e
 			if(e.fb_error_type == "OAuthException")
 		    flash["notice"] = e.fb_error_message
