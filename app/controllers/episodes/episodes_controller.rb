@@ -62,7 +62,7 @@ class Episodes::EpisodesController < ApplicationController
 		begin
 			@graph.put_wall_post("#{@episode.title},\n #{@episode.description}", {
 				"name" => @episode.title,
-				"link" => "#{request.base_url}#{polymorphic_path([@podcast, @episode])}"
+				"link" => "#{request.base_url}#{polymorphic_path([@podcast, @episode])}",
 				"description" => @episode.description,
 				"picture" => @episode.image.url
 				})
