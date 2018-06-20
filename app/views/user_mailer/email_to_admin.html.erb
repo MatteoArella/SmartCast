@@ -1,11 +1,11 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
     <h1>SmarCast Support</h1>
-    <h2>Message from user: <%= @user.username %> to receive support</h2>
+    <h2>Message from user: <% if @user.nil? %> <%='guest user'%>  <% else %> <%= @user.username%> <%end%> to receive support</h2>
     <p>
       <%= @body %>
     </p>
