@@ -73,6 +73,9 @@ Before('@omniauth_test') do
       :name => 'facebookuser',
       :email => 'test@foo.com',
       :image => 'http://graph.facebook.com/1234567/picture?type=square'
+    },
+    :credentials => {
+      :token => 'gfdsgdfgdhgfhdjfdj'
     }
   })
 end

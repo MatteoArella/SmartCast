@@ -18,4 +18,10 @@ RSpec.describe Identity, type: :model do
   		expect(identity).to_not be_valid
   	end
   end
+
+  it 'is not valid without a token' do
+    FactoryBot.build(:identity, :token => nil).tap do |identity|
+      expect(identity).to_not be_valid
+    end
+  end
 end
