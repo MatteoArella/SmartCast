@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     patch '/users/update_password' => 'users/registrations#update_password', as: :update_password
     patch '/user/update_avatar' => 'users/registrations#update_avatar', as: :update_avatar
     delete '/users/:id' => 'users/users#destroy', as: :destroy_user
+    get '/users' => 'users/users#index', as: :users_index
   end
 
   #scope :users, :module => 'users' do
