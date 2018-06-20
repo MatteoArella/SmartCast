@@ -208,6 +208,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.6)
     jwt (1.5.6)
+    koala (3.0.0)
+      addressable
+      faraday
+      json (>= 1.8)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -420,6 +424,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  koala (~> 3.0)
   launchy
   omniauth-facebook
   paperclip

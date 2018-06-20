@@ -30,9 +30,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  concern :shareable do
+    get 'facebook_share', action: :facebook_share
+  end
+
   resources :podcasts, concerns: :votable do
-    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode', concerns: [:votable, :commentable]
-    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode', concerns: [:votable, :commentable]
+    resources :audio_episodes, :controller => 'episodes/audio_episodes', :type => 'AudioEpisode', concerns: [:votable, :commentable, :shareable]
+    resources :video_episodes, :controller => 'episodes/video_episodes', :type => 'VideoEpisode', concerns: [:votable, :commentable, :shareable]
   end
 
   root 'welcome#index'
