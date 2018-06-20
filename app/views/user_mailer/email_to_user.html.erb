@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Smartcast Support</h1>
+    <p>
+      Hi <% if @user.nil? %> <%='guest user'%>  <% else %> <%= @user.username%> <%end%> to receive support</h2>, We have sent your message to all ours admins. Your request will be managed as soon as possible. <br>
+    </p>
+    <p>
+      The admin that will manage your request will send you an email with all the information to solve the problem.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

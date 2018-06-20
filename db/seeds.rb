@@ -57,8 +57,13 @@ learner4 = Learner.create(:email => 'learner04@user.com',
 						:password_confirmation => 'learner04',
 						:confirmed_at => Time.now)
 
-AdminUser.create(:email => 'admin@user.com',
-						:username => 'admin',
+AdminUser.create(:email => 'tordi.simone@gmail.com',
+						:username => 'admin1',
+						:password => 'admin001',
+						:password_confirmation => 'admin001',
+						:confirmed_at => Time.now)
+AdminUser.create(:email => 'arella.1646983@studenti.uniroma1.it',
+						:username => 'admin2',
 						:password => 'admin001',
 						:password_confirmation => 'admin001',
 						:confirmed_at => Time.now)
