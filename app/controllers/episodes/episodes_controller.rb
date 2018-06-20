@@ -62,9 +62,9 @@ class Episodes::EpisodesController < ApplicationController
 		begin
 			@graph.put_wall_post("#{@episode.title},\n #{@episode.description}", {
 				"name" => @episode.title,
-				"link" => "https://#{request.domain}#{polymorphic_path([@podcast, @episode])}",
+				"link" => "#{request.original_url}#{polymorphic_path([@podcast, @episode])}",
 				"description" => @episode.description,
-				"picture" => "https://#{request.domain}#{@episode.image.url}"
+				"picture" => "#{request.original_url}#{@episode.image.url}"
 				})
 		rescue Koala::Facebook::APIError => e
 			if(e.fb_error_type == "OAuthException")
