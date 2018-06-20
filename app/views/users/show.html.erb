@@ -4,14 +4,15 @@
   <h1><%= @user.username %></h1>
   <div>
     <table>
-      <td><p>Name</p></td>
-      <td>Surname</td>
-      <td>email</td>
+      <td><%=@user.email%></td>
+      <td><%if can? :delete, @user%>
+        <%=link_to "Delete user", destroy_user_path(@user.id), method: 'delete', class: 'button button-alert' %>
+      <% end %> </td>
     </table>
   </div>
 </div>
 
-<% if @user.type == 'Artist' %>
+<% if @user.artist?%>
 <div id="podcasts" class="cf">
   <div class="wrapper">
     <ul class="cf">
