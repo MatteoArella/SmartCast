@@ -9,15 +9,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_username
     @user = current_user
 
-    if @user.update_attribute(:username, change_username_params[:username])
-      # Sign in the user by passing validation in case their password changed
-      bypass_sign_in(@user)
+    begin
+      if @user.update_attribute(:username, change_username_params[:username])
+        # Sign in the user by passing validation in case their password changed
+        bypass_sign_in(@user)
 
-      flash.notice = t("devise.registrations.updated")
-      redirect_to root_path
-    else
-      flash.notice = @user.errors.full_messages.to_sentence
-      redirect_to account_settings_path
+        flash.notice = t("devise.registrations.updated")
+        redirect_to root_path
+      else
+        flash.notice = @user.errors.full_messages.to_sentence
+        redirect_to edit_user_registration_path
+      end
+    rescue ActiveRecord::RecordNotUnique => e
+        flash[:notice] = "Username is already taken."
+        redirect_to edit_user_registration_path
     end
   end
 
